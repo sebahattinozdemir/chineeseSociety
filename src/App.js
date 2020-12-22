@@ -21,6 +21,8 @@ import Yatirim from "./components/turkish/investment/turkiyede-yatirim/Yatirim";
 import AltBlog from "./components/turkish/blog/Altblog";
 import ServicePage from "./components/turkish/services-page/ServicePage";
 
+
+
 import EngMenu        from "./components/english/menu/Menu";
 import EngFooter      from "./components/english/footer/Footer";
 import EngHome        from "./components/english/home-page/Home";
