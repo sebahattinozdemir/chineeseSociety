@@ -156,6 +156,7 @@ class Mail extends Component {
             justifyContent: "center",
             backgroundColor: "#333",
             marginLeft:"1%",
+            marginTop:"-1%",
             
           }}
         >
@@ -168,7 +169,7 @@ class Mail extends Component {
                 padding:"2%",
               }}
             >
-               BİZİMLE İLETİŞİME GEÇEBİLİRSİNİZ 
+               YOU CAN CONTACT WITH US 
             </h2>
             <p
               style={{
@@ -178,7 +179,7 @@ class Mail extends Component {
                 color: "white",
               }}
             >
-              Size yardımcı olabilmek için buradayız.
+              We are here in order to help you
             </p>
             <form id="contact-form" style={{marginLeft:"10%",marginRight:"10%"}} onSubmit={this.handleSubmit} noValidate>
               <div className="row m-5" >

@@ -156,6 +156,7 @@ class Mail extends Component {
             justifyContent: "center",
             backgroundColor: "#333",
             marginLeft:"1%",
+            marginTop:"-1%",
             
           }}
         >
@@ -166,6 +167,7 @@ class Mail extends Component {
                 justifyContent: "center",
                 color: "#A4203A",
                 padding:"2%",
+                
               }}
             >
                BİZİMLE İLETİŞİME GEÇEBİLİRSİNİZ 
