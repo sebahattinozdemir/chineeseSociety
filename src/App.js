@@ -222,8 +222,8 @@ function App() {
           </Switch>
           <div
             id="footer"
-            className="col-12 mx-0 px-0"
-            style={{ width: "100%", backgroundColor: "#f8f9fa" }}
+            className="col-12"
+            style={{ width: "100%", backgroundColor: "#f8f9fa"}}
           >
             {state === true ? <Footer /> : <EngFooter />}
           </div>

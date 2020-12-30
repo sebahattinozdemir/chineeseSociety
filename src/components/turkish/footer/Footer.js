@@ -7,9 +7,9 @@ import "./Footer.css"
 function Footer() {
     return (
         
-        <div class="col-12 py-4 px-0" style={{ width:"100%"}}>
+        <div class="col-12 row" style={{ backgroundColor:"#F8F9FA",paddingLeft:"2rem",paddingRight:"2rem",marginBottom:"-1rem"}}>
           
-          <div className="col-lg-3 col-md-6 col-sm-6 col-12" style={{paddingTop:"1%"}}>
+          <div className="col-lg-3 col-md-6 col-sm-6 col-12" style={{paddingTop:"1%",}}>
             
             <b style={{ color: "#A4203A", fontSize: "20px"}}>Neden Biz</b>
             <hr/>
@@ -39,13 +39,6 @@ function Footer() {
                 </a> 
                 <p style={{fontSize:"medium"}}>&nbsp;+90 537 697 11 55</p>
             </div>  
-
-                
-                
-
-
-            
-            
           </div>
 
         
@@ -86,9 +79,9 @@ function Footer() {
             <hr/> 
                     <div className="patent">
                         
-                            <p style={{fontSize:"12px",color:"black",paddingLeft:"15px",float:"left"}}> ©2020 All Rights Reserved</p> 
+                            <p style={{fontSize:"12px",color:"black",paddingLeft:"1rem",float:"left"}}> ©2020 All Rights Reserved</p> 
                             &nbsp; &nbsp;
-                            <p style={{fontSize:"12px",color:"black",paddingRight:"15px",float:"right",textAlign:"right"}}> ®Se<b>B</b>er Tech</p>
+                            <p style={{fontSize:"12px",color:"black",paddingRight:"1rem",float:"right",textAlign:"right"}}> ®Se<b>B</b>er Tech</p>
                     </div>
           </div>
 

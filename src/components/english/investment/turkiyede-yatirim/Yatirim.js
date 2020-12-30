@@ -17,7 +17,7 @@ export default function Yatirim() {
                     
           
                    <div className="col-12" style={{marginLeft:"1%",marginRight:"1%"}}>
-                           <p class="card-text1">Çalışma izni Türkiye için alınması karışık bir izindir. Yabancı uyruktan başvuru yapıldığı zaman mutlaka bir profesyonel eşliğinde yapılmalıdır. Amatörce hazırlanan başvurular direkt reddedildiği için cebinizdeki paradan olma şansınız var. Bizim sizlere sunacağı %100 garantili hizmet sayesinde artık boş yere para harcamaya son. Danışmanlık hizmetimiz işinde uzman kişiler tarafından verilmektedir. Çalışma izni başvurusunda bulunacak kişilerden detaylı evrakları talep eder, incelemeden sonra geri dönüş yaparız. Reddedilme şansı olan başvuruları müşterilerimize söyleyerek onların parasını boş yere almayız. Böylece paranız cebinde kalır, boş danışmanlık hizmetine para vermiş olmazsınız.</p>
+                           <p class="card-text1">brt Çalışma izni Türkiye için alınması karışık bir izindir. Yabancı uyruktan başvuru yapıldığı zaman mutlaka bir profesyonel eşliğinde yapılmalıdır. Amatörce hazırlanan başvurular direkt reddedildiği için cebinizdeki paradan olma şansınız var. Bizim sizlere sunacağı %100 garantili hizmet sayesinde artık boş yere para harcamaya son. Danışmanlık hizmetimiz işinde uzman kişiler tarafından verilmektedir. Çalışma izni başvurusunda bulunacak kişilerden detaylı evrakları talep eder, incelemeden sonra geri dönüş yaparız. Reddedilme şansı olan başvuruları müşterilerimize söyleyerek onların parasını boş yere almayız. Böylece paranız cebinde kalır, boş danışmanlık hizmetine para vermiş olmazsınız.</p>
                    </div>
 
                    <div className="col-lg-4 col-md-6 col-sm-6 col-12">
