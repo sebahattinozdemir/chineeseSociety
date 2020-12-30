@@ -1,5 +1,5 @@
 import React from "react";
-import NarV5 from "./narV5.jpg";
+import NarV5 from "./narV5.png";
 import BusinessIcon from "@material-ui/icons/Business";
 import GroupIcon from "@material-ui/icons/Group";
 import GavelIcon from "@material-ui/icons/Gavel";
@@ -14,68 +14,149 @@ import { Link } from "react-router-dom";
 
 function Menu() {
   return (
-  
-      <nav class="navbar navbar-custom">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button
-              type="button"
-              class="navbar-toggle"
-              data-toggle="collapse"
-              data-target="#myNavbar"
+    <nav>
+    <div class="container">
+      <div class="navbar-header">
+        <button
+          type="button"
+          class="navbar-toggle"
+          data-toggle="collapse"
+          data-target="#myNavbar"
+        >
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <Link className="menu-item-link logo" to="/">
+          <img
+            style={{
+              height: "auto",
+              width: "8rem",
+            }}
+            src={NarV5}
+            alt="hukuk"
+            title="Nar Göç ve Danışmanlık"
+          ></img>
+        </Link>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li class="active">
+            <Link
+              style={{ display: "flex" }}
+              className="menu-item-link"
+              to="/"
             >
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">
-              WebSiteName
-            </a>
-          </div>
-          <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
-              <li class="active">
-                <a href="#">Home</a>
-              </li>
-              <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                  Page 1 <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu">
-                  <li>
-                    <a href="#">Page 1-1</a>
-                  </li>
-                  <li>
-                    <a href="#">Page 1-2</a>
-                  </li>
-                  <li>
-                    <a href="#">Page 1-3</a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a href="#">Page 2</a>
-              </li>
-              <li>
-                <a href="#">Page 3</a>
-              </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li>
-                <a href="#">
-                  <span class="glyphicon glyphicon-user"></span> Sign Up
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <span class="glyphicon glyphicon-log-in"></span> Login
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+              <HomeIcon style={{ fontSize: "24px", color: "#A4203A" }} />
+              <span style={{ paddingTop: "4px", paddingLeft: "4px" }}>
+                {" "}
+                 HOME
+              </span>
+            </Link>
+          </li>
+          <li>
+            <Link
+              style={{ display: "flex" }}
+              className="menu-item-link"
+              to="/hakkimizda"
+            >
+              <BusinessIcon style={{ fontSize: "24px", color: "#A4203A" }} />
+              <span style={{ paddingTop: "4px", paddingLeft: "4px" }}>
+                {" "}
+                HAKKIMIZDA
+              </span>
+            </Link>
+          </li>
+          <li>
+            <Link
+              style={{ display: "flex" }}
+              className="menu-item-link"
+              to="/hizmetlerimiz"
+            >
+              <GavelIcon style={{ fontSize: "24px", color: "#A4203A" }} />
+              <span style={{ paddingTop: "4px", paddingLeft: "4px" }}>
+                {" "}
+                HİZMETLERİMİZ
+              </span>
+            </Link>
+          </li>
+          <li>
+            <Link
+              style={{ display: "flex" }}
+              className="menu-item-link"
+              to="/referanslarimiz"
+            >
+              <GroupIcon style={{ fontSize: "24px", color: "#A4203A" }} />
+              <span style={{ paddingTop: "4px", paddingLeft: "4px" }}>
+                {" "}
+                REFERANSLARIMIZ
+              </span>
+            </Link>
+          </li>
+          <li>
+            <Link
+              style={{ display: "flex" }}
+              className="menu-item-link"
+              to="/blog"
+            >
+              <AssignmentIcon
+                style={{ fontSize: "24px", color: "#A4203A" }}
+              />
 
+              <span style={{ paddingTop: "4px", paddingLeft: "4px" }}>
+                BLOG
+              </span>
+            </Link>
+          </li>
+          <li>
+            <Link
+              style={{ display: "flex" }}
+              className="menu-item-link"
+              to="/iletisim"
+            >
+              <ContactPhoneIcon
+                style={{ fontSize: "24px", color: "#A4203A" }}
+              />
+
+              <span style={{ paddingTop: "4px", paddingLeft: "4px" }}>
+                İLETİŞİM
+              </span>
+            </Link>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a
+              className="menu-item-link"
+              href="https://www.facebook.com/adli.sicil.1"
+              style={{ float: "left" }}
+            >
+              <FacebookIcon style={{ fontSize: "24px" }} />
+            </a>
+          </li>
+
+          <li>
+            <a
+              className="menu-item-link"
+              href="https://wa.me/+905376971155"
+              style={{ float: "left", textIndent: "10px" }}
+            >
+              <WhatsAppIcon style={{ fontSize: "24px" }} />
+            </a>
+          </li>
+          <li>
+            <a
+              className="menu-item-link"
+              href="tel: +905376971155"
+              style={{ float: "left", textIndent: "10px" }}
+            >
+              <SettingsPhoneIcon style={{ fontSize: "24px" }} />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
   );
 }
 
