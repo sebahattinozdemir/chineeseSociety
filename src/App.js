@@ -3,7 +3,7 @@ import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import db from "./firebase";
-import Menu from "./components/turkish/menu/Menu";
+import TrMenu from "./components/turkish/menu/Menu";
 import Footer from "./components/turkish/footer/Footer";
 import Home from "./components/turkish/home-page/Home";
 import About from "./components/turkish/about-page/About";
@@ -89,48 +89,53 @@ function App() {
           }))
         );
       });
-
-    console.log(services);
   }, []);
 
-  const [state, setState] = useState(true);
+  const [state, setState] = useState("chi");
+
   const handleChange = () => {
-    setState(!state);
+    if (state === "chi") {
+      setState("eng");
+    } else if (state === "eng") {
+      setState("tr");
+    } else if (state === "tr") {
+      setState("chi");
+    }
   };
   return (
     <Router>
       <div className="container-fluid app">
-        <div
-          className="row"
-          style={{
-            backgroundColor: "#a41f3a",
-            padding: "0.5%",
-            paddingLeft: "6%",
-          }}
-        >
-          {state === true ? (
-            <label onClick={handleChange}>English / Ingilizce</label>
-          ) : (
-            <label onClick={handleChange}>Turkish / Turkce</label>
+        
+        <nav className="navbar navbar-inverse navbar-fixed-top" style={{ backgroundColor: "#222222", padding: "0%", margin: "0%" }}>
+          
+          {state === "chi" && (
+            <label style={{ padding: "1%" }} onClick={handleChange}>
+              Chineese
+            </label>
           )}
-        </div>
+          
+          {state === "eng" && (
+            <label style={{ padding: "1%" }} onClick={handleChange}>
+              English
+            </label>
+          )}
+          
+          {state === "tr" && (
+            <label style={{ padding: "1%" }} onClick={handleChange}>
+              Turkish
+            </label>
+          )}
 
-        {state === true ? (
-          <div id="menu" className="row">
-            <Menu />
-          </div>
-        ) : (
-          <div id="menu" className="row">
-            <EngMenu />
-          </div>
-        )}
+          {state === "chi" && <ChiMenu />}
+          {state === "eng" && <EngMenu />}
+          {state === "tr" && <TrMenu />}
+        
+        </nav>
 
-        <div
-          className="col-lg-12 col-md-12 col-sm-12"
-          id="app-container"
-          style={{ margin: "0px", padding: "0px" }}
-        >
+        <div className="container-fluid">
+
           <Switch>
+           
             <Route exact path="/" component={Home} />
             <Route exact path="/hakkimizda" component={About} />
             <Route exact path="/hizmetlerimiz" component={Services} />
@@ -158,6 +163,7 @@ function App() {
                 component={AltBlog}
               />
             ))}
+
 
             <Route exact path="/eng" component={EngHome} />
             <Route exact path="/about-us" component={EngAbout} />
@@ -219,14 +225,13 @@ function App() {
             <Route exact path="/eng-admin" component={EngAdmin} />
             <Route exact path="/chi-admin" component={ChiAdmin} />
             <Route component={Notfound} />
+
           </Switch>
-          <div
-            id="footer"
-            className="col-12 mx-0 px-0"
-            style={{ width: "100%", backgroundColor: "#f8f9fa" }}
-          >
+
+          <div id="footer" className="col-12 mx-0 px-0" style={{ backgroundColor: "#f8f9fa" }}>
             {state === true ? <Footer /> : <EngFooter />}
           </div>
+        
         </div>
       </div>
     </Router>

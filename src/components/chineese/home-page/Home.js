@@ -9,38 +9,23 @@ import Interior from "../services-interior/Interior";
 import Investment from "../investment/Investment";
 import React, { useEffect } from 'react';
 
+import Slider from "./slider/Slider";
 
 
 function Home() {
 
 
   return (
+    
     <div className="row">
-      <div
-        className="col-12 slide"
-        style={{ position: "relative", marginLeft:'1%',marginRight:'1%' }}
-      >
+      
+      <div className="col-12 slide">
 
-        <img
-          src={video}
-          class="card-img-top"
-          alt="..."
-          style={{ width: "100%", height: "25vw"}}
-        ></img>
+      <Slider/>
 
-        <p
-          style={{
-            position: "absolute",
-            top: "65%",
-            left: "15%",
-            color: "white",
-            fontSize:"xx-large"
-            
-          }}
-        >
-          DAHA HIZLI VE DAHA GÜVENLİ ADIMLAR İÇİN BİZİ TERCİH ETMELİSİNİZ...
-        </p>
+   
       </div>
+
       <div className="row" style={{margin:"0%",padding:"1%"}}>
           <Interior
                 photo={'1LZTxibFFvhoQTPxw1GUUStwsnInyfkyl'}
