@@ -9,7 +9,7 @@ import Interior from "../services-interior/Interior";
 import Investment from "../investment/Investment";
 import React, { useEffect } from 'react';
 
-import Slider from "./slider/Slider";
+
 
 
 function Home() {
@@ -21,7 +21,6 @@ function Home() {
       
       <div className="col-12 slide">
 
-      <Slider/>
 
    
       </div>
