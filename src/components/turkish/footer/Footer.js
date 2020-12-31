@@ -18,6 +18,7 @@ function Footer() {
             NAR Danışmanlık hizmetleri, İkamet izni (oturma izni), Yabancı sermayeli şirket kuruluşu, Çalışma izni, Türk  hukuku, Türk vatandaşlığı gibi başlıca konularda  profesyonel avukat ve uzman kadrosuyla   hizmet veren Türk danışmanlık firmasıdır.
             </p>
            
+
           </div>
 
           <div className="col-lg-3 col-md-6 col-sm-6 col-12" style={{paddingTop:"1%"}}>
@@ -43,7 +44,7 @@ function Footer() {
 
         
           <div className="col-lg-3 col-md-6 col-sm-6 col-12" style={{paddingTop:"1%"}}>
-            <b style={{ color: "#A4203A", fontSize: "20px" }}>Ankara Ofis</b>
+            <b style={{ color: "#A4203A", fontSize: "20px" }}>Türkiye Ofis</b>
             <hr/>
             <p><b>Çalışma Saatleri: </b> 10:00 - 18:00</p>
             <p><b>Adres: </b>Atatürk İş Merkezi
@@ -58,7 +59,7 @@ function Footer() {
           </div>
 
           <div className="col-lg-3 col-md-6 col-sm-6 col-12" style={{paddingTop:"1%"}}>
-            <b style={{ color: "#A4203A", fontSize: "20px" }}>Samsun Ofis</b>
+            <b style={{ color: "#A4203A", fontSize: "20px" }}>Çin Ofis</b>
             <hr/>
             <p><b>Çalışma Saatleri: </b> 10:00 - 18:00</p>
             <p><b>Adres: </b>Atatürk İş Merkezi
