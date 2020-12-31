@@ -6,8 +6,8 @@ import React from 'react'
 import "./Footer.css"
 function Footer() {
     return (
-        
-      <div class="col-12 row" style={{ backgroundColor:"#F8F9FA",paddingLeft:"2rem",paddingRight:"2rem",marginBottom:"-1rem"}}>
+      <div class="row" style={{marginRight:"-3rem",marginLeft:"-3rem"}}> 
+      <div class="col-12" style={{ backgroundColor:"#F8F9FA",paddingLeft:"2rem",paddingRight:"2rem"}}>
           
       <div className="col-lg-3 col-md-6 col-sm-6 col-12" style={{paddingTop:"1%",}}>
         
@@ -79,19 +79,15 @@ function Footer() {
         <hr/> 
                 <div className="patent">
                     
-                        <p style={{fontSize:"12px",color:"black",paddingLeft:"1rem",float:"left"}}> ©2020 All Rights Reserved</p> 
+                        <p style={{fontSize:"12px",color:"black",float:"left"}}> ©2020 All Rights Reserved</p> 
                         &nbsp; &nbsp;
-                        <p style={{fontSize:"12px",color:"black",paddingRight:"1rem",float:"right",textAlign:"right"}}> ®Se<b>B</b>er Tech</p>
+                        <p style={{fontSize:"12px",color:"black",float:"right",textAlign:"right"}}> ®Se<b>B</b>er Tech</p>
                 </div>
       </div>
-
-      
-     
-      
-      
+ 
 
     </div>
-
+    </div>
    
 
         

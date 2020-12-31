@@ -18,7 +18,7 @@ function Home() {
     <div className="row">
       <div
         className="col-12 slide"
-        style={{ position: "relative", marginLeft:'1%',marginRight:'1%' }}
+        style={{ position: "relative", marginLeft:'1%',marginRight:'1%',marginTop:"12rem" }}
       >
 
         <img
@@ -41,7 +41,7 @@ function Home() {
           DAHA HIZLI VE DAHA GÜVENLİ ADIMLAR İÇİN BİZİ TERCİH ETMELİSİNİZ...
         </p>
       </div>
-      <div className="row" style={{margin:"0%",padding:"1%"}}>
+      <div className="row" style={{margin:"0%"}}>
           <Interior
                 photo={'1LZTxibFFvhoQTPxw1GUUStwsnInyfkyl'}
                 title="Türk Vatandaşlığı"
@@ -64,7 +64,7 @@ function Home() {
           
       </div>
      
-      <div className="row" style={{marginBottom:"1rem",padding:"1rem"}}>
+      <div className="row" style={{marginBottom:"2rem"}}>
             <Investment
                 Iphoto={investment}
                 Ititle="Türkiye'de Yatırım"

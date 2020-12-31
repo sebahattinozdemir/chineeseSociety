@@ -156,6 +156,8 @@ class Mail extends Component {
             justifyContent: "center",
             backgroundColor: "#333",
             marginTop:"-2rem",
+            marginRight:"-2rem",
+            marginLeft:"-2rem",
             
           }}
         >

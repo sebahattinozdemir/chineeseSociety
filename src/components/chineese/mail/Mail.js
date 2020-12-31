@@ -155,7 +155,8 @@ class Mail extends Component {
             display: "flex",
             justifyContent: "center",
             backgroundColor: "#333",
-            marginLeft:"1%",
+            marginRight:"-2rem",
+            marginLeft:"-2rem",
             
           }}
         >
