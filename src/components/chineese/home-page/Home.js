@@ -48,7 +48,7 @@ function Home() {
           
       </div>
      
-      <div className="row" style={{margin:"0%",padding:"1%"}}>
+      <div className="row" style={{padding:"1rem",marginLeft:"-3rem",marginRight:"-3rem",marginBottom:"-1rem"}}>
             <Investment
                 Iphoto={investment}
                 Ititle="Türkiye'de Yatırım"

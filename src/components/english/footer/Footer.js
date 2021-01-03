@@ -1,5 +1,5 @@
-import ankara from "./ankara06.jpg";
-import samsun from "./samsun55.jpg";
+import CinVector from "./cinV12.jpg";
+import TurkeyVector from "./turkeyV12.jpg";
 import SettingsPhoneIcon from "@material-ui/icons/SettingsPhone";
 import EmailIcon from '@material-ui/icons/Email';
 import React from 'react'
@@ -7,7 +7,7 @@ import "./Footer.css"
 function Footer() {
     return (
         
-      <div class="col-12 row" style={{ backgroundColor:"#F8F9FA",paddingLeft:"2rem",paddingRight:"2rem",marginBottom:"-1rem"}}>
+      <div class="col-12 row" style={{ backgroundColor:"#F8F9FA",paddingLeft:"2rem",paddingRight:"2rem",marginBottom:"-1rem",marginLeft:"-3rem",marginRight:"-3rem"}}>
           
       <div className="col-lg-3 col-md-6 col-sm-6 col-12" style={{paddingTop:"1%",}}>
         
@@ -43,7 +43,7 @@ function Footer() {
 
     
       <div className="col-lg-3 col-md-6 col-sm-6 col-12" style={{paddingTop:"1%"}}>
-        <b style={{ color: "#A4203A", fontSize: "20px" }}>Ankara Office</b>
+        <b style={{ color: "#A4203A", fontSize: "20px" }}>Turkey Office</b>
         <hr/>
         <p><b>Çalışma Saatleri: </b> 10:00 - 18:00</p>
         <p><b>Adres: </b>Atatürk İş Merkezi
@@ -53,12 +53,12 @@ function Footer() {
                 Kızılay / Çankaya / Ankara
 
         </p>
-        <img src={ankara} className="footerphoto" alt="Ankara" title="Ankara"></img>
+        <img src={TurkeyVector} className="footerphoto" alt="Turkey" title="Turkey"></img>
         
       </div>
 
       <div className="col-lg-3 col-md-6 col-sm-6 col-12" style={{paddingTop:"1%"}}>
-        <b style={{ color: "#A4203A", fontSize: "20px" }}>Samsun Office</b>
+        <b style={{ color: "#A4203A", fontSize: "20px" }}>China Office</b>
         <hr/>
         <p><b>Çalışma Saatleri: </b> 10:00 - 18:00</p>
         <p><b>Adres: </b>Atatürk İş Merkezi
@@ -68,7 +68,7 @@ function Footer() {
                 Atakent / Atakum / Samsun
 
         </p>
-        <img src={samsun} className="footerphoto" alt="Samsun" title="Samsun"></img>
+        <img src={CinVector} className="footerphoto" alt="China" title="China"></img>
        
       </div>
 

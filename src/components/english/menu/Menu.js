@@ -45,7 +45,7 @@ function Menu() {
             <Link
               style={{ display: "flex" }}
               className="menu-item-link"
-              to="/"
+              to="/eng"
             >
               <HomeIcon style={{ fontSize: "24px", color: "#A4203A" }} />
               <span style={{ paddingTop: "4px", paddingLeft: "4px" }}>
@@ -58,12 +58,12 @@ function Menu() {
             <Link
               style={{ display: "flex" }}
               className="menu-item-link"
-              to="/hakkimizda"
+              to="/about-us"
             >
               <BusinessIcon style={{ fontSize: "24px", color: "#A4203A" }} />
               <span style={{ paddingTop: "4px", paddingLeft: "4px" }}>
                 {" "}
-                HAKKIMIZDA
+                ABOUT US
               </span>
             </Link>
           </li>
@@ -71,12 +71,12 @@ function Menu() {
             <Link
               style={{ display: "flex" }}
               className="menu-item-link"
-              to="/hizmetlerimiz"
+              to="/services"
             >
               <GavelIcon style={{ fontSize: "24px", color: "#A4203A" }} />
               <span style={{ paddingTop: "4px", paddingLeft: "4px" }}>
                 {" "}
-                HİZMETLERİMİZ
+                SERVICES
               </span>
             </Link>
           </li>
@@ -84,12 +84,12 @@ function Menu() {
             <Link
               style={{ display: "flex" }}
               className="menu-item-link"
-              to="/referanslarimiz"
+              to="/references"
             >
               <GroupIcon style={{ fontSize: "24px", color: "#A4203A" }} />
               <span style={{ paddingTop: "4px", paddingLeft: "4px" }}>
                 {" "}
-                REFERANSLARIMIZ
+                REFERENCES
               </span>
             </Link>
           </li>
@@ -97,7 +97,7 @@ function Menu() {
             <Link
               style={{ display: "flex" }}
               className="menu-item-link"
-              to="/blog"
+              to="/en-blog"
             >
               <AssignmentIcon
                 style={{ fontSize: "24px", color: "#A4203A" }}
@@ -112,14 +112,14 @@ function Menu() {
             <Link
               style={{ display: "flex" }}
               className="menu-item-link"
-              to="/iletisim"
+              to="/contact"
             >
               <ContactPhoneIcon
                 style={{ fontSize: "24px", color: "#A4203A" }}
               />
 
               <span style={{ paddingTop: "4px", paddingLeft: "4px" }}>
-                İLETİŞİM
+                CONTACT
               </span>
             </Link>
           </li>

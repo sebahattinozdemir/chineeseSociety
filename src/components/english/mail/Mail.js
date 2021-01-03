@@ -84,10 +84,10 @@ class Mail extends Component {
       };
 
       emailjs.send(
-        "nargocvedanismanlik",
-        "template_ihofdy9",
+        "china_turkey_association",
+        "template_0wg4zzt",
         templateParams,
-        "user_LxzxRblngf5ApgrzPTMCl"
+        "user_CCgoj5BUHeInwA0gvJZVj"
         
       );
 
@@ -156,20 +156,24 @@ class Mail extends Component {
             justifyContent: "center",
             backgroundColor: "#333",
             marginTop:"-2rem",
+            marginRight:"-3rem",
+            marginLeft:"-3rem",
             
           }}
         >
           <div className="col-lg-8 col-md-8 col-sm-12 col-12 m-5">
-            <h2
+          <p className="iletisimegec"
               style={{
                 display: "flex",
                 justifyContent: "center",
                 color: "#A4203A",
                 padding:"2%",
+                fontSize:"x-large",
+                
               }}
             >
                YOU CAN CONTACT WITH US 
-            </h2>
+            </p>
             <p
               style={{
                 display: "flex",

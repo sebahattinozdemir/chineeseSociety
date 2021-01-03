@@ -18,7 +18,7 @@ function About() {
                 icon={<BusinessIcon style={{fontSize:"35px"}}/>}
                 
             />
-            <div className="row" style={{margin:"0%"}}>
+            <div className="row" style={{}}>
                 <Basic/>
                 <Neden/>
                 <Misyon/>

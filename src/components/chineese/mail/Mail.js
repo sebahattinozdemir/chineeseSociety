@@ -84,10 +84,10 @@ class Mail extends Component {
       };
 
       emailjs.send(
-        "nargocvedanismanlik",
-        "template_ihofdy9",
+        "china_turkey_association",
+        "template_0wg4zzt",
         templateParams,
-        "user_LxzxRblngf5ApgrzPTMCl"
+        "user_CCgoj5BUHeInwA0gvJZVj"
         
       );
 
@@ -155,21 +155,25 @@ class Mail extends Component {
             display: "flex",
             justifyContent: "center",
             backgroundColor: "#333",
-            marginLeft:"1%",
+            marginTop:"-2rem",
+            marginRight:"-2rem",
+            marginLeft:"-2rem", 
             
           }}
         >
           <div className="col-lg-8 col-md-8 col-sm-12 col-12 m-5">
-            <h2
+            <p className="iletisimegec"
               style={{
                 display: "flex",
                 justifyContent: "center",
                 color: "#A4203A",
                 padding:"2%",
+                fontSize:"x-large",
+                
               }}
             >
-               BİZİMLE İLETİŞİME GEÇEBİLİRSİNİZ 
-            </h2>
+               您可以联系我们 
+            </p>
             <p
               style={{
                 display: "flex",
@@ -178,7 +182,7 @@ class Mail extends Component {
                 color: "white",
               }}
             >
-              Size yardımcı olabilmek için buradayız.
+              我们是来帮你的
             </p>
             <form id="contact-form" style={{marginLeft:"10%",marginRight:"10%"}} onSubmit={this.handleSubmit} noValidate>
               <div className="row m-5" >
@@ -191,7 +195,7 @@ class Mail extends Component {
                       formErrors.name.length > 0 ? "error" : null
                     }`}
                     onChange={this.handleChange}
-                    placeholder="Adınız"
+                    placeholder="你的名字"
                     noValidate
                   ></input>
                   {formErrors.name.length > 0 && (
@@ -209,7 +213,7 @@ class Mail extends Component {
                       formErrors.email.length > 0 ? "error" : null
                     }`}
                     onChange={this.handleChange}
-                    placeholder="E-mail adresiniz"
+                    placeholder="您的电子邮件地址"
                     noValidate
                   ></input>
                   {formErrors.email.length > 0 && (
@@ -228,7 +232,7 @@ class Mail extends Component {
                       formErrors.subject.length > 0 ? "error" : null
                     }`}
                     onChange={this.handleChange}
-                    placeholder="Konu"
+                    placeholder="话题"
                     noValidate
                   ></input>
                   {formErrors.subject.length > 0 && (
@@ -245,7 +249,7 @@ class Mail extends Component {
                       formErrors.message.length > 0 ? "error" : null
                     }`}
                     onChange={this.handleChange}
-                    placeholder="Mesajınız"
+                    placeholder="你的信息"
                     noValidate
                   ></textarea>
                   {formErrors.message.length > 0 && (
@@ -265,7 +269,7 @@ class Mail extends Component {
                     type="submit"
                     style={{ width: "100%",backgroundColor:"#A4203A" }}
                   >
-                    <b>Gönder</b>
+                    <b>发送</b>
                   </button>
                 </div>
               </div>

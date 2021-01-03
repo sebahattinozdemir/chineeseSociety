@@ -16,32 +16,8 @@ function Home() {
 
   return (
     <div className="row">
-      <div
-        className="col-12 slide"
-        style={{ position: "relative", marginLeft:'1%',marginRight:'1%' }}
-      >
-
-        <img
-          src={video}
-          class="card-img-top"
-          alt="..."
-          style={{ width: "100%", height: "25vw"}}
-        ></img>
-
-        <p
-          style={{
-            position: "absolute",
-            top: "65%",
-            left: "15%",
-            color: "white",
-            fontSize:"xx-large"
-            
-          }}
-        >
-          DAHA HIZLI VE DAHA GÜVENLİ ADIMLAR İÇİN BİZİ TERCİH ETMELİSİNİZ...
-        </p>
-      </div>
-      <div className="row" style={{margin:"0%",padding:"1%"}}>
+      
+      <div className="row" style={{marginTop:"10rem",padding:"1rem"}}>
           <Interior
                 photo={'1LZTxibFFvhoQTPxw1GUUStwsnInyfkyl'}
                 title="Türk Vatandaşlığı"
@@ -64,7 +40,7 @@ function Home() {
           
       </div>
      
-      <div className="row" style={{margin:"0%",padding:"1%"}}>
+      <div className="row" style={{padding:"1rem",marginLeft:"-3rem",marginRight:"-3rem",marginBottom:"-1rem"}}>
             <Investment
                 Iphoto={investment}
                 Ititle="Türkiye'de Yatırım"

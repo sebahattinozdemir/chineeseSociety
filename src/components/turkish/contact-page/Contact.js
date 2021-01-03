@@ -58,11 +58,14 @@ function Contact() {
       <div
         className="row"
         style={{
-          margin: "0%",
+          width:"110%",
+          marginLeft:"-3rem",
+          marginRight:"-3rem",
           paddingLeft: "5%",
           paddingRight: "5%",
           paddingTop: "1%",
           backgroundColor: "#FCF5F5",
+
         }}
       >
 

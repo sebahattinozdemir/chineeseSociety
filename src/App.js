@@ -20,6 +20,7 @@ import Yasam from "./components/turkish/investment/turkiyede-yasam/Yasam";
 import Yatirim from "./components/turkish/investment/turkiyede-yatirim/Yatirim";
 import AltBlog from "./components/turkish/blog/Altblog";
 import ServicePage from "./components/turkish/services-page/ServicePage";
+
 import EngMenu from "./components/english/menu/Menu";
 import EngFooter from "./components/english/footer/Footer";
 import EngHome from "./components/english/home-page/Home";
@@ -131,6 +132,7 @@ function App() {
           {state === "tr" && <TrMenu />}
         
         </nav>
+        <br/>
 
         <div className="container-fluid">
 
@@ -193,6 +195,8 @@ function App() {
               />
             ))}
 
+            
+
             <Route exact path="/chi" component={ChiHome} />
             <Route exact path="/about-us" component={ChiAbout} />
             <Route exact path="/services" component={ChiServices} />
@@ -232,7 +236,10 @@ function App() {
             className="col-12"
             style={{ width: "100%", backgroundColor: "#f8f9fa"}}
           >
-            {state === true ? <Footer /> : <EngFooter />}
+            
+            {state === "chi" && <ChiFooter />}
+            {state === "eng" && <EngFooter />}
+            {state === "tr" && <Footer/>}
           </div>
         
         </div>
