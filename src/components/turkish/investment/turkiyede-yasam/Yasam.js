@@ -9,7 +9,7 @@ export default function Yasam() {
            <Header
                 subtitle="Türkiye'de Yaşam"
                 title="Türkiye'de Yaşam"
-                icon={<EmojiPeopleIcon style={{fontSize:"35px"}}/>}
+                icon={<EmojiPeopleIcon style={{fontSize: "x-large"}}/>}
             />
             
             <div className="row" style={{margin:"0%",padding:"1%"}}>

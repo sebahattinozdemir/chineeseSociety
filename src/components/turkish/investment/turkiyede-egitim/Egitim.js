@@ -9,7 +9,7 @@ export default function Egitim() {
            <Header
                 subtitle="Türkiye'de Eğitim"
                 title="Türkiye'de Eğitim"
-                icon={<SchoolIcon style={{fontSize:"35px"}}/>}
+                icon={<SchoolIcon style={{fontSize: "x-large"}}/>}
             />
             
             <div className="row" style={{margin:"0%",padding:"1%"}}>

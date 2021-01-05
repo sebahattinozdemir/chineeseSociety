@@ -1,6 +1,6 @@
 import Header from "../header/Header"; 
 import GroupIcon from '@material-ui/icons/Group';
-import RefComponent from "../Reference-compo/RefComponent";
+import RefComponent from "./Reference-compo/RefComponent";
 import React, { useEffect, useState } from 'react'
 import "./Reference.css"
 import db from "./../../../firebase";
@@ -29,7 +29,7 @@ function Reference() {
             <Header
                 subtitle="Referanslarımız"
                 title="Referanslarımız"
-                icon={<GroupIcon style={{fontSize:"35px"}}/>}
+                icon={<GroupIcon style={{fontSize: "x-large"}}/>}
             />
                 <br/>
                 <div className="quality" style={{padding:"1%",width:"90%",backgroundColor:"#EFEFEF",borderRadius:"1rem",margin:"auto"}}>

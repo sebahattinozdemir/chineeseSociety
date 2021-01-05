@@ -23,4 +23,23 @@
     color:#A4203A;
   }
   
- 
+  /* On screens that are less than 700px wide, make the sidebar into a topbar */
+@media screen and (max-width: 700px) {
+   .investmentholder{
+      height:30rem !important;
+      margin-bottom: 1rem !important;
+   }
+      
+   
+  .card{
+    height:15rem !important;
+  
+
+  }
+  .Ih_title{
+    font-size: large !important;
+
+  }
+  
+
+}

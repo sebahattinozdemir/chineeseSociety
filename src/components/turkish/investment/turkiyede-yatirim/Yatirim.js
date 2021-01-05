@@ -9,7 +9,7 @@ export default function Yatirim() {
            <Header
                 subtitle="Türkiye'de Yatirim"
                 title="Türkiye'de Yatirim"
-                icon={<LocalAtmIcon style={{fontSize:"35px"}}/>}
+                icon={<LocalAtmIcon style={{fontSize: "x-large"}}/>}
             />
             
             <div className="row" style={{margin:"0%",padding:"1%"}}>

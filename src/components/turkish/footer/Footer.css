@@ -1,12 +1,4 @@
-.body{
-    
-    width:100%;
-    padding-top: 25px;
-    margin-right: "0px";
-    
-    
-    
-}
+
 .dropdown-item{
     font-size: 16px;
     text-align: left;
@@ -25,14 +17,15 @@
     text-decoration: none;
     color:#A4203A;
 }
-.footerphone{
+.footerphone,.footerwhatsapp,.footerfacebook,.footerlinkedin{
     color:black;
     
 }
-.footerphone:hover{
+.footerphone:hover,.footerwhatsapp:hover,.footerfacebook:hover,.footerlinkedin:hover{
     color:#A4203A;
     
 }
+
 
 
 

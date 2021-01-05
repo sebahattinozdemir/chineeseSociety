@@ -3,7 +3,8 @@ import investment from "./investment.jpg";
 import education from "./education.jpg";
 import life from "./life.jpg";
 import health from "./health.jpg";
-import Mail from "../mail/Mail";
+import Mail from "../contact-page/mail/Mail";
+import Slider from "./slider/Slider";
 import Interior from "../services-interior/Interior";
 import Investment from "../investment/Investment";
 import React, { useEffect } from 'react';
@@ -16,9 +17,10 @@ function Home() {
   return (
     <div className="row">
       
-      <div className="row" style={{marginTop:"10rem",padding:"1rem"}}>
+      <div className="col-12" style={{marginTop:"5rem",padding:"1rem"}}>
 
-          
+          <Slider/>
+          <br/>
           <Interior
                 photo={'1LZTxibFFvhoQTPxw1GUUStwsnInyfkyl'}
                 title="Türk Vatandaşlığı"
@@ -41,7 +43,7 @@ function Home() {
           
       </div>
      
-      <div className="row" style={{padding:"1rem",marginLeft:"-3rem",marginRight:"-3rem",marginBottom:"-1rem"}}>
+      <div className="col-12" style={{}}>
             <Investment
                 Iphoto={investment}
                 Ititle="Türkiye'de Yatırım"
@@ -66,9 +68,17 @@ function Home() {
                 Iuzanti="/turkiyede-egitim"
                 Iexplain="Yabancı öğrenciler için bir cennet olan Türkiye’de hangi okullarda nasıl eğitimler veriliyor, okul kayıt aşamaları, öğrenci ikamet izinleri, mezuniyet sonrası iş bulma süreçlerini detaylı bir şekilde öğretiyoruz."
             />
-      </div>
+        </div>
             
-            <Mail />
+            <Mail/>
+
+            
+          
+            
+
+            
+
+            
             
     </div>
   );

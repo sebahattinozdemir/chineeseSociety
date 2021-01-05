@@ -15,7 +15,7 @@ function About() {
             <Header
                 subtitle="Hakkımızda"
                 title="Hakkımızda"
-                icon={<BusinessIcon style={{fontSize:"35px"}}/>}
+                icon={<BusinessIcon style={{fontSize: "x-large"}}/>}
                 
             />
             <div className="row" style={{}}>

@@ -9,7 +9,7 @@ export default function TurkSaglik() {
            <Header
                 subtitle="Türkiye'de Sağlık"
                 title="Türkiye'de Sağlık"
-                icon={<LocalHospitalIcon style={{fontSize:"35px"}}/>}
+                icon={<LocalHospitalIcon style={{fontSize: "x-large"}}/>}
             />
             
             <div className="row" style={{margin:"0%",padding:"1%"}}>

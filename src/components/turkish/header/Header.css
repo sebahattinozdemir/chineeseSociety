@@ -1,11 +1,4 @@
-.body{
-    
-    width:100%;
-    
-    
-    
-    
-}
+
 .ana1{
     color:white;
     font-size: large;
@@ -16,10 +9,7 @@
     color:black;
     text-decoration:none;
 }
-.genel{
-    display: inline;
-    
-}
+
 .subtitle{
     
     font-size: large;
@@ -30,19 +20,17 @@
 
 .title{
     float:left;
-    font-size:xx-large;
-    color:white;
+    font-size:large;
+    color:#A4203A;
     
 }
 
 /* On screens that are less than 700px wide, make the sidebar into a topbar */
 @media screen and (max-width: 700px) {
 
-    .ana1,.subtitle{
-        font-size: medium !important;
-    }
+    
     .title{
-        font-size: large !important;
+        font-size: medium !important;
     
     }
 

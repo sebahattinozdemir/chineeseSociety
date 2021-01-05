@@ -7,28 +7,9 @@ export default class Header extends Component {
     render(){
         const {subtitle,title,icon}=this.props;
     return (
-        <div class="row p-4" style={{ backgroundColor: "#A4203A",paddingTop:"2rem",width:"110%",paddingLeft:"5rem",height:"15rem",marginTop:"9rem",marginLeft:"-3rem"}}>
+        <div class="row" style={{ backgroundColor: "#F2F2F2",paddingTop:"3rem",paddingLeft:"5rem",height:"10rem",marginTop:"3rem",marginLeft:"-3rem",marginRight:"-3rem"}}>
           <div className="col-12">
           
-                <div className="genel">
-
-                    <Link className="ana1" to="/" >
-                            Ana Sayfa
-                            
-                    </Link>
-                    
-                        
-                    <p className="subtitle">
-                            &nbsp;
-                            <ArrowForwardIcon/>
-                            &nbsp; 
-                        {subtitle}</p>
-                </div>
-                    <br/>
-                    <br/>
-                    <br/>
-
-               
                 <p className="title"><b>
                     {icon}
                     &nbsp;

@@ -28,7 +28,7 @@ function Blog() {
       <Header
         subtitle="Blog"
         title="Blog"
-        icon={<AssignmentIcon style={{ fontSize: "35px" }} />}
+        icon={<AssignmentIcon style={{ fontSize: "x-large" }} />}
       />
       <div className="row" style={{ margin:'2%',paddingLeft:'11%'}}>
       {blogs.map((blog,index) => (

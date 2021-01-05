@@ -3,7 +3,8 @@ import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import db from "./firebase";
-import TrMenu from "./components/turkish/menu/Menu";
+
+import Navbar from "./components/turkish/navbar/Navbar";
 import Footer from "./components/turkish/footer/Footer";
 import Home from "./components/turkish/home-page/Home";
 import About from "./components/turkish/about-page/About";
@@ -21,39 +22,6 @@ import Yatirim from "./components/turkish/investment/turkiyede-yatirim/Yatirim";
 import AltBlog from "./components/turkish/blog/Altblog";
 import ServicePage from "./components/turkish/services-page/ServicePage";
 
-import EngMenu from "./components/english/menu/Menu";
-import EngFooter from "./components/english/footer/Footer";
-import EngHome from "./components/english/home-page/Home";
-import EngAbout from "./components/english/about-page/About";
-import EngServices from "./components/english/services-page/Service";
-import EngReference from "./components/english/references-page/Reference";
-import EngBlog from "./components/english/blog/Blog";
-import EngContact from "./components/english/contact-page/Contact";
-import EngTurk from "./components/english/services-page/turk-vatandasligi/Turk";
-import EngAdmin from "./components/english/admin/Admin";
-import EngEgitim from "./components/english/investment/turkiyede-egitim/Egitim";
-import EngTurkSaglik from "./components/english/investment/turkiyede-saglik/TurkSaglik";
-import EngYasam from "./components/english/investment/turkiyede-yasam/Yasam";
-import EngYatirim from "./components/english/investment/turkiyede-yatirim/Yatirim";
-import EngAltBlog from "./components/english/blog/Altblog";
-import EngServicePage from "./components/english/services-page/ServicePage";
-
-import ChiMenu from "./components/chineese/menu/Menu";
-import ChiFooter from "./components/chineese/footer/Footer";
-import ChiHome from "./components/chineese/home-page/Home";
-import ChiAbout from "./components/chineese/about-page/About";
-import ChiServices from "./components/chineese/services-page/Service";
-import ChiReference from "./components/chineese/references-page/Reference";
-import ChiBlog from "./components/chineese/blog/Blog";
-import ChiContact from "./components/chineese/contact-page/Contact";
-import ChiTurk from "./components/chineese/services-page/turk-vatandasligi/Turk";
-import ChiAdmin from "./components/chineese/admin/Admin";
-import ChiEgitim from "./components/chineese/investment/turkiyede-egitim/Egitim";
-import ChiTurkSaglik from "./components/chineese/investment/turkiyede-saglik/TurkSaglik";
-import ChiYasam from "./components/chineese/investment/turkiyede-yasam/Yasam";
-import ChiYatirim from "./components/chineese/investment/turkiyede-yatirim/Yatirim";
-import ChiAltBlog from "./components/chineese/blog/Altblog";
-import ChiServicePage from "./components/chineese/services-page/ServicePage";
 
 function App() {
   const [services, setServices] = useState([]);
@@ -107,31 +75,14 @@ function App() {
     <Router>
       <div className="container-fluid app">
         
-        <nav className="navbar navbar-inverse navbar-fixed-top" style={{ backgroundColor: "#222222", padding: "0%", margin: "0%" }}>
-          
-          {state === "chi" && (
-            <label style={{ padding: "1%" }} onClick={handleChange}>
-              Chineese
-            </label>
-          )}
-          
-          {state === "eng" && (
-            <label style={{ padding: "1%" }} onClick={handleChange}>
-              English
-            </label>
-          )}
-          
-          {state === "tr" && (
-            <label style={{ padding: "1%" }} onClick={handleChange}>
-              Turkish
-            </label>
-          )}
+        <nav className="navbar navbar-inverse navbar-fixed-top" style={{ backgroundColor: "#A4203A", padding: "0%", margin: "0%" }}>
 
-          {state === "chi" && <ChiMenu />}
-          {state === "eng" && <EngMenu />}
-          {state === "tr" && <TrMenu />}
-        
+          <Navbar/>
         </nav>
+      
+     
+          
+         
         <br/>
 
         <div className="container-fluid">
@@ -167,80 +118,19 @@ function App() {
             ))}
 
 
-            <Route exact path="/eng" component={EngHome} />
-            <Route exact path="/about-us" component={EngAbout} />
-            <Route exact path="/services" component={EngServices} />
-            <Route exact path="/references" component={EngReference} />
-            <Route exact path="/en-blog" component={EngBlog} />
-            <Route exact path="/contact" component={EngContact} />
-            <Route exact path="/turkish-citizenship" component={EngTurk} />
-            <Route exact path="/education-in-turkey" component={EngEgitim} />
-            <Route exact path="/health-in-turkey" component={EngTurkSaglik} />
-            <Route exact path="/life-in-turkey" component={EngYasam} />
-            <Route exact path="/investment-in-turkey" component={EngYatirim} />
-
-            {services.map((service, index) => (
-              <Route
-                exact
-                path={"/services/" + service.heading}
-                component={EngServicePage}
-              />
-            ))}
-
-            {blogs.map((blog, index) => (
-              <Route
-                exact
-                path={"/eng-blogs/" + blog.heading}
-                component={EngAltBlog}
-              />
-            ))}
-
             
-
-            <Route exact path="/chi" component={ChiHome} />
-            <Route exact path="/about-us" component={ChiAbout} />
-            <Route exact path="/services" component={ChiServices} />
-            <Route exact path="/references" component={ChiReference} />
-            <Route exact path="/en-blog" component={ChiBlog} />
-            <Route exact path="/contact" component={ChiContact} />
-            <Route exact path="/turkish-citizenship" component={ChiTurk} />
-            <Route exact path="/education-in-turkey" component={ChiEgitim} />
-            <Route exact path="/health-in-turkey" component={ChiTurkSaglik} />
-            <Route exact path="/life-in-turkey" component={ChiYasam} />
-            <Route exact path="/investment-in-turkey" component={ChiYatirim} />
-
-            {services.map((service, index) => (
-              <Route
-                exact
-                path={"/services/" + service.heading}
-                component={ChiServicePage}
-              />
-            ))}
-
-            {blogs.map((blog, index) => (
-              <Route
-                exact
-                path={"/eng-blogs/" + blog.heading}
-                component={ChiAltBlog}
-              />
-            ))}
-
             <Route exact path="/admin" component={Admin} />
-            <Route exact path="/eng-admin" component={EngAdmin} />
-            <Route exact path="/chi-admin" component={ChiAdmin} />
             <Route component={Notfound} />
 
           </Switch>
-          <div
-            id="footer"
-            className="col-12"
-            style={{ width: "100%", backgroundColor: "#f8f9fa"}}
-          >
-            
-            {state === "chi" && <ChiFooter />}
-            {state === "eng" && <EngFooter />}
-            {state === "tr" && <Footer/>}
-          </div>
+              
+            <div className="row harita" style={{marginLeft:"-3rem",marginRight:"-3rem"}}>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6533.593095300537!2d32.85717809978627!3d39.890760560175714!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d34f8255924da3%3A0x21e8de7da6a71210!2s%C3%87ankaya%2C%20Cinnah%20Cd.%2067-69%2C%2006690%20%C3%87ankaya%2FAnkara!5e0!3m2!1str!2str!4v1609827468241!5m2!1str!2str" 
+                className="googleharita" style={{width:"100%", height:"45rem", frameBorder:"0", allowFullScreen:"", ariaHidden:"false", tabIndex:"0",border:"2px #A4203A solid",paddingBottom:"0.5rem",paddingTop:"0.5rem"}}> </iframe>
+            </div> 
+         
+            <Footer/>
+         
         
         </div>
       </div>
