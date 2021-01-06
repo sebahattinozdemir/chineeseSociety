@@ -13,10 +13,11 @@ export default class Navbar extends Component {
   render() {
     return (
       <div
-        className="row p-0 m-0"
+        className="row p-0"
         style={{
           display: "flex",
           justifyContent: "center",
+          zIndex:"1",
          
         }}
       >
@@ -69,13 +70,13 @@ export default class Navbar extends Component {
                     Hakkımızda
                   </Link>
 
-                  <Link className="dropdown-item menu-item-link" to="/belgelerimiz">
+                  <Link className="dropdown-item menu-item-link" to="/tuzuk">
                     Tüzük
                   </Link>
-                  <Link className="dropdown-item menu-item-link" to="/referanslarimiz">
+                  <Link className="dropdown-item menu-item-link" to="/yonetim-kurulu">
                     Yönetim Kurulu
                   </Link>
-                  <Link className="dropdown-item menu-item-link" to="/is-basvurusu">
+                  <Link className="dropdown-item menu-item-link" to="/uyelik-basvurusu">
                     Üyelik Başvurusu
                   </Link>
                   
@@ -102,22 +103,22 @@ export default class Navbar extends Component {
                   class="dropdown-menu"
                   aria-labelledby="navbarDropdownMenuLink"
                 >
-                  <Link className="dropdown-item menu-item-link" to="/ev-temizligi">
+                  <Link className="dropdown-item menu-item-link" to="/uyelerin-hukuki-hizmetleri">
                     Üyelerin Hukuki Hizmetleri
                   </Link>
-                  <Link className="dropdown-item menu-item-link" to="/insaat-sonrasi-temizlik">
+                  <Link className="dropdown-item menu-item-link" to="/ikamet-calisma-izni">
                     İkamet ve Çalışma İzni
                   </Link>
-                  <Link className="dropdown-item menu-item-link" to="/ofis-temizligi">
+                  <Link className="dropdown-item menu-item-link" to="/hukuki-yardim">
                     Hukuki Yardım
                   </Link>
-                  <Link className="dropdown-item menu-item-link" to="/yerinde-koltuk-yikama">
+                  <Link className="dropdown-item menu-item-link" to="/hukuki-danisma">
                     Hukuki Danışma
                   </Link>
-                  <Link className="dropdown-item menu-item-link" to="/ofis-temizligi">
+                  <Link className="dropdown-item menu-item-link" to="/mali-danisma">
                     Mali Danışma
                   </Link>
-                  <Link className="dropdown-item menu-item-link" to="/yerinde-koltuk-yikama">
+                  <Link className="dropdown-item menu-item-link" to="/ozel-durumlarda-hukuki-yardim">
                     Özel Durumlarda Hukuki Yardım
                   </Link>
                   
@@ -144,19 +145,19 @@ export default class Navbar extends Component {
                   class="dropdown-menu"
                   aria-labelledby="navbarDropdownMenuLink"
                 >
-                  <Link className="dropdown-item menu-item-link" to="/hakkimizda">
-                    Daha Önceden Yapılmış Davalar
+                  <Link className="dropdown-item menu-item-link" to="/gecmis-davalar-ve-islemler">
+                    Geçmiş Davalar ve İşlemler
                   </Link>
-                  <Link className="dropdown-item menu-item-link" to="/referanslarimiz">
+                  <Link className="dropdown-item menu-item-link" to="/kesif">
                     Keşif
                   </Link>
-                  <Link className="dropdown-item menu-item-link" to="/belgelerimiz">
+                  <Link className="dropdown-item menu-item-link" to="/davaci-veya-davali-dosya">
                     Davacı veya Davalı Dosya
                   </Link>
-                  <Link className="dropdown-item menu-item-link" to="/is-basvurusu">
+                  <Link className="dropdown-item menu-item-link" to="/evlilik-icinde-sorun">
                     Evlilik İçinde Sorun
                   </Link>
-                  <Link className="dropdown-item menu-item-link" to="/is-basvurusu">
+                  <Link className="dropdown-item menu-item-link" to="/sigorta">
                     Sigorta
                   </Link>
                   
@@ -184,13 +185,13 @@ export default class Navbar extends Component {
                   class="dropdown-menu"
                   aria-labelledby="navbarDropdownMenuLink"
                 >
-                  <Link className="dropdown-item menu-item-link" to="/ev-temizligi">
+                  <Link className="dropdown-item menu-item-link" to="/haberler">
                     Haber
                   </Link>
-                  <Link className="dropdown-item menu-item-link" to="/insaat-sonrasi-temizlik">
+                  <Link className="dropdown-item menu-item-link" to="/duyurular">
                     Duyuru
                   </Link>
-                  <Link className="dropdown-item menu-item-link" to="/ofis-temizligi">
+                  <Link className="dropdown-item menu-item-link" to="/blog">
                     Blog
                   </Link> 
                 </div>
@@ -216,10 +217,10 @@ export default class Navbar extends Component {
                   class="dropdown-menu"
                   aria-labelledby="navbarDropdownMenuLink"
                 >
-                  <Link className="dropdown-item menu-item-link" to="/ev-temizligi">
+                  <Link className="dropdown-item menu-item-link" to="/fotograflar">
                     Fotoğraf
                   </Link>
-                  <Link className="dropdown-item menu-item-link" to="/insaat-sonrasi-temizlik">
+                  <Link className="dropdown-item menu-item-link" to="/videolar">
                     Video
                   </Link>
                     

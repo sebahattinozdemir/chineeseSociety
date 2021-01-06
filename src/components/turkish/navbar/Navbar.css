@@ -41,5 +41,8 @@
   .row{
     justify-content: flex-end !important;
   }
+  .navbar-toggler{
+    float:right !important;
+  }
 }
 

@@ -20,7 +20,7 @@
 
 .title{
     float:left;
-    font-size:large;
+    font-size:large !important;
     color:#A4203A;
     
 }
@@ -32,6 +32,9 @@
     .title{
         font-size: medium !important;
     
+    }
+    .gri{
+        margin-top: 16rem !important;
     }
 
 }

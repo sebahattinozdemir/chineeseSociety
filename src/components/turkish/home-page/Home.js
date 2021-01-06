@@ -17,29 +17,11 @@ function Home() {
   return (
     <div className="row">
       
-      <div className="col-12" style={{marginTop:"5rem",padding:"1rem"}}>
+      <div className="col-12 home" style={{marginTop:"22rem",padding:"1rem"}}>
 
           <Slider/>
-          <br/>
-          <Interior
-                photo={'1LZTxibFFvhoQTPxw1GUUStwsnInyfkyl'}
-                title="Türk Vatandaşlığı"
-                uzanti="/hizmetlerimiz/turk-vatandasligi"
-                explain="Yatırım yoluyla Türk vatandaşlığı (Türkiye’den ev alan yabancılara vatandaşlık) 2018 yeni programının tüm detaylarını ve danışmanlık hizmetlerimizin kapsamını burada bulabilirsiniz."
-                
-            />
-            <Interior
-                photo={"1UUKWt898yMXnzR1DDJHwky34eJ7T2ODX"}
-                title="Çalışma İzni"
-                uzanti="/hizmetlerimiz/calisma-izni"
-                explain="Yabancıların Türkiye’de çalışma esaslarını düzenleyen 6735 Sayılı Uluslarası işgücü kanunu ve yönetmeliğine göre Çalışma izni hakkında tüm sorularınıza bu sayfamızda cevap bulabilirsiniz."
-            />
-            <Interior
-                photo={"1lr4LRsHya9kh5Q5fg8xi1_AHmxhn9BJj"}
-                title="Oturma İzni"
-                uzanti="/hizmetlerimiz/oturma-izni"
-                explain="Türkiye’de yabancılar için ikamet izni çeşitleri, başvuru yöntemleri ve başvuruların nasıl yapılacağına dair videolu anlatımlarla Oturma izni ile ilgili herşeyi detaylı anlatıyoruz."
-            />
+          
+          
           
       </div>
      
