@@ -35,7 +35,7 @@ function Footer() {
                   <a className="footeremail" href="cvcshkd@gmail.com" style={{ float: "left"}} >
                     <EmailIcon style={{fontSize:"24px"}}/>
                   </a> 
-                  <p style={{fontSize:"medium"}}>&nbsp;cvcshkd@gmail.com</p>
+                  <p style={{fontSize:"small"}}>&nbsp;cvcshkd@gmail.com</p>
                   
                   <a className="footerphone"
                   href="tel: +905531688953"
@@ -43,16 +43,16 @@ function Footer() {
                 >
                   <SettingsPhoneIcon style={{fontSize:"24px"}}/> 
                 </a> 
-                <p style={{fontSize:"medium"}}>&nbsp;+90 553 168 8953</p>
+                <p style={{fontSize:"small"}}>&nbsp;+90 553 168 8953</p>
                
                 <a
                 className="footerwhatsapp"
                 href="https://wa.me/+905531688953"
-                style={{float: "left"}}
+                style={{float: "left",fontSize:"small"}}
               >
                 <WhatsAppIcon style={{ fontSize: "24px" }} />   
               </a>
-              <p style={{fontSize:"medium"}}>&nbsp;+90 553 168 8953</p>
+              <p style={{fontSize:"small"}}>&nbsp;+90 553 168 8953</p>
               
               <a
                 className="footerfacebook"
@@ -61,7 +61,7 @@ function Footer() {
               >
                 <FacebookIcon style={{ fontSize: "24px" }} />
               </a>
-              <p style={{fontSize:"medium"}}>&nbsp;Facebook</p>
+              <p style={{fontSize:"small"}}>&nbsp;Facebook</p>
               
               <a
                 className="footerlinkedin"
@@ -70,7 +70,7 @@ function Footer() {
               >
                 <LinkedInIcon style={{ fontSize: "24px" }} />
               </a>
-              <p style={{fontSize:"medium"}}>&nbsp;LinkedIn</p>
+              <p style={{fontSize:"small"}}>&nbsp;LinkedIn</p>
               <br/>
             </div>  
           </div>
@@ -79,10 +79,10 @@ function Footer() {
           <div className="col-lg-3 col-md-6 col-sm-6 col-12" style={{paddingTop:"1%"}}>
             <b style={{ color: "#A4203A", fontSize: "20px" }}>Türkiye Ofis</b>
             <hr/>
-          
-            <p><b>Adres: </b>Atatürk İş Merkezi
+            
+            <p><b>Adres: </b>Çankaya Mahallesi
                 <br/>
-                    Karanfil Caddesi No:199 Kat:2
+                    Cinnah Caddesi No:67-69/5
                 <br/>
                     Kızılay / Çankaya / Ankara
 
@@ -95,11 +95,11 @@ function Footer() {
             <b style={{ color: "#A4203A", fontSize: "20px" }}>Çin Ofis</b>
             <hr/>
 
-            <p><b>Adres: </b>Atatürk İş Merkezi
+            <p><b>Adres: </b>Şunyi Mahallesi
                 <br/>
-                    Nato Caddesi No:155 Kat:3
+                    Mao Caddesi No:155 Kat:3
                 <br/>
-                    Atakent / Atakum / Samsun
+                    Şunyi / Pekin / Çin
 
             </p>
             <img src={CinVector} className="footerphoto" alt="China" title="China"></img>

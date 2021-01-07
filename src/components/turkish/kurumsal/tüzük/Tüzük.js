@@ -18,7 +18,7 @@ export default function Tüzük() {
                 <h4 className="tüzükbaslik">ÇİN VATANDAŞ VE ÇİN ŞİRKETLERİ HUKUKİ HAK VE MENFAATLERİNİ KORUMA VE YARDIMLAŞMA DERNEĞİ TÜZÜĞÜ</h4>
                 <h4 className="bas">Derneğin Adı ve Merkezi</h4>
                     <p className="tzktext"><b>Madde 1- </b>Derneğin Adı: ÇİN VATANDAŞ VE ÇİN ŞİRKETLERİ HUKUKİ HAK VE MENFAATLERİNİ KORUMA VE YARDIMLAŞMA DERNEĞİ” dir.
-	Derneğin merkezi <span style={{color:"red"}}>Ankaradır</span>.</p>
+	Derneğin merkezi <span style={{color:"#A4320A",fontWeight:"bold"}}>Ankaradır</span>.</p>
                 <h4 className="bas">Derneğin Amacı ve Bu Amacı Gerçekleştirmek İçin Dernekçe Sürdürülecek Çalışma Konuları ve Biçimleri İle Faaliyet Alanı</h4>
                     <p className="tzktext"><b>Madde 2- </b>Dernek, Çin Vatandaş ve Çinli Firmaların sorunlarına danışmanlık , yardım , koruma faaliyetlerinin etkinleştirilmesi ve geliştirilmesini sağlamak ve bu konuda çalışmalar  yapan  kişi ve kuruluşlara destek vermek amacı ile kurulmuştur. </p>
                 <h4 className="bas">Dernekçe Sürdürülecek Çalışma Konuları ve Biçimleri </h4>
