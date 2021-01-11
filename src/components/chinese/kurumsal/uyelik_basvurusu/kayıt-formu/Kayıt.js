@@ -33,13 +33,19 @@ class Kayıt extends Component {
     this.state = {
       name: "",
       email: "",
-      subject: "",
-      message: "",
+      birth_date: "",
+      birth_place: "",
+      address: "",
+      cellphone: "",
+      expectation: "",
       formErrors: {
         name: "",
         email: "",
-        subject: "",
-        message: "",
+        birth_date: "",
+        birth_place: "",
+        address: "",
+        cellphone: "",
+        expectation: "",
       },
     };
   }
@@ -73,19 +79,23 @@ class Kayıt extends Component {
 
     if (formValid(this.state)) {
       // Handle form validation success
-      const { name, email, subject, message } = this.state;
+      const { name, email, birth_place, birth_date, address, cellphone, expectation  } = this.state;
 
       // Set template params
       let templateParams = {
         name: name,
         email: email,
-        subject: subject,
-        message: message,
+        birth_place: birth_place,
+        birth_date: birth_date,
+        address : address,
+        cellphone: cellphone,
+        expectation:expectation,
+
       };
 
       emailjs.send(
         "china_turkey_association",
-        "template_0wg4zzt",
+        "uyelikKayitFormu",
         templateParams,
         "user_CCgoj5BUHeInwA0gvJZVj"
         
@@ -95,8 +105,12 @@ class Kayıt extends Component {
         --SUBMITTING--
         Name: ${name}
         Email: ${email}
-        Subject: ${subject}
-        Message: ${message}
+        Birth_Date: ${birth_date}
+        Address: ${address}
+        Birth_Place:${birth_place}
+        Cellphone: ${cellphone}
+        Expectation:${expectation}
+
       `);
 
       this.toastifySuccess();
@@ -113,8 +127,11 @@ class Kayıt extends Component {
     this.setState({
       name: "",
       email: "",
-      subject: "",
-      message: "",
+      birth_place:"",
+      birth_date:"",
+      cellphone:"",
+      address:"",
+      expectation:"",
     });
   }
 
@@ -132,12 +149,21 @@ class Kayıt extends Component {
           ? ""
           : "Please enter a valid email address.";
         break;
-      case "subject":
-        formErrors.subject = value.length < 1 ? "Please enter a subject." : "";
+      case "birth_date":
+        formErrors.birth_date = value.length < 1 ? "Please enter a birth date dd/mm/yyyy." : "";
         break;
-      case "message":
-        formErrors.message = value.length < 1 ? "Please enter a message" : "";
+      case "birth_place":
+        formErrors.birth_place = value.length < 1 ? "Please enter a birth place" : "";
         break;
+        case "address":
+          formErrors.address = value.length < 1 ? "Please enter an address" : "";
+          break;
+        case "cellphone":
+          formErrors.cellphone = value.length < 1 ? "Please enter a cellphone" : "";
+          break;
+        case "expectation":
+          formErrors.expectation = value.length < 1 ? "Please enter a reason for enrollment to association" : "";
+          break;
       default:
         break;
     }
@@ -199,16 +225,16 @@ class Kayıt extends Component {
                   <input
                     type="text"
                     name="birth_place"
-                    value={this.state.name}
+                    value={this.state.birth_place}
                     className={`form-control formInput ${
-                      formErrors.name.length > 0 ? "error" : null
+                      formErrors.birth_place.length > 0 ? "error" : null
                     }`}
                     onChange={this.handleChange}
                     placeholder="您的出生地"
                     noValidate
                   ></input>
-                  {formErrors.name.length > 0 && (
-                    <span className="errorMessage">{formErrors.name}</span>
+                  {formErrors.birth_place.length > 0 && (
+                    <span className="errorMessage">{formErrors.birth_place}</span>
                   )}
                 </div>
                <br/>
@@ -217,16 +243,16 @@ class Kayıt extends Component {
                   <input
                     type="text"
                     name="birth_date"
-                    value={this.state.name}
+                    value={this.state.birth_date}
                     className={`form-control formInput ${
-                      formErrors.name.length > 0 ? "error" : null
+                      formErrors.birth_date.length > 0 ? "error" : null
                     }`}
                     onChange={this.handleChange}
                     placeholder="您的出生日期"
                     noValidate
                   ></input>
-                  {formErrors.name.length > 0 && (
-                    <span className="errorMessage">{formErrors.name}</span>
+                  {formErrors.birth_date.length > 0 && (
+                    <span className="errorMessage">{formErrors.birth_date}</span>
                   )}
                 </div>
                <br/>
@@ -235,16 +261,16 @@ class Kayıt extends Component {
                   <input
                     type="text"
                     name="cellphone"
-                    value={this.state.name}
+                    value={this.state.cellphone}
                     className={`form-control formInput ${
-                      formErrors.name.length > 0 ? "error" : null
+                      formErrors.cellphone.length > 0 ? "error" : null
                     }`}
                     onChange={this.handleChange}
                     placeholder="您的手机号码"
                     noValidate
                   ></input>
-                  {formErrors.name.length > 0 && (
-                    <span className="errorMessage">{formErrors.name}</span>
+                  {formErrors.cellphone.length > 0 && (
+                    <span className="errorMessage">{formErrors.cellphone}</span>
                   )}
                 </div>
                <br/>
@@ -270,18 +296,18 @@ class Kayıt extends Component {
                 <br/>
                 <div className="col-12">
                   <input
-                    type="subject"
-                    name="adress"
-                    value={this.state.subject}
+                    type="text"
+                    name="address"
+                    value={this.state.address}
                     className={`form-control formInput ${
-                      formErrors.subject.length > 0 ? "error" : null
+                      formErrors.address.length > 0 ? "error" : null
                     }`}
                     onChange={this.handleChange}
                     placeholder="你的地址"
                     noValidate
                   ></input>
-                  {formErrors.subject.length > 0 && (
-                    <span className="errorMessage">{formErrors.subject}</span>
+                  {formErrors.address.length > 0 && (
+                    <span className="errorMessage">{formErrors.address}</span>
                   )}
                 </div>
                 <br/>
@@ -291,16 +317,16 @@ class Kayıt extends Component {
                   <textarea
                     rows="3"
                     name="expectation"
-                    value={this.state.message}
+                    value={this.state.expectation}
                     className={`form-control formInput ${
-                      formErrors.message.length > 0 ? "error" : null
+                      formErrors.expectation.length > 0 ? "error" : null
                     }`}
                     onChange={this.handleChange}
-                    placeholder="您的注册目的"
+                    placeholder="您在协会注册的目的"
                     noValidate
                   ></textarea>
-                  {formErrors.message.length > 0 && (
-                    <span className="errorMessage">{formErrors.message}</span>
+                  {formErrors.expectation.length > 0 && (
+                    <span className="errorMessage">{formErrors.expectation}</span>
                   )}
                 </div>
               </div>
@@ -332,3 +358,4 @@ class Kayıt extends Component {
 }
 
 export default Kayıt;
+
