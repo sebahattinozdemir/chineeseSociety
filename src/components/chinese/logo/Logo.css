@@ -1,0 +1,36 @@
+
+.serefcin{
+    text-align: center;
+    font-size: xx-large !important;
+    color: #A4320A;
+    
+}
+.center{
+  width:80%;
+  height:15rem;
+  display: block;
+  justify-content:center;
+  align-items:center;
+  float:center;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
+/* On screens that are less than 700px wide, make the sidebar into a topbar */
+@media screen and (max-width: 700px) {
+    
+    .center{
+       
+        height: 10rem !important;
+        padding-right: 3% !important;
+        padding-left: 3% !important;
+        padding-top: 2% !important;
+    }
+    .serefcin{
+        font-size: large !important;
+        letter-spacing:20px !important;
+    }
+   
+ 
+ }

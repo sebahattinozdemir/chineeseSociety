@@ -214,7 +214,7 @@ class Mail extends Component {
                       formErrors.email.length > 0 ? "error" : null
                     }`}
                     onChange={this.handleChange}
-                    placeholder="E-mail adresiniz"
+                    placeholder="E-mail Adresiniz"
                     noValidate
                   ></input>
                   {formErrors.email.length > 0 && (

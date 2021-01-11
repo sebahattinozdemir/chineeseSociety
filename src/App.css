@@ -6,22 +6,24 @@
 }
 
 
-  /* On screens that are less than 700px wide, make the sidebar into a topbar */
-  @media screen and (max-width: 700px) {
-   
-      
-   
-    .harita{
-      height:30rem !important;
-      margin-bottom: 1rem !important;
 
-    }
-    .googleharita{
-      height:30rem !important;
+  /* On screens that are less than 700px wide, make the sidebar into a topbar */
+  @media screen and (max-width: 991px) {
+   
+  
+   
+    
+    .languageOption{
+      
+      z-index:100 !important; 
+      
       
     }
-    .menu{
-      margin-top: 13rem !important;
+  
+    .languageOption label{
+      color: black !important;
+      margin-top: 1rem !important;
     }
  
 }
+

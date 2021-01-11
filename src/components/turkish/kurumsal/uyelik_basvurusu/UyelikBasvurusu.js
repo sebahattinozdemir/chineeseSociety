@@ -1,6 +1,7 @@
 import "./UyelikBasvurusu.css";
 import Header from "../../header/Header";
 import BusinessIcon from '@material-ui/icons/Business';
+import Kayıt from "./kayıt-formu/Kayıt";
 import React from 'react'
 
 export default function UyelikBasvurusu() {
@@ -12,11 +13,9 @@ export default function UyelikBasvurusu() {
                 icon={<BusinessIcon style={{fontSize: "x-large"}}/>}
                 
             />
-            <div className="row" style={{}}>
-                <h3>Üyelik Başvurusu sayfasıdır</h3>
-                
-                
-            </div>
+            <br/>
+            <Kayıt/>
+            <br/>
             
         </div>
     )

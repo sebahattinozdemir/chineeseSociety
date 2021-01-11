@@ -2,9 +2,10 @@ import CinVector from "./cinV12.jpg";
 import TurkeyVector from "./turkeyV12.jpg";
 import SettingsPhoneIcon from "@material-ui/icons/SettingsPhone";
 import EmailIcon from '@material-ui/icons/Email';
-import FacebookIcon from "@material-ui/icons/Facebook";
 import WhatsAppIcon from "@material-ui/icons/WhatsApp";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
+import TwitterIcon from '@material-ui/icons/Twitter';
+import WeChatIcon from "./wechat.ico";
 import React from 'react'
 import "./Footer.css"
 function Footer() {
@@ -56,21 +57,34 @@ function Footer() {
               
               <a
                 className="footerfacebook"
-                href="https://www.facebook.com/turkcinkulturdernegi"
+                href="https://www.wechat.com/"
+                target="_blank"
                 style={{float: "left" }}
               >
-                <FacebookIcon style={{ fontSize: "24px" }} />
+                <img src={WeChatIcon} style={{ width:"2.5rem",height:"2.5rem" }} ></img>
+                
               </a>
-              <p style={{fontSize:"small"}}>&nbsp;Facebook</p>
+              <p style={{fontSize:"small"}}>&nbsp;WeChat</p>
               
               <a
                 className="footerlinkedin"
                 href="https://www.linkedin.com/in/t%C3%BCrk-%C3%A7in-k%C3%BClt%C3%BCr-derne%C4%9Fi-92aa45150/"
+                target="_blank"
                 style={{float: "left" }}
               >
                 <LinkedInIcon style={{ fontSize: "24px" }} />
               </a>
               <p style={{fontSize:"small"}}>&nbsp;LinkedIn</p>
+              
+              <a
+                className="footerlinkedin"
+                href="https://www.twitter.com/"
+                target="_blank"
+                style={{float: "left" }}
+              >
+                <TwitterIcon style={{ fontSize: "24px" }} />
+              </a>
+              <p style={{fontSize:"small"}}>&nbsp;Twitter</p>
               <br/>
             </div>  
           </div>
@@ -95,11 +109,11 @@ function Footer() {
             <b style={{ color: "#A4203A", fontSize: "20px" }}>Çin Ofis</b>
             <hr/>
 
-            <p><b>Adres: </b>Şunyi Mahallesi
+            <p><b>Adres: </b>
                 <br/>
-                    Mao Caddesi No:155 Kat:3
+                    
                 <br/>
-                    Şunyi / Pekin / Çin
+                   Pekin / Çin
 
             </p>
             <img src={CinVector} className="footerphoto" alt="China" title="China"></img>

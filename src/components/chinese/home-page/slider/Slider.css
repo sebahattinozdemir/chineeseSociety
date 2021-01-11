@@ -1,0 +1,39 @@
+.slide{
+    width: 90%;
+    padding-top:0px;
+    margin:auto;
+    
+    
+    
+}
+/* height:450px; */
+.carouselExampleInterval{
+    width: 100%;
+    height: 100%;
+   
+    overflow: hidden;
+    
+}
+.d-block{
+    max-width: 100%;
+    overflow: hidden;
+
+}
+/* On screens that are less than 700px wide, make the sidebar into a topbar */
+@media screen and (max-width: 700px) {
+   
+      
+    .slide{
+        /*display: none;*/
+        width:100% !important;
+        height:20rem !important;
+        
+        
+    }
+    .dahili{
+        height: 15rem !important;
+    }
+    
+    
+ 
+}

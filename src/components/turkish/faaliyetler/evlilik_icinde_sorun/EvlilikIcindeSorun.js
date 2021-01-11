@@ -1,6 +1,6 @@
 import "./EvlilikIcindeSorun.css";
 import Header from "../../header/Header";
-import BusinessIcon from '@material-ui/icons/Business';
+import BusinessCenterIcon from '@material-ui/icons/BusinessCenter';
 import React from 'react'
 
 export default function EvlilikIcindeSorun() {
@@ -8,12 +8,12 @@ export default function EvlilikIcindeSorun() {
         <div>
              <Header
                 
-                title="Evlilik İçinde Sorun"
-                icon={<BusinessIcon style={{fontSize: "x-large"}}/>}
+                title="Aile Hukuku Davaları"
+                icon={<BusinessCenterIcon style={{fontSize: "x-large"}}/>}
                 
             />
-            <div className="row" style={{}}>
-              <h3>Evlilik İçinde Sorun sayfasıdır</h3>
+            <div className="row" style={{padding:"2rem", minHeight:"30rem"}}>
+              <h3>Aile Hukuku Davaları sayfasıdır</h3>
                 
                 
             </div>

@@ -1,6 +1,6 @@
 import "./Haber.css";
 import Header from "../../header/Header";
-import BusinessIcon from '@material-ui/icons/Business';
+import AssignmentIcon from "@material-ui/icons/Assignment";
 import React from 'react'
 
 export default function Haber() {
@@ -9,10 +9,10 @@ export default function Haber() {
              <Header
                 
                 title="Haber"
-                icon={<BusinessIcon style={{fontSize: "x-large"}}/>}
+                icon={<AssignmentIcon style={{fontSize: "x-large"}}/>}
                 
             />
-            <div className="row" style={{}}>
+            <div className="row" style={{paddingTop: "2rem", minHeight:"30rem"}}>
               <h3>Haber sayfasıdır</h3>
                 
                 

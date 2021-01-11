@@ -1,7 +1,10 @@
 import "./Video.css";
 import Header from "../../header/Header";
-import BusinessIcon from '@material-ui/icons/Business';
-import React from 'react'
+import CameraAltIcon from '@material-ui/icons/CameraAlt';
+import ReactPlayer from "react-player";
+import React from 'react';
+import TurkCin from "../fotograf/fotoRepo/TurkCin.mp4";
+import Manastır from "../fotograf/fotoRepo/manastır.mp4";
 
 export default function Video() {
     return (
@@ -9,11 +12,21 @@ export default function Video() {
              <Header
                 
                 title="Video"
-                icon={<BusinessIcon style={{fontSize: "x-large"}}/>}
+                icon={<CameraAltIcon style={{fontSize: "x-large"}}/>}
                 
             />
-            <div className="row" style={{}}>
-              <h3>Video sayfasıdır</h3>
+            <div className="row" style={{paddingTop:"2rem"}}>
+              
+
+            <div className="col-lg-3 col-md-6 col-sm-6 col-12 video-wrapper" style={{marginBottom:"1rem"}}> 
+                <ReactPlayer className="react-player" style={{margin:"auto",overFlow:"hidden"}}
+                   url={TurkCin} controls = {true} width='40rem' height='20rem'/>
+            </div>
+            <div className="col-lg-3 col-md-6 col-sm-6 col-12 video-wrapper" style={{marginBottom:"1rem"}}> 
+                <ReactPlayer className="react-player" style={{margin:"auto",overFlow:"hidden"}}
+                   url={Manastır} controls = {true} width='40rem' height='20rem'/>
+            </div>
+            
                 
                 
             </div>

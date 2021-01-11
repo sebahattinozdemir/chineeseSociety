@@ -1,11 +1,11 @@
 import "./Navbar.css";
 import BusinessIcon from "@material-ui/icons/Business";
-import WorkIcon from '@material-ui/icons/Work';
 import GavelIcon from "@material-ui/icons/Gavel";
 import AssignmentIcon from "@material-ui/icons/Assignment";
 import HomeIcon from "@material-ui/icons/Home";
-import EmailIcon from '@material-ui/icons/Email';
+import ContactPhoneIcon from "@material-ui/icons/ContactPhone";
 import CameraAltIcon from '@material-ui/icons/CameraAlt';
+import BusinessCenterIcon from '@material-ui/icons/BusinessCenter';
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
@@ -40,8 +40,8 @@ export default class Navbar extends Component {
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav" style={{float:"right"}}>
               <li class="nav-item">
-                <Link className="nav-link menu-item-link" to="/" >
-                <HomeIcon style={{fontSize:"medium"}}/> ANA SAYFA
+                <Link className="nav-link menu-item-link" to="/tr" >
+                <HomeIcon style={{fontSize:"large"}}/> ANA SAYFA
                 </Link>
               </li>
             
@@ -57,7 +57,7 @@ export default class Navbar extends Component {
                   aria-expanded="false"
 
                 >
-                  <BusinessIcon style={{fontSize:"medium"}}/> KURUMSAL
+                  <BusinessIcon style={{fontSize:"large"}}/> KURUMSAL
                 </a>
              
                 
@@ -66,15 +66,17 @@ export default class Navbar extends Component {
                   class="dropdown-menu"
                   aria-labelledby="navbarDropdownMenuLink"
                 >
-                  <Link className="dropdown-item menu-item-link" to="/hakkimizda">
-                    Hakkımızda
-                  </Link>
-
-                  <Link className="dropdown-item menu-item-link" to="/tuzuk">
-                    Tüzük
+                  <Link className="dropdown-item menu-item-link" to="/baskanin-mesaji">
+                    Başkanın Mesajı
                   </Link>
                   <Link className="dropdown-item menu-item-link" to="/yonetim-kurulu">
                     Yönetim Kurulu
+                  </Link>
+                  <Link className="dropdown-item menu-item-link" to="/uyelerimiz">
+                    Üyelerimiz
+                  </Link>
+                  <Link className="dropdown-item menu-item-link" to="/tuzuk">
+                    Tüzük
                   </Link>
                   <Link className="dropdown-item menu-item-link" to="/uyelik-basvurusu">
                     Üyelik Başvurusu
@@ -95,8 +97,7 @@ export default class Navbar extends Component {
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
-                  <GavelIcon style={{fontSize:"medium"}}/> HİZMETLERİMİZ
-                </a>
+                  <GavelIcon style={{fontSize:"large"}}/> ÜYELERİMİZİN HİZMETLERİ                </a>
                 
                 
                 <div
@@ -136,7 +137,7 @@ export default class Navbar extends Component {
                   aria-expanded="false"
 
                 >
-                  <WorkIcon style={{fontSize:"medium"}}/> FAALİYETLERİMİZ
+                  <BusinessCenterIcon style={{fontSize:"large"}}/> FAALİYETLERİMİZ
                 </a>
                
                 
@@ -146,16 +147,16 @@ export default class Navbar extends Component {
                   aria-labelledby="navbarDropdownMenuLink"
                 >
                   <Link className="dropdown-item menu-item-link" to="/gecmis-davalar-ve-islemler">
-                    Geçmiş Davalar ve İşlemler
+                    Davalar ve İşlemler
                   </Link>
                   <Link className="dropdown-item menu-item-link" to="/kesif">
                     Keşif
                   </Link>
                   <Link className="dropdown-item menu-item-link" to="/davaci-veya-davali-dosya">
-                    Davacı veya Davalı Dosya
+                    Davacı ve Davalı Dosyaları
                   </Link>
-                  <Link className="dropdown-item menu-item-link" to="/evlilik-icinde-sorun">
-                    Evlilik İçinde Sorun
+                  <Link className="dropdown-item menu-item-link" to="/aile-hukuku-davalari">
+                    Aile Hukuku Davaları
                   </Link>
                   <Link className="dropdown-item menu-item-link" to="/sigorta">
                     Sigorta
@@ -177,7 +178,7 @@ export default class Navbar extends Component {
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
-                  <AssignmentIcon style={{fontSize:"medium"}}/> MEDYA
+                  <AssignmentIcon style={{fontSize:"large"}}/> MEDYA
                 </a>
                 
                 
@@ -209,7 +210,7 @@ export default class Navbar extends Component {
                   aria-expanded="false"
                 >
                   
-                  <CameraAltIcon style={{fontSize:"medium"}}/> GALERİ
+                  <CameraAltIcon style={{fontSize:"large"}}/> GALERİ
                 </a>
           
                 
@@ -229,7 +230,7 @@ export default class Navbar extends Component {
 
               <li class="nav-item">
                 <Link className="nav-link menu-item-link" to="/iletisim" >
-                <EmailIcon style={{fontSize:"medium"}}/> İLETİŞİM
+                <ContactPhoneIcon style={{fontSize:"large"}}/> İLETİŞİM
                 </Link>
               </li>
 

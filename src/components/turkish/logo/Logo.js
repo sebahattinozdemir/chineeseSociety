@@ -11,7 +11,7 @@ function Logo() {
         <div class="col-12" style={{ justifyContent:"center"}}>
            
             <img src={DernekLogo} className="center"></img>
-            <p className="seref">Benim Şerefim Sadakattir.</p>
+            <p className="seref"><b>Benim Şerefim Sadakattir</b></p>
         
          </div>
         

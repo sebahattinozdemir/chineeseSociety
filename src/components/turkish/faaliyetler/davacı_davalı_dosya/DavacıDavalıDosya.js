@@ -1,6 +1,6 @@
 import "./DavacıDavalıDosya.css";
 import Header from "../../header/Header";
-import BusinessIcon from '@material-ui/icons/Business';
+import BusinessCenterIcon from '@material-ui/icons/BusinessCenter';
 import React from 'react'
 
 export default function DavacıDavalıDosya() {
@@ -9,10 +9,10 @@ export default function DavacıDavalıDosya() {
              <Header
                 
                 title="Davacı veya Davalı Dosya"
-                icon={<BusinessIcon style={{fontSize: "x-large"}}/>}
+                icon={<BusinessCenterIcon style={{fontSize: "x-large"}}/>}
                 
             />
-            <div className="row" style={{}}>
+            <div className="row" style={{padding:"2rem", minHeight:"30rem"}}>
               <h3>Davacı veya Davalı Dosya sayfasıdır</h3>
                 
                 

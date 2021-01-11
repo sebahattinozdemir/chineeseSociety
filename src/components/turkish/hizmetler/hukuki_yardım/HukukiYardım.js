@@ -1,6 +1,6 @@
 import "./HukukiYardım.css";
 import Header from "../../header/Header";
-import BusinessIcon from '@material-ui/icons/Business';
+import GavelIcon from "@material-ui/icons/Gavel";
 import React from 'react'
 
 export default function HukukiYardım() {
@@ -9,14 +9,20 @@ export default function HukukiYardım() {
              <Header
                 
                 title="Hukuki Yardım"
-                icon={<BusinessIcon style={{fontSize: "x-large"}}/>}
+                icon={<GavelIcon style={{fontSize: "x-large"}}/>}
                 
             />
-            <div className="row" style={{}}>
-              <h3>Hukuki Yardım sayfasıdır</h3>
-                
-                
+            <div className="row" style={{paddingTop: "2rem", minHeight:"30rem"}}>
+             
+                <div className="col-12 hukukiyardım" style={{padding:"2rem",fontSize:"medium"}}>
+                    <ul>
+                            <li>提供法律援助 </li>
+                            <li>法律顾问服务</li>
+                    </ul>
+                </div>
+
             </div>
+            
         </div>
     )
 }

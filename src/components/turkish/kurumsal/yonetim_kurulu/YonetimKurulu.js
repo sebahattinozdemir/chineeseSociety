@@ -1,3 +1,6 @@
+import u1 from "../uyelerimiz/uyeler/u1.jpg";
+import u2 from "../uyelerimiz/uyeler/u2.jpg";
+import u7 from "../uyelerimiz/uyeler/u7.jpg";
 import "./YonetimKurulu.css";
 import Header from "../../header/Header";
 import BusinessIcon from '@material-ui/icons/Business';
@@ -12,48 +15,39 @@ export default function YonetimKurulu() {
                 icon={<BusinessIcon style={{fontSize: "x-large"}}/>}
                 
             />
-            <div className="row" style={{}}>
-            <div className="col-md-6 col-sm-6 col-12" style={{padding:"0",margin:"auto",marginTop:"3rem",marginBottom:"3rem"}}>
-                
-                <table class="table table-striped baskanlar" >
-                        <thead>
-                    <tr>
-                    <th scope="col"></th>
-                    <th scope="col" ><span style={{color:"#A4320A",fontSize:"medium"}}>Adı ve Soyadı</span></th>
-                    <th scope="col"><span style={{color:"#A4320A",fontSize:"medium"}}>Görev Tanımı</span></th>
-                    
-                    </tr>
-                </thead>
-                    <tbody>
-                        
-                        <tr>
-                            <th scope="row" style={{color:"#A4320A"}}>1</th>
-                            <td>YUE ZHAO</td>
-                            <td>Dernek Başkanı</td>
-                        </tr>
-                        <tr>
-                            <th scope="row" style={{color:"#A4320A"}}>2</th>
-                            <td>ORHAN ATİK	</td>
-                            <td>Yönetim Kurulu Üyesi</td>
-                        </tr>
-                        <tr>
-                            <th scope="row" style={{color:"#A4320A"}}>3</th>
-                            <td>MEHMET SAĞLAM</td>
-                            <td>Yönetim Kurulu Üyesi</td>
-                        </tr>
-                        <tr>
-                            <th scope="row" style={{color:"#A4320A"}}>4</th>
-                            <td>MURAT ERDAL</td>
-                            <td>Yönetim Kurulu Üyesi</td>
-                        </tr>
-                        <tr>
-                            <th scope="row" style={{color:"#A4320A"}}>5</th>
-                            <td>KADRİYE ZEYNEP ÖZGENÇ</td>
-                            <td>Yönetim Kurulu Üyesi</td>
-                        </tr>
-                    </tbody>
-                    </table>
+            <div className="row" style={{paddingTop:"2rem"}}>
+                <div className="col-lg-4 col-md-6 col-sm-6 col-12 uye_temp">
+                    <div className="uye_cerceve">
+                        <img src={u1} className="uye_card" alt="Türk-Çin Derneği Üyeleri" ></img>
+                        <div className="uye_bilgi">
+                                <p className="uye_ad" >YUE ZHAO</p>
+                                <p className="uye_gorev">Dernek Başkanı</p>
+                                
+                        </div>
+                    </div>
+                   
+                </div>
 
+                <div className="col-lg-4 col-md-6 col-sm-6 col-12 uye_temp">
+                    <div className="uye_cerceve">
+                        <img src={u2} className="uye_card" alt="Türk-Çin Derneği Üyeleri" ></img>
+                        <div className="uye_bilgi">
+                                <p className="uye_ad" >ORHAN ATIK</p>
+                                <p className="uye_gorev">Başkan Yardımıcısı</p>
+                                
+                        </div>
+                    </div>
+                </div>
+
+                <div className="col-lg-4 col-md-6 col-sm-6 col-12 uye_temp">
+                    <div className="uye_cerceve">
+                        <img src={u7} className="uye_card" alt="Türk-Çin Derneği Üyeleri" ></img>
+                        <div className="uye_bilgi">
+                                <p className="uye_ad" >MEHMET SAĞLAM</p>
+                                <p className="uye_gorev">Genel Sekreter</p>
+                                
+                        </div>
+                    </div>
                 </div>
                 
                 
