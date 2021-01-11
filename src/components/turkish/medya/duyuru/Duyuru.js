@@ -13,7 +13,7 @@ export default function Duyuru() {
                 
             />
             <div className="row" style={{paddingTop: "2rem", minHeight:"30rem"}}>
-              <h3>Duyuru sayfasıdır</h3>
+              <h3>Duyuru sayfasıdır.</h3>
                 
                 
             </div>
