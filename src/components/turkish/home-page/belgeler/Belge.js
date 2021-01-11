@@ -48,7 +48,7 @@ export default function Belge() {
                
                 <p style={{float:"left"}}><b>科目 : </b> 成立协会（编号：06-142-088）</p>
                 <br/>
-                
+                <br/>
                 <br/>
                 <h4 className="alındıbaslık" style={{textAlign:"center",fontWeight:"bold"}}>回执(注册)证明文件</h4>
                 <p style={{}}><b>回执申请日期 : </b> 03.11.2020</p>
