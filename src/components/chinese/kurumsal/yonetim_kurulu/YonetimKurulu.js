@@ -16,7 +16,7 @@ export default function YonetimKurulu() {
                 
             />
             <div className="row" style={{paddingTop:"2rem"}}>
-                <div className="col-lg-4 col-md-6 col-sm-6 col-12 uye_temp">
+                <div className="col-lg-4 col-md-6 col-sm-12 col-12 uye_temp">
                     <div className="uye_cerceve">
                         <img src={u1} className="uye_card" alt="Türk-Çin Derneği Üyeleri" ></img>
                         <div className="uye_bilgi">
@@ -28,18 +28,18 @@ export default function YonetimKurulu() {
                    
                 </div>
                 
-                <div className="col-lg-4 col-md-6 col-sm-6 col-12 uye_temp">
+                <div className="col-lg-4 col-md-6 col-sm-12 col-12 uye_temp">
                     <div className="uye_cerceve">
                         <img src={u2} className="uye_card" alt="Türk-Çin Derneği Üyeleri" ></img>
                         <div className="uye_bilgi">
                                 <p className="uye_ad" >ORHAN ATIK</p>
-                                <p className="uye_gorev">副总统</p>
+                                <p className="uye_gorev">副会长</p>
                                 
                         </div>
                     </div>
                 </div>
 
-                <div className="col-lg-4 col-md-6 col-sm-6 col-12 uye_temp">
+                <div className="col-lg-4 col-md-6 col-sm-12 col-12 uye_temp">
                     <div className="uye_cerceve">
                         <img src={u7} className="uye_card" alt="Türk-Çin Derneği Üyeleri" ></img>
                         <div className="uye_bilgi">

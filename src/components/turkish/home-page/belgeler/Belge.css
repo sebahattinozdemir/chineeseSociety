@@ -15,8 +15,12 @@
         display: block !important;
         justify-content: center !important;
     }
-    .alındı,.tanıtım{
-        font-size: 8px !important;
+    .alındı{
+        font-size: 10px !important;
+    }
+    .tanıtım{
+        font-size: 10px !important;
+        padding-right: 0rem !important;
     }
     .alındıbaslık{
         font-size: 10px !important;

@@ -6,6 +6,7 @@ import WhatsAppIcon from "@material-ui/icons/WhatsApp";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import TwitterIcon from '@material-ui/icons/Twitter';
 import WeChatIcon from "../../turkish/footer/wechat.ico";
+import FaxMachineIcon from "../../turkish/footer/faxmachine.png";
 import React from 'react'
 import "./Footer.css"
 function Footer() {
@@ -29,7 +30,6 @@ function Footer() {
           <div className="col-lg-3 col-md-6 col-sm-6 col-12" style={{paddingTop:"1%"}}>
             <b style={{ color: "#A4203A", fontSize: "20px" }}>社交媒体</b>
             <hr/>
-            
             <div>
                   <a className="footeremail" href="cvcshkd@gmail.com" style={{ float: "left"}} >
                     <EmailIcon style={{fontSize:"24px"}}/>
@@ -37,54 +37,68 @@ function Footer() {
                   <p style={{fontSize:"small"}}>&nbsp;cvcshkd@gmail.com</p>
                   
                   <a className="footerphone"
-                  href="tel: +905531688953"
+                  href="tel: +903124665666"
                   style={{ float: "left"}}
                 >
                   <SettingsPhoneIcon style={{fontSize:"24px"}}/> 
+                 
                 </a> 
-                <p style={{fontSize:"small"}}>&nbsp;+90 553 168 8953</p>
+                <p style={{fontSize:"small"}}>&nbsp;+90 312 466 56 66</p>
+
+                <a className="footerphone"
+                  href="tel: +903124665666"
+                  style={{ float: "left"}}
+                >
+                  <img src={FaxMachineIcon} style={{ width:"2rem",height:"2rem" }} ></img>
+                </a> 
+                <p style={{fontSize:"small"}}>&nbsp;+90 312 466 56 66</p>
                
                 <a
                 className="footerwhatsapp"
-                href="https://wa.me/+905531688953"
+                href="https://wa.me/+905525505878"
                 style={{float: "left",fontSize:"small"}}
               >
                 <WhatsAppIcon style={{ fontSize: "24px" }} />   
               </a>
-              <p style={{fontSize:"small"}}>&nbsp;+90 553 168 8953</p>
+              <p style={{fontSize:"small"}}>&nbsp;+90 552 550 58 78</p>
               
-              <a
-                className="footerlinkedin"
-                href="https://www.linkedin.com/in/t%C3%BCrk-%C3%A7in-k%C3%BClt%C3%BCr-derne%C4%9Fi-92aa45150/"
-                target="_blank"
-                style={{float: "left" }}
-              >
-                <LinkedInIcon style={{ fontSize: "24px" }} />
-              </a>
-              <p style={{fontSize:"small"}}>&nbsp;领英</p>
-
-              <a
-                className="footerfacebook"
-                href="https://www.wechat.com/"
-                target="_blank"
-                style={{float: "left" }}
-              >
-                <img src={WeChatIcon} style={{ width:"2.5rem",height:"2.5rem" }} ></img>
+              <div style={{display:"inline"}}>
+                  <a
+                    className="footerfacebook"
+                    href="https://www.wechat.com/"
+                    target="_blank"
+                    style={{float: "left" }}
+                  >
+                    <img src={WeChatIcon} style={{ width:"2.5rem",height:"2.5rem" }} ></img>
+                    
+                  </a>
+              
+                  
+                  <a
+                    className="footerlinkedin"
+                    href="https://www.linkedin.com/in/t%C3%BCrk-%C3%A7in-k%C3%BClt%C3%BCr-derne%C4%9Fi-92aa45150/"
+                    target="_blank"
+                    style={{float: "left",paddingLeft:"3rem" }}
+                  >
+                    <LinkedInIcon style={{ fontSize: "24px" }} />
+                  </a>
                 
-              </a>
-              <p style={{fontSize:"small"}}>&nbsp;微信</p>
-
-              <a
-                className="footerlinkedin"
-                href="https://www.twitter.com/"
-                target="_blank"
-                style={{float: "left" }}
-              >
-                <TwitterIcon style={{ fontSize: "24px" }} />
-              </a>
-              <p style={{fontSize:"small"}}>&nbsp;推特</p>
+                  
+                  <a
+                    className="footerlinkedin"
+                    href="https://www.twitter.com/"
+                    target="_blank"
+                    style={{float: "left",paddingLeft:"3rem" }}
+                  >
+                    <TwitterIcon style={{ fontSize: "24px" }} />
+                  </a>
+              </div>
+              
+              
               <br/>
-            </div>  
+            </div>
+            
+            
           </div>
 
         

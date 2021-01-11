@@ -17,11 +17,11 @@
     text-decoration: none;
     color:#A4203A;
 }
-.footerphone,.footerwhatsapp,.footerfacebook,.footerlinkedin{
+.footerphone,.footerwhatsapp,.footerlinkedin{
     color:black;
     
 }
-.footerphone:hover,.footerwhatsapp:hover,.footerfacebook:hover,.footerlinkedin:hover{
+.footerphone:hover,.footerwhatsapp:hover,.footerlinkedin:hover{
     color:#A4203A;
     
 }

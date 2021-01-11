@@ -195,7 +195,7 @@ class Mail extends Component {
                       formErrors.name.length > 0 ? "error" : null
                     }`}
                     onChange={this.handleChange}
-                    placeholder="你的名字"
+                    placeholder="姓名"
                     noValidate
                   ></input>
                   {formErrors.name.length > 0 && (
@@ -214,7 +214,7 @@ class Mail extends Component {
                       formErrors.email.length > 0 ? "error" : null
                     }`}
                     onChange={this.handleChange}
-                    placeholder="您的电子邮件地址"
+                    placeholder="电子邮件"
                     noValidate
                   ></input>
                   {formErrors.email.length > 0 && (

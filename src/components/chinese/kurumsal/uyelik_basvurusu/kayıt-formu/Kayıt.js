@@ -198,7 +198,7 @@ class Kayıt extends Component {
                 
               }}
             >
-               会员注册表格
+               会员申请表
             </p>
             
             <form id="contact-form" style={{marginLeft:"10%",marginRight:"10%"}} onSubmit={this.handleSubmit} noValidate>
@@ -212,7 +212,7 @@ class Kayıt extends Component {
                       formErrors.name.length > 0 ? "error" : null
                     }`}
                     onChange={this.handleChange}
-                    placeholder="名和姓"
+                    placeholder="姓名"
                     noValidate
                   ></input>
                   {formErrors.name.length > 0 && (
@@ -230,7 +230,7 @@ class Kayıt extends Component {
                       formErrors.birth_place.length > 0 ? "error" : null
                     }`}
                     onChange={this.handleChange}
-                    placeholder="您的出生地"
+                    placeholder="出生地"
                     noValidate
                   ></input>
                   {formErrors.birth_place.length > 0 && (
@@ -248,7 +248,7 @@ class Kayıt extends Component {
                       formErrors.birth_date.length > 0 ? "error" : null
                     }`}
                     onChange={this.handleChange}
-                    placeholder="您的出生日期"
+                    placeholder="出生日"
                     noValidate
                   ></input>
                   {formErrors.birth_date.length > 0 && (
@@ -266,7 +266,7 @@ class Kayıt extends Component {
                       formErrors.cellphone.length > 0 ? "error" : null
                     }`}
                     onChange={this.handleChange}
-                    placeholder="您的手机号码"
+                    placeholder="手机号"
                     noValidate
                   ></input>
                   {formErrors.cellphone.length > 0 && (
@@ -285,7 +285,7 @@ class Kayıt extends Component {
                       formErrors.email.length > 0 ? "error" : null
                     }`}
                     onChange={this.handleChange}
-                    placeholder="您的电子邮件地址"
+                    placeholder="电子邮件"
                     noValidate
                   ></input>
                   {formErrors.email.length > 0 && (
@@ -303,7 +303,7 @@ class Kayıt extends Component {
                       formErrors.address.length > 0 ? "error" : null
                     }`}
                     onChange={this.handleChange}
-                    placeholder="你的地址"
+                    placeholder="地址"
                     noValidate
                   ></input>
                   {formErrors.address.length > 0 && (
@@ -322,7 +322,7 @@ class Kayıt extends Component {
                       formErrors.expectation.length > 0 ? "error" : null
                     }`}
                     onChange={this.handleChange}
-                    placeholder="您在协会注册的目的"
+                    placeholder="申请目的"
                     noValidate
                   ></textarea>
                   {formErrors.expectation.length > 0 && (
@@ -342,7 +342,7 @@ class Kayıt extends Component {
                     type="submit"
                     style={{ width: "100%",backgroundColor:"#A4203A" }}
                   >
-                    <b>寄存器</b>
+                    <b>申请</b>
                   </button>
                 </div>
               </div>
