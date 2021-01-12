@@ -1,15 +1,37 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 import "./App.css";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import db from "./firebase";
-import TrMenu from "./components/turkish/menu/Menu";
+
+import TrFlag from "./turkish.ico";
+import Navbar from "./components/turkish/navbar/Navbar";
+import Logo from "./components/turkish/logo/Logo";
 import Footer from "./components/turkish/footer/Footer";
 import Home from "./components/turkish/home-page/Home";
-import About from "./components/turkish/about-page/About";
+import Baskan from "./components/turkish/kurumsal/baskan-mesaji/Baskan";
+import Yönetim from "./components/turkish/kurumsal/yonetim_kurulu/YonetimKurulu";
+import Üyeler from "./components/turkish/kurumsal/uyelerimiz/Uyeler";
+import Tüzük from "./components/turkish/kurumsal/tüzük/Tüzük";
+import Üyelik from "./components/turkish/kurumsal/uyelik_basvurusu/UyelikBasvurusu";
+import UyelerinHukukiHizmetleri from "./components/turkish/hizmetler/uyelerin_hukuki_hizmetleri/UyelerinHukukiHizmetleri";
+import İkametCalısmaİzni from "./components/turkish/hizmetler/ikamet_calisma_izni/İkametCalısmaİzni";
+import HukukiYardım from "./components/turkish/hizmetler/hukuki_yardım/HukukiYardım";
+import HukukiDanısma from "./components/turkish/hizmetler/hukuki_danısma/HukukiDanısma";
+import MaliDanısma from "./components/turkish/hizmetler/mali_danısma/MaliDanısma";
+import OzelDurumlardaHukukiYardım from "./components/turkish/hizmetler/özel_durumlarda_hukuki_yardım/OzelDurumlardaHukukiYardım";
+import GecmisDavalarIslemler from "./components/turkish/faaliyetler/gecmis_davalar_islemler/GecmisDavalarIslemler";
+import Kesif from "./components/turkish/faaliyetler/kesif/Kesif";
+import DavacıDavalıDosya from "./components/turkish/faaliyetler/davacı_davalı_dosya/DavacıDavalıDosya";
+import EvlilikIcindeSorun from "./components/turkish/faaliyetler/evlilik_icinde_sorun/EvlilikIcindeSorun";
+import Sigorta from "./components/turkish/faaliyetler/sigorta/Sigorta";
+import Haber from "./components/turkish/medya/haber/Haber";
+import Duyuru from "./components/turkish/medya/duyuru/Duyuru";
+import Fotograf from "./components/turkish/galeri/fotograf/Fotograf";
+import Video from "./components/turkish/galeri/video/Video";
 import Services from "./components/turkish/services-page/Service";
 import Reference from "./components/turkish/references-page/Reference";
-import Blog from "./components/turkish/blog/Blog";
+import Blog from "./components/turkish/medya/blog/Blog";
 import Contact from "./components/turkish/contact-page/Contact";
 import Notfound from "./components/turkish/notfound/Notfound";
 import Turk from "./components/turkish/services-page/turk-vatandasligi/Turk";
@@ -18,52 +40,60 @@ import Egitim from "./components/turkish/investment/turkiyede-egitim/Egitim";
 import TurkSaglik from "./components/turkish/investment/turkiyede-saglik/TurkSaglik";
 import Yasam from "./components/turkish/investment/turkiyede-yasam/Yasam";
 import Yatirim from "./components/turkish/investment/turkiyede-yatirim/Yatirim";
-import AltBlog from "./components/turkish/blog/Altblog";
+import AltBlog from "./components/turkish/medya/blog/Altblog";
 import ServicePage from "./components/turkish/services-page/ServicePage";
-import EngMenu from "./components/english/menu/Menu";
-import EngFooter from "./components/english/footer/Footer";
-import EngHome from "./components/english/home-page/Home";
-import EngAbout from "./components/english/about-page/About";
-import EngServices from "./components/english/services-page/Service";
-import EngReference from "./components/english/references-page/Reference";
-import EngBlog from "./components/english/blog/Blog";
-import EngContact from "./components/english/contact-page/Contact";
-import EngTurk from "./components/english/services-page/turk-vatandasligi/Turk";
-import EngAdmin from "./components/english/admin/Admin";
-import EngEgitim from "./components/english/investment/turkiyede-egitim/Egitim";
-import EngTurkSaglik from "./components/english/investment/turkiyede-saglik/TurkSaglik";
-import EngYasam from "./components/english/investment/turkiyede-yasam/Yasam";
-import EngYatirim from "./components/english/investment/turkiyede-yatirim/Yatirim";
-import EngAltBlog from "./components/english/blog/Altblog";
-import EngServicePage from "./components/english/services-page/ServicePage";
 
-import ChiMenu from "./components/chineese/menu/Menu";
-import ChiFooter from "./components/chineese/footer/Footer";
-import ChiHome from "./components/chineese/home-page/Home";
-import ChiAbout from "./components/chineese/about-page/About";
-import ChiServices from "./components/chineese/services-page/Service";
-import ChiReference from "./components/chineese/references-page/Reference";
-import ChiBlog from "./components/chineese/blog/Blog";
-import ChiContact from "./components/chineese/contact-page/Contact";
-import ChiTurk from "./components/chineese/services-page/turk-vatandasligi/Turk";
-import ChiAdmin from "./components/chineese/admin/Admin";
-import ChiEgitim from "./components/chineese/investment/turkiyede-egitim/Egitim";
-import ChiTurkSaglik from "./components/chineese/investment/turkiyede-saglik/TurkSaglik";
-import ChiYasam from "./components/chineese/investment/turkiyede-yasam/Yasam";
-import ChiYatirim from "./components/chineese/investment/turkiyede-yatirim/Yatirim";
-import ChiAltBlog from "./components/chineese/blog/Altblog";
-import ChiServicePage from "./components/chineese/services-page/ServicePage";
+import ChFlag from "./chinese.ico";
+import ChiLogo from "./components/chinese/logo/Logo";
+import ChiNavbar from "./components/chinese/navbar/Navbar";
+import ChiFooter from "./components/chinese/footer/Footer";
+import ChiHome from "./components/chinese/home-page/Home";
+import ChiFotograf from "./components/chinese/galeri/fotograf/Fotograf";
+import ChiVideo from "./components/chinese/galeri/video/Video";
+import ChiContact from "./components/chinese/contact-page/Contact";
+import ChiHaber from "./components/chinese/medya/haber/Haber";
+import ChiDuyuru from "./components/chinese/medya/duyuru/Duyuru";
+import ChiBlog from "./components/chinese/medya/blog/Blog";
+import ChiGecmisDavalarIslemler from "./components/chinese/faaliyetler/gecmis_davalar_islemler/GecmisDavalarIslemler";
+import ChiKesif from "./components/chinese/faaliyetler/kesif/Kesif";
+import ChiDavacıDavalıDosya from "./components/chinese/faaliyetler/davacı_davalı_dosya/DavacıDavalıDosya";
+import ChiEvlilikIcindeSorun from "./components/chinese/faaliyetler/evlilik_icinde_sorun/EvlilikIcindeSorun";
+import ChiSigorta from "./components/chinese/faaliyetler/sigorta/Sigorta";
+import ChiBaskan from "./components/chinese/kurumsal/baskan-mesaji/Baskan";
+import ChiYönetim from "./components/chinese/kurumsal/yonetim_kurulu/YonetimKurulu";
+import ChiÜyeler from "./components/chinese/kurumsal/uyelerimiz/Uyeler";
+import ChiTüzük from "./components/chinese/kurumsal/tüzük/Tüzük";
+import ChiÜyelik from "./components/chinese/kurumsal/uyelik_basvurusu/UyelikBasvurusu";
+import ChiUyelerinHukukiHizmetleri from "./components/chinese/hizmetler/uyelerin_hukuki_hizmetleri/UyelerinHukukiHizmetleri";
+import ChiİkametCalısmaİzni from "./components/chinese/hizmetler/ikamet_calisma_izni/İkametCalısmaİzni";
+import ChiHukukiYardım from "./components/chinese/hizmetler/hukuki_yardım/HukukiYardım";
+import ChiHukukiDanısma from "./components/chinese/hizmetler/hukuki_danısma/HukukiDanısma";
+import ChiMaliDanısma from "./components/chinese/hizmetler/mali_danısma/MaliDanısma";
+import ChiOzelDurumlardaHukukiYardım from "./components/chinese/hizmetler/özel_durumlarda_hukuki_yardım/OzelDurumlardaHukukiYardım";
+
+
+
+import ChiEgitim from "./components/chinese/investment/turkiyede-egitim/Egitim";
+import ChiYatirim from "./components/chinese/investment/turkiyede-yatirim/Yatirim";
+import ChiSaglik from "./components/chinese/investment/turkiyede-saglik/TurkSaglik";
+import ChiYasam from "./components/chinese/investment/turkiyede-yasam/Yasam";
+
+
 
 function App() {
   const [services, setServices] = useState([]);
   const [blogs, setBlogs] = useState([]);
 
+const [hizmetler, setHizmetlerimiz] = useState([]);
+const [bloks, setBloks] = useState([]);
+  
   useEffect(() => {
     // fires once when the app loads
+
     db.collection("services")
       .orderBy("timeStamp", "desc")
       .onSnapshot((snapshot) => {
-        setServices(
+        setHizmetlerimiz(
           snapshot.docs.map((doc) => ({
             id: doc.id,
             heading: doc.data().heading,
@@ -81,6 +111,36 @@ function App() {
     db.collection("blogs")
       .orderBy("timeStamp", "desc")
       .onSnapshot((snapshot) => {
+        setBloks(
+          snapshot.docs.map((doc) => ({
+            id: doc.id,
+            heading: doc.data().heading,
+            content: doc.data().blog_content,
+          }))
+        );
+      });
+
+      db.collection("enServices")
+      .orderBy("timeStamp", "desc")
+      .onSnapshot((snapshot) => {
+        setServices(
+          snapshot.docs.map((doc) => ({
+            id: doc.id,
+            heading: doc.data().heading,
+            serviceContent: doc.data().service_content,
+            underServiceHead1: doc.data().under_service_head1,
+            underServiceHead2: doc.data().under_service_head2,
+            underServiceHead3: doc.data().under_service_head3,
+            underServiceText1: doc.data().under_service_text1,
+            underServiceText2: doc.data().under_service_text2,
+            underServiceText3: doc.data().under_service_text3,
+          }))
+        );
+      });
+
+    db.collection("enBlogs")
+      .orderBy("timeStamp", "desc")
+      .onSnapshot((snapshot) => {
         setBlogs(
           snapshot.docs.map((doc) => ({
             id: doc.id,
@@ -89,57 +149,202 @@ function App() {
           }))
         );
       });
+
+    console.log(services);
   }, []);
 
-  const [state, setState] = useState("chi");
-
+  const [state, setState] = useState(true);
   const handleChange = () => {
-    if (state === "chi") {
-      setState("eng");
-    } else if (state === "eng") {
-      setState("tr");
-    } else if (state === "tr") {
-      setState("chi");
+    setState(!state);
+    if (state) {
+      db.collection("services")
+        .orderBy("timeStamp", "desc")
+        .onSnapshot((snapshot) => {
+          setHizmetlerimiz(
+            snapshot.docs.map((doc) => ({
+              id: doc.id,
+              heading: doc.data().heading,
+              serviceContent: doc.data().service_content,
+              underServiceHead1: doc.data().under_service_head1,
+              underServiceHead2: doc.data().under_service_head2,
+              underServiceHead3: doc.data().under_service_head3,
+              underServiceText1: doc.data().under_service_text1,
+              underServiceText2: doc.data().under_service_text2,
+              underServiceText3: doc.data().under_service_text3,
+            }))
+          );
+        });
+
+      db.collection("blogs")
+        .orderBy("timeStamp", "desc")
+        .onSnapshot((snapshot) => {
+          setBloks(
+            snapshot.docs.map((doc) => ({
+              id: doc.id,
+              heading: doc.data().heading,
+              content: doc.data().blog_content,
+            }))
+          );
+        });
+    } else {
+      db.collection("enServices")
+        .orderBy("timeStamp", "desc")
+        .onSnapshot((snapshot) => {
+          setServices(
+            snapshot.docs.map((doc) => ({
+              id: doc.id,
+              heading: doc.data().heading,
+              serviceContent: doc.data().service_content,
+              underServiceHead1: doc.data().under_service_head1,
+              underServiceHead2: doc.data().under_service_head2,
+              underServiceHead3: doc.data().under_service_head3,
+              underServiceText1: doc.data().under_service_text1,
+              underServiceText2: doc.data().under_service_text2,
+              underServiceText3: doc.data().under_service_text3,
+            }))
+          );
+        });
+
+      db.collection("enBlogs")
+        .orderBy("timeStamp", "desc")
+        .onSnapshot((snapshot) => {
+          setBlogs(
+            snapshot.docs.map((doc) => ({
+              id: doc.id,
+              heading: doc.data().heading,
+              content: doc.data().blog_content,
+            }))
+          );
+        });
     }
   };
   return (
     <Router>
       <div className="container-fluid app">
-        
-        <nav className="navbar navbar-inverse navbar-fixed-top" style={{ backgroundColor: "#222222", padding: "0%", margin: "0%" }}>
-          
-          {state === "chi" && (
-            <label style={{ padding: "1%" }} onClick={handleChange}>
-              Chineese
-            </label>
-          )}
-          
-          {state === "eng" && (
-            <label style={{ padding: "1%" }} onClick={handleChange}>
-              English
-            </label>
-          )}
-          
-          {state === "tr" && (
-            <label style={{ padding: "1%" }} onClick={handleChange}>
-              Türkçe
-            </label>
-          )}
-          
-         
 
-          {state === "chi" && <ChiMenu />}
-          {state === "eng" && <EngMenu />}
-          {state === "tr" && <TrMenu />}
+      <div
+          className="row languageOption"
+          style={{
+            
+          }}
+        >
+          {state === true ? (
+            <Link to="/tr">
+              <label onClick={handleChange} style={{ color: "black",marginTop:"1rem" }}>
+                <img
+                  src={TrFlag}
+                  style={{ width: "2.5rem", height: "2.5rem",marginLeft:"1rem" }}
+                ></img>{" "}
+                &nbsp;Türkçe
+              </label>
+            </Link>
+          ) : (
+            <Link to="/">
+              <label onClick={handleChange} style={{ color: "black",marginTop:"1rem" }}>
+                <img
+                  src={ChFlag}
+                  style={{ width: "2.5rem", height: "2.5rem",marginLeft:"1rem"  }}
+                ></img>{" "}
+                &nbsp;中文
+              </label>
+            </Link>
+          )}
+        </div>
+
         
+        {state===true ? (
+            <nav className="navbar" style={{backgroundColor: "#ffffff"}}>
+            <ChiLogo/>
+            </nav>
+        ):(
+          <nav className="navbar" style={{backgroundColor: "#ffffff"}}>
+             <Logo/>
+          </nav>
+        )} 
+        
+        
+
+        {state === true ? (
+              <nav className="navbar menu" style={{ backgroundColor: "#A4203A", padding: "0%",marginBottom:"0",marginLeft:"-3rem",marginRight:"-3rem" }}>
+
+              <ChiNavbar/>
+            </nav>
+        ): (
+          <nav className="navbar menu" style={{ backgroundColor: "#A4203A", padding: "0%",marginBottom:"0",marginLeft:"-3rem",marginRight:"-3rem" }}>
+
+              <Navbar/>
         </nav>
+        )}
+
+        
+      
+         
+        <br/>
 
         <div className="container-fluid">
 
           <Switch>
-           
-            <Route exact path="/" component={Home} />
-            <Route exact path="/hakkimizda" component={About} />
+            <Route exact path="/" component={ChiHome} />
+            <Route exact path="/chi-turkiyede-egitim" component={ChiEgitim} />
+            <Route exact path="/chi-turkiyede-saglik" component={ChiSaglik} />
+            <Route exact path="/chi-turkiyede-yasam" component={ChiYasam} />
+            <Route exact path="/chi-turkiyede-yatirim" component={ChiYatirim} />
+            <Route exact path="/chi-fotograflar" component={ChiFotograf}/>
+            <Route exact path="/chi-videolar" component={ChiVideo}/>
+            <Route exact path="/chi-iletisim" component={ChiContact}/>
+            <Route exact path="/chi-haberler" component={ChiHaber} />
+            <Route exact path="/chi-duyurular" component={ChiDuyuru} />
+            <Route exact path="/chi-blog" component={ChiBlog} />
+
+            <Route exact path="/chi-uyelerin-hukuki-hizmetleri" component={ChiUyelerinHukukiHizmetleri} />
+            <Route exact path="/chi-ikamet-calisma-izni" component={ChiİkametCalısmaİzni} />
+            <Route exact path="/chi-hukuki-yardim" component={ChiHukukiYardım} />
+            <Route exact path="/chi-hukuki-danisma" component={ChiHukukiDanısma} />
+            <Route exact path="/chi-mali-danisma" component={ChiMaliDanısma} />
+            <Route exact path="/chi-ozel-durumlarda-hukuki-yardim" component={ChiOzelDurumlardaHukukiYardım} />
+
+            <Route exact path="/chi-baskanin-mesaji" component={ChiBaskan} />
+            <Route exact path="/chi-tuzuk" component={ChiTüzük} />
+            <Route exact path="/chi-uyelerimiz" component={ChiÜyeler} />
+            <Route exact path="/chi-yonetim-kurulu" component={ChiYönetim} />
+            <Route exact path="/chi-uyelik-basvurusu" component={ChiÜyelik} />
+
+            <Route exact path="/chi-gecmis-davalar-ve-islemler" component={ChiGecmisDavalarIslemler} />
+            <Route exact path="/chi-kesif" component={ChiKesif} />
+            <Route exact path="/chi-davaci-veya-davali-dosya" component={ChiDavacıDavalıDosya} />
+            <Route exact path="/chi-aile-hukuku-davalari" component={ChiEvlilikIcindeSorun} />
+            <Route exact path="/chi-sigorta" component={ChiSigorta} />
+            
+
+            
+
+            <Route exact path="/tr" component={Home} />
+
+            <Route exact path="/baskanin-mesaji" component={Baskan} />
+            <Route exact path="/tuzuk" component={Tüzük} />
+            <Route exact path="/uyelerimiz" component={Üyeler} />
+            <Route exact path="/yonetim-kurulu" component={Yönetim} />
+            <Route exact path="/uyelik-basvurusu" component={Üyelik} />
+
+            <Route exact path="/uyelerin-hukuki-hizmetleri" component={UyelerinHukukiHizmetleri} />
+            <Route exact path="/ikamet-calisma-izni" component={İkametCalısmaİzni} />
+            <Route exact path="/hukuki-yardim" component={HukukiYardım} />
+            <Route exact path="/hukuki-danisma" component={HukukiDanısma} />
+            <Route exact path="/mali-danisma" component={MaliDanısma} />
+            <Route exact path="/ozel-durumlarda-hukuki-yardim" component={OzelDurumlardaHukukiYardım} />
+
+            <Route exact path="/gecmis-davalar-ve-islemler" component={GecmisDavalarIslemler} />
+            <Route exact path="/kesif" component={Kesif} />
+            <Route exact path="/davaci-veya-davali-dosya" component={DavacıDavalıDosya} />
+            <Route exact path="/aile-hukuku-davalari" component={EvlilikIcindeSorun} />
+            <Route exact path="/sigorta" component={Sigorta} />
+
+            <Route exact path="/haberler" component={Haber} />
+            <Route exact path="/duyurular" component={Duyuru} />
+
+            <Route exact path="/fotograflar" component={Fotograf} />
+            <Route exact path="/videolar" component={Video} />
+
             <Route exact path="/hizmetlerimiz" component={Services} />
             <Route exact path="/referanslarimiz" component={Reference} />
             <Route exact path="/blog" component={Blog} />
@@ -149,6 +354,8 @@ function App() {
             <Route exact path="/turkiyede-saglik" component={TurkSaglik} />
             <Route exact path="/turkiyede-yasam" component={Yasam} />
             <Route exact path="/turkiyede-yatirim" component={Yatirim} />
+
+            
 
             {services.map((service, index) => (
               <Route
@@ -167,78 +374,15 @@ function App() {
             ))}
 
 
-            <Route exact path="/eng" component={EngHome} />
-            <Route exact path="/about-us" component={EngAbout} />
-            <Route exact path="/services" component={EngServices} />
-            <Route exact path="/references" component={EngReference} />
-            <Route exact path="/en-blog" component={EngBlog} />
-            <Route exact path="/contact" component={EngContact} />
-            <Route exact path="/turkish-citizenship" component={EngTurk} />
-            <Route exact path="/education-in-turkey" component={EngEgitim} />
-            <Route exact path="/health-in-turkey" component={EngTurkSaglik} />
-            <Route exact path="/life-in-turkey" component={EngYasam} />
-            <Route exact path="/investment-in-turkey" component={EngYatirim} />
-
-            {services.map((service, index) => (
-              <Route
-                exact
-                path={"/services/" + service.heading}
-                component={EngServicePage}
-              />
-            ))}
-
-            {blogs.map((blog, index) => (
-              <Route
-                exact
-                path={"/eng-blogs/" + blog.heading}
-                component={EngAltBlog}
-              />
-            ))}
-
-            <Route exact path="/chi" component={ChiHome} />
-            <Route exact path="/about-us" component={ChiAbout} />
-            <Route exact path="/services" component={ChiServices} />
-            <Route exact path="/references" component={ChiReference} />
-            <Route exact path="/en-blog" component={ChiBlog} />
-            <Route exact path="/contact" component={ChiContact} />
-            <Route exact path="/turkish-citizenship" component={ChiTurk} />
-            <Route exact path="/education-in-turkey" component={ChiEgitim} />
-            <Route exact path="/health-in-turkey" component={ChiTurkSaglik} />
-            <Route exact path="/life-in-turkey" component={ChiYasam} />
-            <Route exact path="/investment-in-turkey" component={ChiYatirim} />
-
-            {services.map((service, index) => (
-              <Route
-                exact
-                path={"/services/" + service.heading}
-                component={ChiServicePage}
-              />
-            ))}
-
-            {blogs.map((blog, index) => (
-              <Route
-                exact
-                path={"/eng-blogs/" + blog.heading}
-                component={ChiAltBlog}
-              />
-            ))}
-
+            
             <Route exact path="/admin" component={Admin} />
-            <Route exact path="/eng-admin" component={EngAdmin} />
-            <Route exact path="/chi-admin" component={ChiAdmin} />
             <Route component={Notfound} />
 
           </Switch>
-          <div
-            id="footer"
-            className="col-12"
-            style={{ width: "100%", backgroundColor: "#f8f9fa"}}
-          >
+              
+         
             
-            {state === "chi" && <ChiFooter />}
-            {state === "eng" && <EngFooter />}
-            {state === "tr" && <Footer />}
-          </div>
+            {state === true ? <ChiFooter /> : <Footer />}
         
         </div>
       </div>

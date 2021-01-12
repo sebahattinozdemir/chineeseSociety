@@ -7,7 +7,7 @@ export default class Altheader extends Component {
     render(){
         const {alttitle,title,icon}=this.props;
     return (
-        <div class="row p-4" style={{ backgroundColor: "#A4203A",paddingTop:"5rem",width:"100%",paddingLeft:"5rem",height:"20rem",marginLeft:"0px",marginTop:"12rem"}}>
+        <div class="row p-4" style={{ backgroundColor: "#A4203A",paddingTop:"5rem",width:"100%",paddingLeft:"5rem",height:"20rem",marginTop:"10rem"}}>
           <div className="col-12">
          
                 <div className="genel">

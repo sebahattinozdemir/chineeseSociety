@@ -1,96 +1,237 @@
-import ankara from "./ankara06.jpg";
-import samsun from "./samsun55.jpg";
+import CinVector from "./cinV12.jpg";
+import TurkeyVector from "./turkeyV12.jpg";
 import SettingsPhoneIcon from "@material-ui/icons/SettingsPhone";
-import EmailIcon from '@material-ui/icons/Email';
-import React from 'react'
-import "./Footer.css"
+import EmailIcon from "@material-ui/icons/Email";
+import WhatsAppIcon from "@material-ui/icons/WhatsApp";
+import LinkedInIcon from "@material-ui/icons/LinkedIn";
+import TwitterIcon from "@material-ui/icons/Twitter";
+import WeChatIcon from "./wechat.ico";
+import FaxMachineIcon from "./faxmachine.png";
+import React from "react";
+import "./Footer.css";
 function Footer() {
-    return (
-      <div class="row" style={{marginRight:"-3rem",marginLeft:"-3rem"}}>   
-      <div class="col-12" style={{ backgroundColor:"#F8F9FA",paddingLeft:"2rem",paddingRight:"2rem"}}>
-          
-      <div className="col-lg-3 col-md-6 col-sm-6 col-12" style={{paddingTop:"1%",}}>
-        
-        <b style={{ color: "#A4203A", fontSize: "20px"}}>Neden Biz</b>
-        <hr/>
-        <p style={{textAlign:"justify"}}>
-        NAR Danışmanlık , Ankara merkezli bir danışmanlık ofisi olup Türkiye genelindeki ve yurt dışındaki çözüm ortakları ve bünyesindeki avukatlarla birlikte yerli ve yabancı danışanlarına ticari ve hukuki danışmanlık hizmetleri sunmaktadır.
-        NAR Danışmanlık hizmetleri, İkamet izni (oturma izni), Yabancı sermayeli şirket kuruluşu, Çalışma izni, Türk  hukuku, Türk vatandaşlığı gibi başlıca konularda  profesyonel avukat ve uzman kadrosuyla   hizmet veren Türk danışmanlık firmasıdır.
-        </p>
-       
-      </div>
+  return (
+    <div class="row" style={{ marginRight: "-3rem", marginLeft: "-3rem" }}>
+      <div class="col-12" style={{ backgroundColor: "#F8F9FA" }}>
+        <div
+          className="col-lg-3 col-md-6 col-sm-6 col-12"
+          style={{ paddingTop: "1%" }}
+        >
+          <b style={{ color: "#A4203A", fontSize: "20px" }}>Neden Biz</b>
+          <hr />
+          <p style={{ textAlign: "justify" }}>
+            Çin Vatandaş ve Çin Şirketleri Hukuki Hak ve Menfaatlerini Koruma ve
+            Yardımlaşma Derneği olarak Misyonumuz sırasıyla Çince'yi ve Çin
+            Kültürünü Türklere tanıtmaktır. Türk Kültürünü Türkiye'deki ve
+            Çin'deki Çinlilere tanıtmaktır. Çin ve Türk halkları arasında bir
+            köprü görevi görmektir. Tüm üyelerimize hukuki süreçlerde
+            danışmanlık yapıp onların sorunlarını gidermeye çalışıyoruz.
+          </p>
+        </div>
 
-      <div className="col-lg-3 col-md-6 col-sm-6 col-12" style={{paddingTop:"1%"}}>
-        <b style={{ color: "#A4203A", fontSize: "20px" }}>Yasal Uyarı</b>
-        <hr/>
-        <p style={{textAlign:"justify"}}>
-        Tüm hakları saklıdır. Bu sitede yer alan yazı, haber, fotoğraf, video ve sair dokümanların, bireysel kullanım dışında izin alınmadan kısmen ya da tamamen kopyalanması, çoğaltılması, kullanılması, yayınlanması ve dağıtılması kesinlikle yasaktır.
-        </p>
-        
-        <div>
-              <a className="footeremail" href="nargocvedanismanlik@gmail.com" ><EmailIcon style={{fontSize:"24px",color:"black",float:"left"}}/> &nbsp;nargocvedanismanlik@gmail.com</a> 
-              <br/>
-              <br/>
-              <a className="footerphone"
-              href="tel: +905376971155"
-              style={{ float: "left"}}
+        <div
+          className="col-lg-3 col-md-6 col-sm-6 col-12"
+          style={{ paddingTop: "1%" }}
+        >
+          <b style={{ color: "#A4203A", fontSize: "20px" }}>Sosyal Medya</b>
+          <hr />
+
+          <div>
+            <a
+              className="footeremail"
+              href="cvcshkd@gmail.com"
+              style={{ float: "left" }}
             >
-              <SettingsPhoneIcon style={{fontSize:"24px"}}/> 
-            </a> 
-            <p style={{fontSize:"medium"}}>&nbsp;+90 537 697 11 55</p>
-        </div>  
+              <EmailIcon style={{ fontSize: "24px" }} />
+            </a>
+            <p style={{ fontSize: "small" }}>&nbsp;cvcshkd@gmail.com</p>
+
+            <a
+              className="footerphone"
+              href="tel: +903124665666"
+              style={{ float: "left" }}
+            >
+              <SettingsPhoneIcon style={{ fontSize: "24px" }} />
+            </a>
+            <p style={{ fontSize: "small" }}>&nbsp;+90 312 466 56 66</p>
+
+            <a
+              className="footerfax"
+              href="tel: +903124665666"
+              style={{ float: "left" }}
+            >
+              <img
+                src={FaxMachineIcon}
+                style={{ width: "2rem", height: "2rem" }}
+              ></img>
+            </a>
+            <p style={{ fontSize: "small" }}>&nbsp;+90 312 466 56 66</p>
+
+            <a
+              className="footerwhatsapp"
+              href="https://wa.me/+905525505878"
+              style={{ float: "left", fontSize: "small" }}
+            >
+              <WhatsAppIcon style={{ fontSize: "24px" }} />
+            </a>
+            <p style={{ fontSize: "small" }}>&nbsp;+90 552 550 58 78</p>
+
+            <div style={{ display: "inline" }}>
+              <a
+                className="footerwechat"
+                href="https://www.wechat.com/"
+                target="_blank"
+                style={{ float: "left" }}
+              >
+                <img
+                  src={WeChatIcon}
+                  style={{ width: "2.5rem", height: "2.5rem" }}
+                ></img>
+              </a>
+
+              <a
+                className="footerlinkedin"
+                href="https://www.linkedin.com/in/t%C3%BCrk-%C3%A7in-k%C3%BClt%C3%BCr-derne%C4%9Fi-92aa45150/"
+                target="_blank"
+                style={{ float: "left", paddingLeft: "3rem" }}
+              >
+                <LinkedInIcon style={{ fontSize: "24px" }} />
+              </a>
+
+              <a
+                className="footerlinkedin"
+                href="https://www.twitter.com/"
+                target="_blank"
+                style={{ float: "left", paddingLeft: "3rem" }}
+              >
+                <TwitterIcon style={{ fontSize: "24px" }} />
+              </a>
+            </div>
+
+            <br />
+            <br />
+          </div>
+        </div>
+
+        <div
+          className="col-lg-3 col-md-6 col-sm-6 col-12"
+          style={{ paddingTop: "1%" }}
+        >
+          <b style={{ color: "#A4203A", fontSize: "20px" }}>Yasal Uyarı</b>
+          <hr />
+          <p style={{ textAlign: "justify" }}>
+            Tüm hakları saklıdır. Bu sitede yer alan yazı, haber, fotoğraf,
+            video ve sair dokümanların, bireysel kullanım dışında izin alınmadan
+            kısmen ya da tamamen kopyalanması, çoğaltılması, kullanılması,
+            yayınlanması ve dağıtılması kesinlikle yasaktır.
+          </p>
+
+          <div
+            className="col-lg-3 col-md-6 col-sm-6 col-12"
+            style={{ paddingTop: "1%" }}
+          >
+            <b style={{ color: "#A4203A", fontSize: "20px" }}>Türkiye Ofis</b>
+            <hr />
+
+            <p>
+              <b>Adres: </b>Çankaya Mahallesi
+              <br />
+              Cinnah Caddesi No:67-69/5
+              <br />
+              Kızılay / Çankaya / Ankara
+            </p>
+            <img
+              src={TurkeyVector}
+              className="footerphoto"
+              alt="Turkey"
+              title="Turkey"
+            ></img>
+          </div>
+
+          <div
+            className="col-lg-3 col-md-6 col-sm-6 col-12"
+            style={{ paddingTop: "1%" }}
+          >
+            <b style={{ color: "#A4203A", fontSize: "20px" }}>Çin Ofis</b>
+            <hr />
+
+            <p>
+              <b>Adres: </b>
+              <br />
+              <br />
+              Pekin / Çin
+            </p>
+            <img
+              src={CinVector}
+              className="footerphoto"
+              alt="China"
+              title="China"
+            ></img>
+          </div>
+        </div>
+
+        <div className="col-12">
+          <p style={{ color: "#f8f9fa" }}>
+            This line was inserted in order to give a unique hr tag below the
+            four colums
+          </p>
+          <hr />
+          <div className="patent">
+            <p
+              style={{
+                fontSize: "12px",
+                color: "black",
+                paddingLeft: "1rem",
+                float: "left",
+              }}
+            >
+              {" "}
+              ©2020 All Rights Reserved
+            </p>
+            &nbsp; &nbsp;
+            <p
+              style={{
+                fontSize: "12px",
+                color: "black",
+                paddingRight: "1rem",
+                float: "right",
+                textAlign: "right",
+              }}
+            >
+              {" "}
+              ®Se<b>B</b>er Tech
+            </p>
+          </div>
+        </div>
+
+        <div className="col-12">
+          <p style={{ color: "#f8f9fa" }}>
+            This line was inserted in order to give a unique hr tag below the
+            four colums
+          </p>
+          <hr />
+          <div className="patent">
+            <p style={{ fontSize: "12px", color: "black", float: "left" }}>
+              {" "}
+              ©2020 All Rights Reserved
+            </p>
+            &nbsp; &nbsp;
+            <p
+              style={{
+                fontSize: "12px",
+                color: "black",
+                float: "right",
+                textAlign: "right",
+              }}
+            >
+              {" "}
+              ®Se<b>B</b>er Tech
+            </p>
+          </div>
+        </div>
       </div>
-
-    
-      <div className="col-lg-3 col-md-6 col-sm-6 col-12" style={{paddingTop:"1%"}}>
-        <b style={{ color: "#A4203A", fontSize: "20px" }}>Ankara Ofis</b>
-        <hr/>
-        <p><b>Çalışma Saatleri: </b> 10:00 - 18:00</p>
-        <p><b>Adres: </b>Atatürk İş Merkezi
-            <br/>
-                Karanfil Caddesi No:199 Kat:2
-            <br/>
-                Kızılay / Çankaya / Ankara
-
-        </p>
-        <img src={ankara} className="footerphoto" alt="Ankara" title="Ankara"></img>
-        
-      </div>
-
-      <div className="col-lg-3 col-md-6 col-sm-6 col-12" style={{paddingTop:"1%"}}>
-        <b style={{ color: "#A4203A", fontSize: "20px" }}>Samsun Ofis</b>
-        <hr/>
-        <p><b>Çalışma Saatleri: </b> 10:00 - 18:00</p>
-        <p><b>Adres: </b>Atatürk İş Merkezi
-            <br/>
-                Nato Caddesi No:155 Kat:3
-            <br/>
-                Atakent / Atakum / Samsun
-
-        </p>
-        <img src={samsun} className="footerphoto" alt="Samsun" title="Samsun"></img>
-       
-      </div>
-
-      
-
-      <div className="col-12">
-        <p style={{color:"#f8f9fa"}}>This line was inserted in order to give a unique hr tag below the four colums</p>
-        <hr/> 
-                <div className="patent">
-                    
-                        <p style={{fontSize:"12px",color:"black",float:"left"}}> ©2020 All Rights Reserved</p> 
-                        &nbsp; &nbsp;
-                        <p style={{fontSize:"12px",color:"black",float:"right",textAlign:"right"}}> ®Se<b>B</b>er Tech</p>
-                </div>
-      </div>
-
-
     </div>
-
-    </div>
-
-    )
+  );
 }
 
-export default Footer
+export default Footer;

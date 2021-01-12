@@ -6,3 +6,24 @@
 }
 
 
+
+  /* On screens that are less than 700px wide, make the sidebar into a topbar */
+  @media screen and (max-width: 991px) {
+   
+  
+   
+    
+    .languageOption{
+      
+      z-index:100 !important; 
+      
+      
+    }
+  
+    .languageOption label{
+      color: black !important;
+      margin-top: 1rem !important;
+    }
+ 
+}
+

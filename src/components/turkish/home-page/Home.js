@@ -1,10 +1,12 @@
 import "./Home.css";
-import video from "./1.gif";
+import homepic from "./dernekhomepic.jpg";
+import Belgeler from "./belgeler/Belge";
 import investment from "./investment.jpg";
 import education from "./education.jpg";
 import life from "./life.jpg";
 import health from "./health.jpg";
-import Mail from "../mail/Mail";
+import Mail from "../contact-page/mail/Mail";
+import Slider from "./slider/Slider";
 import Interior from "../services-interior/Interior";
 import Investment from "../investment/Investment";
 import React, { useEffect } from 'react';
@@ -16,37 +18,27 @@ function Home() {
 
   return (
     <div className="row">
-      <div
-        className="col-12 slide"
-        style={{ position: "relative", marginLeft:'1%',marginRight:'1%',marginTop:"12rem" }}
-      >
+      
+      <div className="col-12 home" style={{padding:"1rem"}}>
 
-            SLIDER
-      </div>
-      <div className="row" style={{margin:"0%"}}>
-          <Interior
-                photo={'1LZTxibFFvhoQTPxw1GUUStwsnInyfkyl'}
-                title="Türk Vatandaşlığı"
-                uzanti="/hizmetlerimiz/turk-vatandasligi"
-                explain="Yatırım yoluyla Türk vatandaşlığı (Türkiye’den ev alan yabancılara vatandaşlık) 2018 yeni programının tüm detaylarını ve danışmanlık hizmetlerimizin kapsamını burada bulabilirsiniz."
-                
-            />
-            <Interior
-                photo={"1UUKWt898yMXnzR1DDJHwky34eJ7T2ODX"}
-                title="Çalışma İzni"
-                uzanti="/hizmetlerimiz/calisma-izni"
-                explain="Yabancıların Türkiye’de çalışma esaslarını düzenleyen 6735 Sayılı Uluslarası işgücü kanunu ve yönetmeliğine göre Çalışma izni hakkında tüm sorularınıza bu sayfamızda cevap bulabilirsiniz."
-            />
-            <Interior
-                photo={"1lr4LRsHya9kh5Q5fg8xi1_AHmxhn9BJj"}
-                title="Oturma İzni"
-                uzanti="/hizmetlerimiz/oturma-izni"
-                explain="Türkiye’de yabancılar için ikamet izni çeşitleri, başvuru yöntemleri ve başvuruların nasıl yapılacağına dair videolu anlatımlarla Oturma izni ile ilgili herşeyi detaylı anlatıyoruz."
-            />
+          <Slider/>
+          
+          
           
       </div>
-     
-      <div className="row" style={{marginBottom:"2rem"}}>
+
+      
+
+        <div className="col-12 giristablo">
+                <img className="girisresmi " src={homepic} style={{width:"60%",height:"40rem",margin:"auto",display:"block",align:"center"}}></img>
+        </div>
+      
+        
+      <div className="col-12 belge" style={{marginTop:"1rem",marginBottom:"2rem"}}>
+            <Belgeler/>
+      </div>
+        
+      <div className="col-12 invest" style={{marginTop:"1rem"}}>
             <Investment
                 Iphoto={investment}
                 Ititle="Türkiye'de Yatırım"
@@ -71,10 +63,18 @@ function Home() {
                 Iuzanti="/turkiyede-egitim"
                 Iexplain="Yabancı öğrenciler için bir cennet olan Türkiye’de hangi okullarda nasıl eğitimler veriliyor, okul kayıt aşamaları, öğrenci ikamet izinleri, mezuniyet sonrası iş bulma süreçlerini detaylı bir şekilde öğretiyoruz."
             />
-      </div>
+        </div>
             
-            <Mail />
+            <Mail/>
+
+            <div className="col-12 harita" style={{}}>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6533.593095300537!2d32.85717809978627!3d39.890760560175714!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d34f8255924da3%3A0x21e8de7da6a71210!2s%C3%87ankaya%2C%20Cinnah%20Cd.%2067-69%2C%2006690%20%C3%87ankaya%2FAnkara!5e0!3m2!1str!2str!4v1609827468241!5m2!1str!2str" 
+                className="googleharita" style={{width:"100%", height:"45rem", frameBorder:"0", allowFullScreen:"", ariaHidden:"false", tabIndex:"0",border:"2px #A4203A solid",paddingBottom:"0.5rem",paddingTop:"0.5rem"}}> </iframe>
+            </div> 
+
             
+          
+       
     </div>
   );
 }

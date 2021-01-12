@@ -1,0 +1,9 @@
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 700px) {
+    .react-player{
+        width:30rem !important;
+        height: 15rem !important;
+    }
+    
+  }
+  
