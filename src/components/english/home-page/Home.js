@@ -21,25 +21,7 @@ function Home() {
         style={{ position: "relative", marginLeft:'1%',marginRight:'1%' }}
       >
 
-        <img
-          src={video}
-          class="card-img-top"
-          alt="..."
-          style={{ width: "100%", height: "25vw"}}
-        ></img>
-
-        <p
-          style={{
-            position: "absolute",
-            top: "65%",
-            left: "15%",
-            color: "white",
-            fontSize:"xx-large"
-            
-          }}
-        >
-          DAHA HIZLI VE DAHA GÜVENLİ ADIMLAR İÇİN BİZİ TERCİH ETMELİSİNİZ...
-        </p>
+      SLIDER
       </div>
       <div className="row" style={{margin:"0%",padding:"1%"}}>
           <Interior
