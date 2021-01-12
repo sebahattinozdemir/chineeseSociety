@@ -21,7 +21,6 @@ function Home() {
       
       <div className="col-12 slide">
 
-      SLIDER
    
       </div>
 

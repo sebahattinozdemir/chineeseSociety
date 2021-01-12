@@ -1,8 +1,9 @@
 .body{
-    background-color:#f8f9fa;
     
     width:100%;
     padding-top: 25px;
+    
+    
     
     
 }
@@ -11,7 +12,7 @@
     text-align: left;
 }
 .footerphoto{
-    width:80%; 
+    width:96%; 
     height:10rem;
     padding:2%;
     float:left;

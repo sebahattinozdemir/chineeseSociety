@@ -122,9 +122,11 @@ function App() {
           
           {state === "tr" && (
             <label style={{ padding: "1%" }} onClick={handleChange}>
-              Turkish
+              Türkçe
             </label>
           )}
+          
+         
 
           {state === "chi" && <ChiMenu />}
           {state === "eng" && <EngMenu />}
@@ -227,9 +229,15 @@ function App() {
             <Route component={Notfound} />
 
           </Switch>
-
-          <div id="footer" className="col-12 mx-0 px-0" style={{ backgroundColor: "#f8f9fa" }}>
-            {state === true ? <Footer /> : <EngFooter />}
+          <div
+            id="footer"
+            className="col-12"
+            style={{ width: "100%", backgroundColor: "#f8f9fa"}}
+          >
+            
+            {state === "chi" && <ChiFooter />}
+            {state === "eng" && <EngFooter />}
+            {state === "tr" && <Footer />}
           </div>
         
         </div>
