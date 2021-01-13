@@ -1,5 +1,6 @@
-import CinVector from "./cinV12.jpg";
-import TurkeyVector from "./turkeyV12.jpg";
+
+import CinVector from "../../turkish/footer/cinV12.jpg";
+import TurkeyVector from "../../turkish/footer/turkeyV12.jpg";
 import SettingsPhoneIcon from "@material-ui/icons/SettingsPhone";
 import EmailIcon from '@material-ui/icons/Email';
 import WhatsAppIcon from "@material-ui/icons/WhatsApp";
@@ -8,7 +9,7 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 import WeChatIcon from "../../turkish/footer/wechat.ico";
 import FaxMachineIcon from "../../turkish/footer/faxmachine.png";
 import React from 'react'
-import "./Footer.css"
+import "../../turkish/footer/Footer.css";
 function Footer() {
     return (
         <div class="row"  style={{marginRight:"-3rem",marginLeft:"-3rem"}}>

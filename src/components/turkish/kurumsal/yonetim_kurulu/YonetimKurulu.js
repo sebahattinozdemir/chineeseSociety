@@ -15,8 +15,8 @@ export default function YonetimKurulu() {
                 icon={<BusinessIcon style={{fontSize: "x-large"}}/>}
                 
             />
-            <div className="row" style={{paddingTop:"2rem"}}>
-                <div className="col-lg-4 col-md-6 col-sm-12 col-12 uye_temp">
+            <div className="row" style={{paddingTop:"2rem", minHeight:"30rem"}}>
+                <div className="col-lg-4 col-md-6 col-sm-6 col-12 mb-2">
                     <div className="uye_cerceve">
                         <img src={u1} className="uye_card" alt="Türk-Çin Derneği Üyeleri" ></img>
                         <div className="uye_bilgi">
@@ -27,8 +27,8 @@ export default function YonetimKurulu() {
                     </div>
                    
                 </div>
-
-                <div className="col-lg-4 col-md-6 col-sm-12 col-12 uye_temp">
+                
+                <div className="col-lg-4 col-md-6 col-sm-6 col-12 mb-2">
                     <div className="uye_cerceve">
                         <img src={u2} className="uye_card" alt="Türk-Çin Derneği Üyeleri" ></img>
                         <div className="uye_bilgi">
@@ -39,7 +39,7 @@ export default function YonetimKurulu() {
                     </div>
                 </div>
 
-                <div className="col-lg-4 col-md-6 col-sm-12 col-12 uye_temp">
+                <div className="col-lg-4 col-md-6 col-sm-6 col-12 mb-2">
                     <div className="uye_cerceve">
                         <img src={u7} className="uye_card" alt="Türk-Çin Derneği Üyeleri" ></img>
                         <div className="uye_bilgi">

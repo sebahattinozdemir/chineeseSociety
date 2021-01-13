@@ -1,5 +1,5 @@
 import React from 'react';
-import "./Yasam.css";
+import "../turkiyede-egitim/Egitim.css";
 import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
 import Header from "../../header/Header"; 
 

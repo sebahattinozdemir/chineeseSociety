@@ -1,4 +1,4 @@
-import "./Haber.css";
+
 import Header from "../../header/Header";
 import AssignmentIcon from "@material-ui/icons/Assignment";
 import React from 'react'

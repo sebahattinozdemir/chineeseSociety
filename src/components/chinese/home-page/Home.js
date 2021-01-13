@@ -1,12 +1,12 @@
 import "./Home.css";
-import homepic from "./dernekhomepic.jpg";
-import investment from "./investment.jpg";
-import education from "./education.jpg";
-import life from "./life.jpg";
-import health from "./health.jpg";
+import homepic from "../../turkish/home-page/dernekhomepic.jpg";
+import investment from "../../turkish/home-page/investment.jpg";
+import education from "../../turkish/home-page/education.jpg";
+import life from "../../turkish/home-page/life.jpg";
+import health from "../../turkish/home-page/health.jpg";
 import Mail from "../contact-page/mail/Mail";
 import Belgeler from "../../turkish/home-page/belgeler/Belge";
-import Slider from "./slider/Slider";
+import Slider from "../../turkish/home-page/slider/Slider";
 import Investment from "../investment/Investment";
 import React, { useEffect } from 'react';
 

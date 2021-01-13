@@ -1,5 +1,6 @@
-import "./Duyuru.css";
+
 import Sertifika from "../../../turkish/medya/duyuru/sertifika.jpg";
+import "../../../turkish/medya/duyuru/Duyuru.css";
 import c1 from "../../../turkish/medya/duyuru/duyururepo/cin1.jpg";
 import c2 from "../../../turkish/medya/duyuru/duyururepo/cin2.jpg";
 import c3 from "../../../turkish/medya/duyuru/duyururepo/cin3.jpg";

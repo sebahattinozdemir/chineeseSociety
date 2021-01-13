@@ -1,5 +1,5 @@
 import React from 'react';
-import "./TurkSaglik.css";
+import "../../../turkish/investment/turkiyede-egitim/Egitim.css";
 import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
 import Header from "../../header/Header"; 
 

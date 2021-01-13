@@ -1,7 +1,8 @@
 import Header from "../../header/Header";
 import BusinessIcon from '@material-ui/icons/Business';
 import React from "react";
-import "./Baskan.css";
+import "../../../turkish/kurumsal/baskan-mesaji/Baskan.css";
+
 
 
 

@@ -15,7 +15,7 @@ import c14 from "../../../turkish/galeri/fotograf/fotoRepo/c14.jpg";
 import c15 from "../../../turkish/galeri/fotograf/fotoRepo/c15.jpg"; 
 import c16 from "../../../turkish/galeri/fotograf/fotoRepo/c16.jpg"; 
 import c17 from "../../../turkish/galeri/fotograf/fotoRepo/c17.jpg"; 
-import c18 from "../../../turkish/galeri/fotograf/fotoRepo/c18.jpg"; 
+import c21 from "../../../turkish/galeri/fotograf/fotoRepo/c21.jpg"; 
 import c19 from "../../../turkish/galeri/fotograf/fotoRepo/c19.jpg"; 
 import c20 from "../../../turkish/galeri/fotograf/fotoRepo/c20.jpg"; 
 import "./Fotograf.css";
@@ -59,7 +59,7 @@ export default function Fotograf() {
                     <img src={c8} className="foto_card" alt="Türk-Çin Derneği" ></img>
                 </div>
                 <div className="col-lg-3 col-md-6 col-sm-6 col-12" style={{ marginBottom:"2rem" }}>
-                    <img src={c18} className="foto_card" alt="Türk-Çin Derneği" ></img>
+                    <img src={c21} className="foto_card" alt="Türk-Çin Derneği" ></img>
                 </div>
                 <div className="col-lg-3 col-md-6 col-sm-6 col-12" style={{ marginBottom:"2rem" }}>
                     <img src={c10} className="foto_card" alt="Türk-Çin Derneği" ></img>

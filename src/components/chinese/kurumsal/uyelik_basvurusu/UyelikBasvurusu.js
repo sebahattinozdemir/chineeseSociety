@@ -1,4 +1,4 @@
-import "./UyelikBasvurusu.css";
+
 import Header from "../../header/Header";
 import BusinessIcon from '@material-ui/icons/Business';
 import Kayıt from "./kayıt-formu/Kayıt";

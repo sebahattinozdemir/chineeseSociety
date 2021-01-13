@@ -1,4 +1,4 @@
-import "./Uyeler.css";
+import "../../../turkish/kurumsal/yonetim_kurulu/YonetimKurulu.css";
 import u3 from "../../../turkish/kurumsal/uyelerimiz/uyeler/u3.jpg";
 import u4 from "../../../turkish/kurumsal/uyelerimiz/uyeler/u4.jpg";
 import u5 from "../../../turkish/kurumsal/uyelerimiz/uyeler/u5.jpg";
@@ -22,9 +22,9 @@ export default function Uyeler() {
                 icon={<BusinessIcon style={{fontSize: "x-large"}}/>}
                 
             />
-             <div className="row" style={{paddingTop:"2rem"}}>
+             <div className="row" style={{paddingTop:"2rem", minHeight:"30rem"}}>
                
-               <div className="col-lg-4 col-md-6 col-sm-12 col-12 uye_temp">
+               <div className="col-lg-4 col-md-6 col-sm-16 col-12 mb-2">
                    <div className="uye_cerceve">
                        <img src={u3} className="uye_card" alt="Türk-Çin Derneği Üyeleri" ></img>
                        <div className="uye_bilgi">
@@ -34,7 +34,7 @@ export default function Uyeler() {
                        </div>
                    </div>
                </div>
-               <div className="col-lg-4 col-md-6 col-sm-12 col-12 uye_temp">
+               <div className="col-lg-4 col-md-6 col-sm-6 col-12 mb-2">
                    <div className="uye_cerceve">
                        <img src={u4} className="uye_card" alt="Türk-Çin Derneği Üyeleri" ></img>
                        <div className="uye_bilgi">
@@ -44,7 +44,7 @@ export default function Uyeler() {
                        </div>
                    </div>
                </div>
-               <div className="col-lg-4 col-md-6 col-sm-12 col-12 uye_temp">
+               <div className="col-lg-4 col-md-6 col-sm-6 col-12 mb-2">
                    <div className="uye_cerceve">
                        <img src={u5} className="uye_card" alt="Türk-Çin Derneği Üyeleri" ></img>
                        <div className="uye_bilgi">
@@ -54,7 +54,7 @@ export default function Uyeler() {
                        </div>
                    </div>
                </div>
-               <div className="col-lg-4 col-md-6 col-sm-12 col-12 uye_temp">
+               <div className="col-lg-4 col-md-6 col-sm-6 col-12 mb-2">
                    <div className="uye_cerceve">
                        <img src={u6} className="uye_card" alt="Türk-Çin Derneği Üyeleri" ></img>
                        <div className="uye_bilgi">
@@ -64,7 +64,7 @@ export default function Uyeler() {
                        </div>
                    </div>
                </div>
-               <div className="col-lg-4 col-md-6 col-sm-12 col-12 uye_temp">
+               <div className="col-lg-4 col-md-6 col-sm-6 col-12 mb-2">
                    <div className="uye_cerceve">
                        <img src={u8} className="uye_card" alt="Türk-Çin Derneği Üyeleri" ></img>
                        <div className="uye_bilgi">
@@ -74,7 +74,7 @@ export default function Uyeler() {
                        </div>
                    </div>
                </div>
-               <div className="col-lg-4 col-md-6 col-sm-12 col-12 uye_temp">
+               <div className="col-lg-4 col-md-6 col-sm-6 col-12 mb-2">
                    <div className="uye_cerceve">
                        <img src={u9} className="uye_card" alt="Türk-Çin Derneği Üyeleri" ></img>
                        <div className="uye_bilgi">
@@ -84,7 +84,7 @@ export default function Uyeler() {
                        </div>
                    </div>
                </div>
-               <div className="col-lg-4 col-md-6 col-sm-12 col-12 uye_temp">
+               <div className="col-lg-4 col-md-6 col-sm-6 col-12 mb-2">
                    <div className="uye_cerceve">
                        <img src={u10} className="uye_card" alt="Türk-Çin Derneği Üyeleri" ></img>
                        <div className="uye_bilgi">
@@ -94,7 +94,7 @@ export default function Uyeler() {
                        </div>
                    </div>
                </div>
-               <div className="col-lg-4 col-md-6 col-sm-12 col-12 uye_temp">
+               <div className="col-lg-4 col-md-6 col-sm-6 col-12 mb-2">
                    <div className="uye_cerceve">
                        <img src={u11} className="uye_card" alt="Türk-Çin Derneği Üyeleri" ></img>
                        <div className="uye_bilgi">
@@ -104,7 +104,7 @@ export default function Uyeler() {
                        </div>
                    </div>
                </div>
-               <div className="col-lg-4 col-md-6 col-sm-12 col-12 uye_temp">
+               <div className="col-lg-4 col-md-6 col-sm-6 col-12 mb-2">
                    <div className="uye_cerceve">
                        <img src={u12} className="uye_card" alt="Türk-Çin Derneği Üyeleri" ></img>
                        <div className="uye_bilgi">
@@ -114,7 +114,7 @@ export default function Uyeler() {
                        </div>
                    </div>
                </div>
-               <div className="col-lg-4 col-md-6 col-sm-12 col-12 uye_temp">
+               <div className="col-lg-4 col-md-6 col-sm-6 col-12 mb-2">
                    <div className="uye_cerceve">
                        <img src={u13} className="uye_card" alt="Türk-Çin Derneği Üyeleri" ></img>
                        <div className="uye_bilgi">

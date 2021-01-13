@@ -15,9 +15,9 @@ import c14 from "./fotoRepo/c14.jpg";
 import c15 from "./fotoRepo/c15.jpg"; 
 import c16 from "./fotoRepo/c16.jpg"; 
 import c17 from "./fotoRepo/c17.jpg"; 
-import c21 from "./fotoRepo/c21.jpg"; 
 import c19 from "./fotoRepo/c19.jpg"; 
 import c20 from "./fotoRepo/c20.jpg"; 
+import c21 from "./fotoRepo/c21.jpg"; 
 import "./Fotograf.css";
 import Header from "../../header/Header";
 import CameraAltIcon from '@material-ui/icons/CameraAlt';
@@ -96,6 +96,8 @@ export default function Fotograf() {
                 <div className="col-lg-3 col-md-6 col-sm-6 col-12" style={{ marginBottom:"2rem" }}>
                     <img src={c2} className="foto_card" alt="Türk-Çin Derneği" ></img>
                 </div>
+
+                
               
                 
                 

@@ -1,4 +1,5 @@
-import "./Tüzük.css";
+
+import "../../../turkish/kurumsal/tüzük/Tüzük.css";
 import Header from "../../header/Header";
 import BusinessIcon from '@material-ui/icons/Business';
 import React from 'react'

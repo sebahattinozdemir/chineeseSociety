@@ -2,7 +2,7 @@ import Header from "../header/Header";
 import ContactPhoneIcon from "@material-ui/icons/ContactPhone";
 import Mail from "./mail/Mail";
 import React, { useEffect, useState } from "react";
-import "./Contact.css";
+
 
 
 function Contact() {

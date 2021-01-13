@@ -1,4 +1,3 @@
-import "./Sigorta.css";
 import Header from "../../header/Header";
 import BusinessCenterIcon from '@material-ui/icons/BusinessCenter';
 import React from 'react'
