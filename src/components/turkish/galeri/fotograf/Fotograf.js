@@ -35,7 +35,7 @@ export default function Fotograf() {
             <div className="row" style={{paddingTop:"2rem"}}>
                
                 <div className="col-lg-3 col-md-6 col-sm-6 col-12" style={{ marginBottom:"2rem" }}>
-                    <img src={c7} className="foto_card" alt="Türk-Çin Derneği" ></img>
+                    <img src={"https://drive.google.com/uc?export=view&id=1tzqvYPanrKu0h3_OqIOLeykGh1GcSHTW"} className="foto_card" alt="Türk-Çin Derneği" ></img>
                 </div>
                 <div className="col-lg-3 col-md-6 col-sm-6 col-12" style={{ marginBottom:"2rem" }}>
                     <img src={c11} className="foto_card" alt="Türk-Çin Derneği" ></img>
