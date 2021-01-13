@@ -29,19 +29,14 @@ import Haber from "./components/turkish/medya/haber/Haber";
 import Duyuru from "./components/turkish/medya/duyuru/Duyuru";
 import Fotograf from "./components/turkish/galeri/fotograf/Fotograf";
 import Video from "./components/turkish/galeri/video/Video";
-import Services from "./components/turkish/services-page/Service";
-import Reference from "./components/turkish/references-page/Reference";
 import Blog from "./components/turkish/medya/blog/Blog";
 import Contact from "./components/turkish/contact-page/Contact";
 import Notfound from "./components/turkish/notfound/Notfound";
-import Turk from "./components/turkish/services-page/turk-vatandasligi/Turk";
 import Admin from "./components/turkish/admin/Admin";
 import Egitim from "./components/turkish/investment/turkiyede-egitim/Egitim";
 import TurkSaglik from "./components/turkish/investment/turkiyede-saglik/TurkSaglik";
 import Yasam from "./components/turkish/investment/turkiyede-yasam/Yasam";
 import Yatirim from "./components/turkish/investment/turkiyede-yatirim/Yatirim";
-import AltBlog from "./components/turkish/medya/blog/Altblog";
-import ServicePage from "./components/turkish/services-page/ServicePage";
 
 import ChFlag from "./chinese.ico";
 import ChiLogo from "./components/chinese/logo/Logo";
@@ -345,36 +340,14 @@ const [bloks, setBloks] = useState([]);
             <Route exact path="/fotograflar" component={Fotograf} />
             <Route exact path="/videolar" component={Video} />
 
-            <Route exact path="/hizmetlerimiz" component={Services} />
-            <Route exact path="/referanslarimiz" component={Reference} />
             <Route exact path="/blog" component={Blog} />
             <Route exact path="/iletisim" component={Contact} />
-            <Route exact path="/turk-vatandasligi" component={Turk} />
+          
             <Route exact path="/turkiyede-egitim" component={Egitim} />
             <Route exact path="/turkiyede-saglik" component={TurkSaglik} />
             <Route exact path="/turkiyede-yasam" component={Yasam} />
             <Route exact path="/turkiyede-yatirim" component={Yatirim} />
-
-            
-
-            {services.map((service, index) => (
-              <Route
-                exact
-                path={"/hizmetlerimiz/" + service.heading}
-                component={ServicePage}
-              />
-            ))}
-
-            {blogs.map((blog, index) => (
-              <Route
-                exact
-                path={"/blogs/" + blog.heading}
-                component={AltBlog}
-              />
-            ))}
-
-
-            
+          
             <Route exact path="/admin" component={Admin} />
             <Route component={Notfound} />
 

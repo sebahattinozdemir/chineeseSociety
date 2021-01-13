@@ -8,7 +8,6 @@ import health from "./health.jpg";
 import Mail from "../contact-page/mail/Mail";
 import Slider from "./slider/Slider";
 
-import Interior from "../services-interior/Interior";
 import Investment from "../investment/Investment";
 import React, { useEffect } from 'react';
 
