@@ -24,6 +24,14 @@ export default function İkametCalısmaİzni() {
                       <li>
                       <a className="calismalink" href="https://www.goc.gov.tr/calisma-izni-sss" target="_blank">您可以通过单击工作许可证的链接来获取信息</a>
                       </li>
+                      <br/>
+                      <li>由移民律师专业代办移民手续和办理居住许可</li>
+                      <li>由专业律师代办动产和不动产房产购买</li>
+                      <li>由专业律师代办工作和居住许可</li>
+                      <li>由保险律师代办保险</li>
+
+                      
+
                   </ul>
                 
                 

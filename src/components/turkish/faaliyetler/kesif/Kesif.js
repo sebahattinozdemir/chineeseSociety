@@ -16,8 +16,8 @@ export default function Kesif() {
              
             
              <div className="col-12 kesif" style={{padding:"2rem",fontSize:"medium"}}>
-                <p style={{fontWeight:"bold"}}>根据多年来对中土双方企业贸易纠纷的处理过程中，大致的问题有以下方面：</p>
-                <p style={{fontWeight:"bold"}}>中国方面;</p>
+                <p style={{fontWeight:"bold",fontSize:"large"}}>根据多年来对中土双方企业贸易纠纷的处理过程中，大致的问题有以下方面：</p>
+                <p style={{fontWeight:"bold",fontSize:"large"}}>中国方面;</p>
                 <ol>
                     <li>均没有完整的产供销正规合同，以形式发票替代正规合同,</li>
                     <li>利用中国律师按照大陆法系原则签订英美法系合同，造成责权利脱节,</li>
@@ -32,7 +32,7 @@ export default function Kesif() {
                     <li>轻信长时间合作伙伴的经验主义。</li>
 
                 </ol>
-                <p style={{fontWeight:"bold"}}>土耳其方面;</p>
+                <p style={{fontWeight:"bold",fontSize:"large"}}>土耳其方面;</p>
                 <ol>
                     <li>针对中国企业问题有选择性的进行贸易款拖欠.</li>
                     <li>假冒中国企业伪造贸易贸易清关文件.</li>
@@ -51,7 +51,7 @@ export default function Kesif() {
                     <li>善于利用中国企业和公民维权意识淡漠和不会计较过往的心里.</li>
                     <li>善于利用我国政府善意保护国外投资者的心里和政策</li>
                 </ol>
-                <p style={{fontWeight:"bold"}}>土耳其司法方面;</p>
+                <p style={{fontWeight:"bold",fontSize:"large"}}>土耳其司法方面;</p>
                 <ol>
                     <li>审理时间长</li>
                     <li>审理程序复杂</li>

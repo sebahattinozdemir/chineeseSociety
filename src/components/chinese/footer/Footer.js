@@ -94,14 +94,57 @@ function Footer() {
                 <LinkedInIcon style={{ fontSize: "24px" }} />
               </a>
 
-              <a
-                className="footerlinkedin"
-                href="https://www.twitter.com/"
-                target="_blank"
-                style={{ float: "left", paddingLeft: "3rem" }}
+                <a className="footerphone"
+                  href="tel: +903124665666"
+                  style={{ float: "left"}}
+                >
+                  <img src={FaxMachineIcon} style={{ width:"2rem",height:"2rem" }} ></img>
+                </a> 
+                <p style={{fontSize:"small"}}>&nbsp; +90 312 466 56 66</p>
+               
+                <a
+                className="footerwhatsapp"
+                href="https://wa.me/+905525505878"
+                style={{float: "left",fontSize:"small"}}
               >
                 <TwitterIcon style={{ fontSize: "24px" }} />
               </a>
+              <p style={{fontSize:"small"}}>&nbsp;+90 552 550 58 78</p>
+              
+              <div style={{display:"inline"}}>
+                  <a
+                    className="footerfacebook"
+                    href="https://www.wechat.com/"
+                    target="_blank"
+                    style={{float: "left" }}
+                  >
+                    <img src={WeChatIcon} style={{ width:"2.5rem",height:"2.5rem" }} ></img>
+                    
+                  </a>
+              
+                  
+                  <a
+                    className="footerlinkedin"
+                    href="https://www.linkedin.com/in/t%C3%BCrk-%C3%A7in-k%C3%BClt%C3%BCr-derne%C4%9Fi-92aa45150/"
+                    target="_blank"
+                    style={{float: "left",paddingLeft:"1rem" }}
+                  >
+                    <LinkedInIcon style={{ fontSize: "24px" }} />
+                  </a>
+                
+                  
+                  <a
+                    className="footerlinkedin"
+                    href="https://www.twitter.com/"
+                    target="_blank"
+                    style={{float: "left",paddingLeft:"1rem" }}
+                  >
+                    <TwitterIcon style={{ fontSize: "24px" }} />
+                  </a>
+              </div>
+              
+              <br/>
+              <br/>
             </div>
 
             <br />

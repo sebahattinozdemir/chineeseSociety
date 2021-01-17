@@ -12,11 +12,27 @@ export default function Sigorta() {
                 icon={<BusinessCenterIcon style={{fontSize: "x-large"}}/>}
                 
             />
-            <div className="row" style={{padding:"2rem", minHeight:"30rem"}}>
-              <h3>Sigorta sayfasıdır</h3>
-                
-                
+            <div className="row" style={{paddingTop: "2rem", minHeight:"30rem"}}>
+             
+             <div className="col-12 hukukiyardım" style={{padding:"2rem",fontSize:"medium"}}>
+                 <ul>
+                         
+                         <li>家庭险</li>
+                         <li>医疗险</li>
+                         <li>旅游险</li>
+                         <li>航空险</li>
+
+                         
+
+
+
+
+                 </ul>
+             </div>
+
             </div>
-        </div>
+
+
+ </div>
     )
 }

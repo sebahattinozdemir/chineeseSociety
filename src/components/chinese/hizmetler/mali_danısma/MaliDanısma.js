@@ -20,6 +20,7 @@ export default function MaliDanısma() {
                             <li>公司注册</li>
                             <li>税务登记 </li>
                             <li>公司全套相关会计服务</li>
+                            <li>注册代办机构和分支机构</li>
                     </ul>
                 </div>
 
