@@ -16,13 +16,14 @@
     .languageOption{
       
       z-index:100 !important; 
-      
-      
+  
     }
   
     .languageOption label{
       color: black !important;
       margin-top: 1rem !important;
+
+      
     }
  
 }

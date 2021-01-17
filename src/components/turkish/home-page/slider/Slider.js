@@ -50,8 +50,6 @@ export default class Slider extends Component {
                             <img src={Slt4} className="d-block img-responsive w-100 dahili" title="sabıka kaydı" alt="logo" style={{height:"30rem"}}></img>
                             <h4 style={{display:"flex", justifyContent:"center",textAlign:"center"}}></h4>
                         </div>
-                        
-                        
                          
                     </div>
                     <a className="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">

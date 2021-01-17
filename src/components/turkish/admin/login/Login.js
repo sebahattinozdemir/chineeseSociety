@@ -9,10 +9,6 @@ function Login() {
   const [password, setPassword] = useState("");
 
   useEffect(() => {
-    document.getElementById("menu").style.display = "none";
-    document.getElementById("footer").style.display = "none";
-    document.getElementById("app-container").style.width = "99%";
-
     db.collection("login").onSnapshot((snapshot) => {
       console.log(snapshot.docs.map((doc) => doc.data().name));
       setLogin(snapshot.docs.map((doc) => doc.data()));

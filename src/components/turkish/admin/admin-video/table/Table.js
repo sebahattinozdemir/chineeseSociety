@@ -22,18 +22,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
 function Table(props) {
-  
-  const [open, setOpen] = React.useState(false);
-  const [referenceUrl, setReferenceUrl] = useState(
-    props.reference.referenceUrl
-  );
-  const [referenceName, setReferenceName] = useState(
-    props.reference.referenceName
-  );
-  const [referencePosition, setReferencePosition] = useState(
-    props.reference.referencePosition
-  );
+
+  const [open, setOpen]         = React.useState(false);
+  const [url, setUrl]           = useState(props.video.url);
+  const [name, setName]         = useState(props.video.name);
+
+
   const classes = useStyles();
 
   const handleClose = () => {
@@ -46,17 +42,17 @@ function Table(props) {
 
   const guncelle = (e) => {
     e.preventDefault();
-    db.collection("references").doc(props.reference.id).set(
+    db.collection("videos").doc(props.video.id).set(
       {
-        reference_url:referenceUrl,
-        reference_name: referenceName,
-        reference_position: referencePosition,
+        url: url,
+        name: name,
         timeStamp: firebase.firestore.FieldValue.serverTimestamp(),
       },
       { merge: true }
     );
     setOpen(false);
   };
+
   return (
     <tbody>
       <Dialog
@@ -75,7 +71,7 @@ function Table(props) {
             >
               <CloseIcon />
             </IconButton>
-            <h3 style={{ marginLeft: "5%" }}>Referans Ekle</h3>
+            <h3 style={{ marginLeft: "5%" }}>Video Ekle</h3>
           </Toolbar>
         </AppBar>
 
@@ -83,43 +79,30 @@ function Table(props) {
           <div className="container" style={{ marginTop: "10%" }}>
             <form>
               <div class="form-group">
-              <label for="exampleFormControlInput1">Referans Url</label>
+                <label for="exampleFormControlInput1">Url</label>
                 <input
                   type="text"
                   class="form-control"
                   id="exampleFormControlInput1"
                   placeholder="Url"
-                  value={referenceUrl}
-                  onChange={(event) => setReferenceUrl(event.target.value)}
+                  value={url}
+                  onChange={(event) => setUrl(event.target.value)}
                 />
               </div>
+
               <div class="form-group">
-                <label for="exampleFormControlInput1">Referans Ismi</label>
+                <label for="exampleFormControlInput1">Isim</label>
                 <input
                   type="text"
                   class="form-control"
                   id="exampleFormControlInput1"
-                  placeholder="Referans Ismi"
-                  value={referenceName}
-                  onChange={(event) => setReferenceName(event.target.value)}
+                  placeholder="Isim"
+                  value={name}
+                  onChange={(event) => setName(event.target.value)}
                 />
               </div>
-              <div class="form-group">
-                <label for="exampleFormControlInput1">Referans Pozisyonu</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="exampleFormControlInput1"
-                  placeholder="Referans Pozisyonu"
-                  value={referencePosition}
-                  onChange={(event) => setReferencePosition(event.target.value)}
-                />
-              </div>
-              <button
-                className="btn btn-primary"
-                type="submit"
-                onClick={guncelle}
-              >
+
+              <button className="btn btn-primary" type="submit" onClick={guncelle}>
                 Kaydet
               </button>
             </form>
@@ -129,12 +112,12 @@ function Table(props) {
 
       <tr>
         <th scope="row">{props.index + 1}</th>
-        <td>{props.reference.referenceName}</td>
+        <td>{props.video.name}</td>
         <td>
           <button
             className="btn btn-danger"
             onClick={(event) =>
-              db.collection("references").doc(props.reference.id).delete()
+              db.collection("videos").doc(props.video.id).delete()
             }
           >
             X

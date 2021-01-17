@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Dialog from "@material-ui/core/Dialog";
 import AppBar from "@material-ui/core/AppBar";
@@ -10,8 +10,7 @@ import db from "./../../../../../firebase";
 import firebase from "firebase";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-import html from 'react-inner-html';
-
+import "./Table.css"
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
@@ -27,11 +26,9 @@ const useStyles = makeStyles((theme) => ({
 
 function Table(props) {
   const [open, setOpen] = React.useState(false);
-  const [isim, setIsim] = useState(props.question.isim);
-  const [email, setEmail] = useState(props.question.email);
-  const [soru, setSoru] = useState(props.question.soru);
-
-  const [cevap, setCevap] = useState(props.question.cevap);
+  const [url, setUrl] = useState(props.haber.url);
+  const [baslik, setBaslik] = useState(props.haber.baslik);
+  const [haberContent, setHaberContent] = useState(props.haber.haberContent);
 
   const classes = useStyles();
 
@@ -45,9 +42,12 @@ function Table(props) {
 
   const guncelle = (e) => {
     e.preventDefault();
-    db.collection("questions").doc(props.question.id).set(
+    db.collection("haberler").doc(props.haber.id).set(
       {
-        answer: cevap,
+        url:url,
+        baslik: baslik,
+        haberContent: haberContent,
+        timeStamp: firebase.firestore.FieldValue.serverTimestamp(),
       },
       { merge: true }
     );
@@ -71,24 +71,54 @@ function Table(props) {
             >
               <CloseIcon />
             </IconButton>
-            <h3 style={{ marginLeft: "5%" }}>Hizmet Sayfasini Guncelle</h3>
+            <h3 style={{ marginLeft: "5%" }}>Haber Sayfasini Guncelle</h3>
           </Toolbar>
         </AppBar>
-        <div className="col-12 hizmetlerimiz-pop">
-          <div
-            className="container"
-            style={{ marginTop: "1%", marginBottom: "2%" }}
-          >
+        <div className="col-12 blog-pop">
+          <div className="container" style={{ marginTop: "10%" }}>
             <form>
               <div class="form-group">
-                <label for="exampleFormControlTextarea1">Cevap</label>
-
+              <label for="exampleFormControlInput1">Foto Url</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="exampleFormControlInput1"
+                  placeholder="Sayfa Adi"
+                  value={url}
+                  onChange={(event) => setUrl(event.target.value)}
+                />
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Baslik Ekle</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="exampleFormControlInput1"
+                  placeholder="Sayfa Adi"
+                  value={baslik}
+                  onChange={(event) => setBaslik(event.target.value)}
+                />
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1">
+                  Blog Yazisi Ekle
+                </label>
                 <CKEditor
                   editor={ClassicEditor}
-                  data={cevap}
+                  data={haberContent}
+                  onReady={(editor) => {
+                    // You can store the "editor" and use when it is needed.
+                    console.log("Editor is ready to use!", editor);
+                  }}
                   onChange={(event, editor) => {
                     const data = editor.getData();
-                    setCevap(data);
+                    setHaberContent(data);
+                  }}
+                  onBlur={(event, editor) => {
+                    console.log("Blur.", editor);
+                  }}
+                  onFocus={(event, editor) => {
+                    console.log("Focus.", editor);
                   }}
                 />
               </div>
@@ -103,17 +133,14 @@ function Table(props) {
           </div>
         </div>
       </Dialog>
-
       <tr>
-        <th scope="row">{props.index + 1}</th>
-        <td>{props.question.isim}</td>
-        <td>{props.question.email}</td>
-        <td>{props.question.soru}</td>
+                <th scope="row">{props.index+1}</th>
+        <td>{props.haber.baslik}</td>
         <td>
           <button
             className="btn btn-danger"
             onClick={(event) =>
-              db.collection("questions").doc(props.question.id).delete()
+              db.collection("haberler").doc(props.haber.id).delete()
             }
           >
             X
@@ -121,7 +148,7 @@ function Table(props) {
         </td>
         <td>
           <button className="btn btn-primary" onClick={handleClickOpen}>
-            Cevapla
+            Guncelle
           </button>
         </td>
       </tr>

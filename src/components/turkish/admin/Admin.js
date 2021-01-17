@@ -1,27 +1,24 @@
 import React, { useEffect } from "react";
 import "./Admin.css";
 import Login from "./login/Login";
-import Hizmetlerimiz from "./admin-hizmetlerimiz/Hizmetlerimiz";
-import Referanslarimiz from "./admin-referanslar/Referanslar.js";
+import Haber from "./admin-haber/Haberler";
+import Yonetim from "./admin-yonetim-kurulu/Yonetim.js";
 import Blog from "./admin-blog/Blog";
-import Iletisim from "./admin-iletisim/Iletisim";
-import Sifre from "./admin-password/Password";
+import Duyuru from "./admin-duyuru/Duyuru";
 import Sidebar from "./admin-sidebar/Sidebar";
-import Questions from "./admin-sorular/Questions";
-
+import Uyeler from "./admin-uyelerimiz/Duz-Uyeler";
+import Photo from "./admin-foto/Photo";
+import Video from "./admin-video/Video";
 
 function Admin() {
   useEffect(() => {
     document.getElementById("menu").style.display = "none";
     document.getElementById("footer").style.display = "none";
-    document.getElementById("admin").style.display = "none";
-    document.getElementById("app-container").style.width = "99%";
-    console.log("I am here")
   },[]);
 
 
   return (
-    <div className="row admin-ana">
+    <div className="row admin-ana" style={{ color: "black", marginTop: "1rem" }}>
     
   
       <div className="login" id='login'>
@@ -35,31 +32,36 @@ function Admin() {
         </div>
        
         <div  className="admin-content" style={{ width: "85%", height: "100vh" }}>
-          
-          <div id="hizmetlerimiz" style={{ width: "100%", display: "none" }}>
-                <Hizmetlerimiz/>
-          </div>
 
-          <div id="referanslar" style={{ width: "100%", display: "none" }}>
-                <Referanslarimiz/>
+
+        <div id="yonetim" style={{ width: "100%", display: "none" }}>
+                <Yonetim/>
+        </div>
+        
+        <div id="uyeler" style={{ width: "100%", display: "none" }}>
+            <Uyeler/>
+        </div>
+
+          <div id="haber" style={{ width: "100%", display: "none" }}>
+                <Haber/>
           </div>
 
           <div id="blog" style={{ width: "100%", display: "none" }}>
             <Blog/>
           </div>
 
-          <div id="iletisim" style={{ width: "100%", display: "none" }}>
-            <Iletisim/>
+          <div id="duyuru" style={{ width: "100%", display: "none" }}>
+            <Duyuru/>
           </div>
 
-          <div id="sorular" style={{ width: "100%", display: "none" }}>
-            <Questions/>
+          <div id="photo" style={{ width: "100%", display: "none" }}>
+            <Photo/>
           </div>
 
-
-          <div id="password" style={{ width: "100%", display: "none" }}>
-            <Sifre/>
+          <div id="video" style={{ width: "100%", display: "none" }}>
+            <Video/>
           </div>
+      
         </div>
       </div>
     </div>
