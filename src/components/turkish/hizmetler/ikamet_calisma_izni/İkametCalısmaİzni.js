@@ -24,6 +24,12 @@ export default function İkametCalısmaİzni() {
                       <li>
                       <a className="calismalink" href="https://www.goc.gov.tr/calisma-izni-sss" target="_blank">Çalışma İzni için linke tıklayarak bilgi alabilirsiniz.</a>
                       </li>
+                      <br/>
+                      <li className="calismalink" >Göçmenlik avukatları göçmenlik prosedürlerini profesyonelce ele alır ve oturma izinlerini yönetir.</li>
+                      <li className="calismalink">Taşınır ve gayrimenkul alımları profesyonel avukatlar tarafından yapılır.</li>
+                      <li className="calismalink">Çalışma ve oturma izinleri profesyonel avukatlar tarafından ele alınır.</li>
+                      <li className="calismalink">Sigorta, bir sigorta avukatı tarafından yapılır.</li>
+
                   </ul>
                 
                 

@@ -54,7 +54,7 @@ function Footer() {
                 >
                   <img src={FaxMachineIcon} style={{ width:"2rem",height:"2rem" }} ></img>
                 </a> 
-                <p style={{fontSize:"small"}}>&nbsp;+90 312 466 56 66</p>
+                <p style={{fontSize:"small"}}>&nbsp; +90 312 466 56 66</p>
                
                 <a
                 className="footerwhatsapp"
@@ -81,7 +81,7 @@ function Footer() {
                     className="footerlinkedin"
                     href="https://www.linkedin.com/in/t%C3%BCrk-%C3%A7in-k%C3%BClt%C3%BCr-derne%C4%9Fi-92aa45150/"
                     target="_blank"
-                    style={{float: "left",paddingLeft:"3rem" }}
+                    style={{float: "left",paddingLeft:"1rem" }}
                   >
                     <LinkedInIcon style={{ fontSize: "24px" }} />
                   </a>
@@ -91,7 +91,7 @@ function Footer() {
                     className="footerlinkedin"
                     href="https://www.twitter.com/"
                     target="_blank"
-                    style={{float: "left",paddingLeft:"3rem" }}
+                    style={{float: "left",paddingLeft:"1rem" }}
                   >
                     <TwitterIcon style={{ fontSize: "24px" }} />
                   </a>

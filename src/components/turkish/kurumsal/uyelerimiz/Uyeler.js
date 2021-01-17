@@ -8,10 +8,12 @@ import u10 from "./uyeler/u10.jpg";
 import u11 from "./uyeler/u11.jpg";
 import u12 from "./uyeler/u12.jpg";
 import u13 from "./uyeler/u13.jpg";
+import avatar from "./uyeler/avatar.jpg";
 import "../yonetim_kurulu/YonetimKurulu.css"
 import Header from "../../header/Header";
 import BusinessIcon from '@material-ui/icons/Business';
 import React from 'react'
+import { Avatar } from "@material-ui/core";
 
 export default function Uyeler() {
     return (
@@ -122,6 +124,28 @@ export default function Uyeler() {
                                 <p className="uye_ad" >HASAN PİLAVCI</p>
                                 <p className="uye_gorev">Dernek Üyesi</p>
                                 <p className="uye_meslek">Avukat</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="col-lg-4 col-md-6 col-sm-6 col-12 mb-2">
+                    <div className="uye_cerceve">
+                        <img src={avatar} className="uye_card" alt="Türk-Çin Derneği Üyeleri" ></img>
+                        <div className="uye_bilgi">
+                                <p className="uye_ad" ><span style={{color:"white"}}>Private Name</span></p>
+                                <p className="uye_gorev">Dernek Üyesi</p>
+                                <p className="uye_meslek">Devlet Danışmanı</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="col-lg-4 col-md-6 col-sm-6 col-12 mb-2">
+                    <div className="uye_cerceve">
+                        <img src={avatar} className="uye_card" alt="Türk-Çin Derneği Üyeleri" ></img>
+                        <div className="uye_bilgi">
+                                <p className="uye_ad" ><span style={{color:"white"}}>Private Name</span></p>
+                                <p className="uye_gorev">Dernek Üyesi</p>
+                                <p className="uye_meslek">Devlet Danışmanı</p>
                         </div>
                     </div>
                 </div>

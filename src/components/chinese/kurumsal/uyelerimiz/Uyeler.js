@@ -9,6 +9,7 @@ import u10 from "../../../turkish/kurumsal/uyelerimiz/uyeler/u10.jpg";
 import u11 from "../../../turkish/kurumsal/uyelerimiz/uyeler/u11.jpg";
 import u12 from "../../../turkish/kurumsal/uyelerimiz/uyeler/u12.jpg";
 import u13 from "../../../turkish/kurumsal/uyelerimiz/uyeler/u13.jpg";
+import avatar from "../../../turkish/kurumsal/uyelerimiz/uyeler/avatar.jpg";
 import Header from "../../header/Header";
 import BusinessIcon from '@material-ui/icons/Business';
 import React from 'react'
@@ -124,6 +125,28 @@ export default function Uyeler() {
                        </div>
                    </div>
                </div>
+
+               <div className="col-lg-4 col-md-6 col-sm-6 col-12 mb-2">
+                    <div className="uye_cerceve">
+                        <img src={avatar} className="uye_card" alt="Türk-Çin Derneği Üyeleri" ></img>
+                        <div className="uye_bilgi">
+                                <p className="uye_ad" ><span style={{color:"white"}}>Private Name</span></p>
+                                <p className="uye_gorev">协会成员</p>
+                                <p className="uye_meslek">政府人员</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="col-lg-4 col-md-6 col-sm-6 col-12 mb-2">
+                    <div className="uye_cerceve">
+                        <img src={avatar} className="uye_card" alt="Türk-Çin Derneği Üyeleri" ></img>
+                        <div className="uye_bilgi">
+                                <p className="uye_ad" ><span style={{color:"white"}}>Private Name</span></p>
+                                <p className="uye_gorev">协会成员</p>
+                                <p className="uye_meslek">政府人员</p>
+                        </div>
+                    </div>
+                </div>
 
                
                
