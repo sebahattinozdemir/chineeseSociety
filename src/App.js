@@ -264,7 +264,7 @@ function App() {
           )}
         </div>
 
-        <div className="row">
+        <div className="row" style={{marginLeft:"0rem",marginRight:"0rem"}}>
           {state === true ? (
             <nav
               className="navbar menu"
@@ -272,8 +272,8 @@ function App() {
                 backgroundColor: "#A4203A",
                 padding: "0%",
                 marginBottom: "0",
-                marginLeft: "-3rem",
-                marginRight: "-3rem",
+    
+                
               }}
             >
               <ChiNavbar />
@@ -284,9 +284,8 @@ function App() {
               style={{
                 backgroundColor: "#A4203A",
                 padding: "0%",
-                marginBottom: "0",
-                marginLeft: "-3rem",
-                marginRight: "-3rem",
+                marginBottom: "0",   
+               
               }}
             >
               <Navbar />
