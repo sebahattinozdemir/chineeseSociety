@@ -1,15 +1,15 @@
 import Header from "../../header/Header"; 
-import "./Altblog.css";
+import "./Althaber.css";
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import React from 'react'
 import html from 'react-inner-html';
 
-function Altblog(props) {
+function Althaber(props) {
     return (
         <div>
             <Header
                 subtitle={props.location.state.heading}
-                title="博客"
+                title="新闻"
                 icon={<AssignmentIcon style={{fontSize:"35px"}} />}
             />
                    <div className="row" style={{margin:"0%",padding:"1%"}}>
@@ -22,4 +22,4 @@ function Altblog(props) {
         </div>
     )
 }
-export default Altblog
+export default Althaber

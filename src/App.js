@@ -67,43 +67,47 @@ import ChiHukukiYardım from "./components/chinese/hizmetler/hukuki_yardım/Huku
 import ChiHukukiDanısma from "./components/chinese/hizmetler/hukuki_danısma/HukukiDanısma";
 import ChiMaliDanısma from "./components/chinese/hizmetler/mali_danısma/MaliDanısma";
 import ChiOzelDurumlardaHukukiYardım from "./components/chinese/hizmetler/özel_durumlarda_hukuki_yardım/OzelDurumlardaHukukiYardım";
-
+import ChiAdmin from "./components/chinese/admin/Admin";
 import ChiEgitim from "./components/chinese/investment/turkiyede-egitim/Egitim";
 import ChiYatirim from "./components/chinese/investment/turkiyede-yatirim/Yatirim";
 import ChiSaglik from "./components/chinese/investment/turkiyede-saglik/TurkSaglik";
 import ChiYasam from "./components/chinese/investment/turkiyede-yasam/Yasam";
+import ChiAltBlog from "./components/chinese/medya/blog/Altblog";
+import ChiAltHaber from "./components/chinese/medya/haber/Althaber";
 
 function App() {
-  const [blogs, setBlogs] = useState([]);
 
+  const [blogs, setBlogs] = useState([]);
   const [haberler, setHaberler] = useState([]);
+
+  const [chiBlogs, setChiBlogs] = useState([]);
+  const [chiHaberler, setChiHaberler] = useState([]);
 
   useEffect(() => {
     // fires once when the app loads
 
-    db.collection("blogs")
-      .orderBy("timeStamp", "desc")
-      .onSnapshot((snapshot) => {
-        setBlogs(
-          snapshot.docs.map((doc) => ({
-            id: doc.id,
-            heading: doc.data().heading,
-            content: doc.data().blog_content,
-          }))
-        );
-      });
-
-    db.collection("haberler")
-      .orderBy("timeStamp", "desc")
-      .onSnapshot((snapshot) => {
-        setHaberler(
-          snapshot.docs.map((doc) => ({
-            id: doc.id,
-            heading: doc.data().baslik,
-            content: doc.data().haberContent,
-          }))
-        );
-      });
+    db.collection("chi-blogs")
+        .orderBy("timeStamp", "desc")
+        .onSnapshot((snapshot) => {
+          setChiBlogs(
+            snapshot.docs.map((doc) => ({
+              id: doc.id,
+              heading: doc.data().heading,
+              content: doc.data().blog_content,
+            }))
+          );
+        });
+        db.collection("chi-haberler")
+        .orderBy("timeStamp", "desc")
+        .onSnapshot((snapshot) => {
+          setChiHaberler(
+            snapshot.docs.map((doc) => ({
+              id: doc.id,
+              heading: doc.data().baslik,
+              content: doc.data().haberContent,
+            }))
+          );
+        });
   }, []);
 
   const [state, setState] = useState(true);
@@ -138,14 +142,25 @@ function App() {
 
 
     } else {
-      db.collection("enBlogs")
+      db.collection("chi-blogs")
         .orderBy("timeStamp", "desc")
         .onSnapshot((snapshot) => {
-          setBlogs(
+          setChiBlogs(
             snapshot.docs.map((doc) => ({
               id: doc.id,
               heading: doc.data().heading,
               content: doc.data().blog_content,
+            }))
+          );
+        });
+        db.collection("chi-haberler")
+        .orderBy("timeStamp", "desc")
+        .onSnapshot((snapshot) => {
+          setChiHaberler(
+            snapshot.docs.map((doc) => ({
+              id: doc.id,
+              heading: doc.data().baslik,
+              content: doc.data().haberContent,
             }))
           );
         });
@@ -243,8 +258,23 @@ function App() {
             <Route exact path="/chi-videolar" component={ChiVideo} />
             <Route exact path="/chi-iletisim" component={ChiContact} />
             <Route exact path="/chi-haberler" component={ChiHaber} />
+            {chiHaberler.map((haber, index) => (
+              <Route
+                exact
+                path={"/chi-haberler/" + haber.heading}
+                component={ChiAltHaber}
+              />
+            ))}
             <Route exact path="/chi-duyurular" component={ChiDuyuru} />
             <Route exact path="/chi-blog" component={ChiBlog} />
+
+            {chiBlogs.map((blog, index) => (
+              <Route
+                exact
+                path={"/chi-blogs/" + blog.heading}
+                component={ChiAltBlog}
+              />
+            ))}
 
             <Route
               exact
@@ -296,6 +326,8 @@ function App() {
               component={ChiEvlilikIcindeSorun}
             />
             <Route exact path="/chi-sigorta" component={ChiSigorta} />
+
+            <Route exact path="/admin" component={ChiAdmin} />
 
             <Route exact path="/tr" component={Home} />
 
@@ -371,7 +403,7 @@ function App() {
             <Route exact path="/turkiyede-yasam" component={Yasam} />
             <Route exact path="/turkiyede-yatirim" component={Yatirim} />
 
-            <Route exact path="/admin" component={Admin} />
+            <Route exact path="/tr-admin" component={Admin} />
             <Route component={Notfound} />
           </Switch>
 

@@ -8,7 +8,7 @@ function Blog() {
   const [blogs, setBlogs] = useState([]);
   useEffect(() => {
     // fires once when the app loads
-    db.collection("blogs")
+    db.collection("chi-blogs")
       .orderBy("timeStamp", "desc")
       .onSnapshot((snapshot) => {
         setBlogs(
@@ -32,8 +32,8 @@ function Blog() {
       />
       <div className="row" style={{ paddingTop: "2rem", minHeight:"30rem"}}>
       {blogs.map((blog,index) => (
-            <BlogInterior photo = {blog.url} title={blog.heading} uzanti={"/blogs/"+blog.heading} 
-            content = {blog} divert={"/blogs/"+blog.heading}  
+            <BlogInterior photo = {blog.url} title={blog.heading} uzanti={"/chi-blogs/"+blog.heading} 
+            content = {blog} divert={"/chi-blogs/"+blog.heading}  
             />
           ))}
       </div>
