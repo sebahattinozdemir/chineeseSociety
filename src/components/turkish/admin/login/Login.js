@@ -24,7 +24,7 @@ function Login() {
   };
 
   return (
-    <div className="login" style={{ height: "100vh", width: "100vw" }}>
+    <div className="login" style={{ height: "100%", width: "100vw" }}>
       <div class="container">
         <div class="row">
           <div class="col-lg-3 col-md-2"></div>

@@ -157,7 +157,7 @@ function Blog() {
         </div>
       </Dialog>
 
-      <h1 style={{ textAlign: "center", color: "white" }}>
+      <h1 style={{ textAlign: "center", color: "black" }}>
         {" "}
         Blog Sayfasi Guncelleme
       </h1>
@@ -170,12 +170,12 @@ function Blog() {
         }}
       ></div>
 
-      <div className="container">
-        <h2 style={{ color: "white" }}>Bloglar</h2>
+      <div className="container-fluid">
+        <h2 style={{ color: "black" }}>Bloglar</h2>
         <button className="btn btn-primary" onClick={handleClickOpen}>
           Blog Sayfasi Ekle
         </button>
-        <table class="table" style={{ color: "white" }}>
+        <table class="table" style={{ color: "black" }}>
           <thead>
             <tr>
               <th scope="col">#</th>

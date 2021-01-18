@@ -14,51 +14,52 @@ function Admin() {
   useEffect(() => {
     document.getElementById("menu").style.display = "none";
     document.getElementById("footer").style.display = "none";
+    document.getElementById("admin").style.display = "none";
   }, []);
 
   return (
-    <div className="container-fluid admin-ana" style={{ color: "black",border:'2px solid red',margin:'0'}}>
+    <div className="container-fluid admin-ana" style={{ color: "black"}}>
       <div className="login" id="login">
         <Login />
       </div>
 
-      <div className="admin" id="admin">
+      <div className="row" id="admin">
         <div
-          className="admin-sidebar"
-          style={{ width: "15%", height: "100vh" }}
+          className="col-lg-3 col-md-4 col-xs-12 admin-sidebar"
+          style={{height: "100%" }}
         >
           <Sidebar />
         </div>
 
         <div
-          className="admin-content"
-          style={{ width: "85%", height: "100vh" }}
+          className="col-lg-9 col-md-8 col-xs-12 admin-content"
+          style={{height: "100%" }}
         >
-          <div id="yonetim" style={{ width: "100%", display: "none" }}>
+          <div id="yonetim" style={{display: "none" }}>
             <Yonetim />
           </div>
 
-          <div id="uyeler" style={{ width: "100%", display: "none" }}>
+          <div id="uyeler" style={{display: "none" }}>
             <Uyeler />
           </div>
 
-          <div id="haber" style={{ width: "100%", display: "none" }}>
+          <div id="haber" style={{display: "none" }}>
             <Haber />
           </div>
 
-          <div id="blog" style={{ width: "100%", display: "none" }}>
+          <div id="blog" style={{display: "none" }}>
             <Blog />
           </div>
 
-          <div id="duyuru" style={{ width: "100%", display: "none" }}>
+          <div id="duyuru" style={{display: "none" }}>
             <Duyuru />
           </div>
 
-          <div id="photo" style={{ width: "100%", display: "none" }}>
+          <div id="photo" style={{display: "none" }}>
             <Photo />
           </div>
 
-          <div id="video" style={{ width: "100%", display: "none" }}>
+          <div id="video" style={{display: "none" }}>
             <Video />
           </div>
         </div>

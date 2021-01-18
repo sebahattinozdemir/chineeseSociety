@@ -158,7 +158,7 @@ function Haberler() {
         </div>
       </Dialog>
 
-      <h1 style={{ textAlign: "center", color: "white" }}>
+      <h1 style={{ textAlign: "center", color: "black" }}>
         {" "}
         Haberler Sayfasi Guncelleme
       </h1>
@@ -171,12 +171,12 @@ function Haberler() {
         }}
       ></div>
 
-      <div className="container">
-        <h2 style={{ color: "white" }}>Haberler</h2>
+      <div className="container-fluid">
+        <h2 style={{ color: "black" }}>Haberler</h2>
         <button className="btn btn-primary" onClick={handleClickOpen}>
           Haber Sayfasi Ekle
         </button>
-        <table class="table" style={{ color: "white" }}>
+        <table class="table" style={{ color: "black" }}>
           <thead>
             <tr>
               <th scope="col">#</th>

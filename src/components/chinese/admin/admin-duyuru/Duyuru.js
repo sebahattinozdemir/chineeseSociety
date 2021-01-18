@@ -158,7 +158,7 @@ function Duyuru() {
         </div>
       </Dialog>
 
-      <h1 style={{ textAlign: "center", color: "white" }}>
+      <h1 style={{ textAlign: "center", color: "black" }}>
         Duyuru Sayfasi Guncelleme
       </h1>
       <div
@@ -170,12 +170,12 @@ function Duyuru() {
         }}
       ></div>
 
-      <div className="container">
-        <h2 style={{ color: "white" }}>Duyurular</h2>
+      <div className="container-fluid">
+        <h2 style={{ color: "black" }}>Duyurular</h2>
         <button className="btn btn-primary" onClick={handleClickOpen}>
          Duyuru Ekle
         </button>
-        <table class="table" style={{ color: "white" }}>
+        <table class="table" style={{ color: "black" }}>
           <thead>
             <tr>
               <th scope="col">#</th>

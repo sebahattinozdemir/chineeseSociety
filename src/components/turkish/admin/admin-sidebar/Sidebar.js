@@ -74,21 +74,20 @@ function Sidebar() {
 
   return (
     <div>
-      <div
+      <div className="row"
         style={{
-          width: "100%",
-          height: "100vh",
-          backgroundColor: "#1A2226",
+          height: "100%",
+          backgroundColor: "#fff",
         }}
       >
-        <h3 style={{ textAlign: "center", color: "white" }}>SITE ISLEMLERI</h3>
+        <h3 style={{ textAlign: "center", color: "black" }}>SITE ISLEMLERI</h3>
 
         <button
           className="btn btn-outline"
           onClick={yonetim}
           style={{
             backgroundColor: "transparent",
-            color: "#fff",
+            color: "black",
             fontSize: "16px",
             display: "block",
             width: "100%",
@@ -102,7 +101,7 @@ function Sidebar() {
           onClick={uye}
           style={{
             backgroundColor: "transparent",
-            color: "#fff",
+            color: "black",
             fontSize: "16px",
             display: "block",
             width: "100%",
@@ -115,7 +114,7 @@ function Sidebar() {
           className="btn btn-outline"
           style={{
             backgroundColor: "transparent",
-            color: "#fff",
+            color: "black",
             fontSize: "16px",
             display: "block",
             width: "100%",
@@ -130,7 +129,7 @@ function Sidebar() {
           onClick={blog}
           style={{
             backgroundColor: "transparent",
-            color: "#fff",
+            color: "black",
             fontSize: "16px",
             display: "block",
             width: "100%",
@@ -143,7 +142,7 @@ function Sidebar() {
           onClick={duyuru}
           style={{
             backgroundColor: "transparent",
-            color: "#fff",
+            color: "black",
             fontSize: "16px",
             display: "block",
             width: "100%",
@@ -157,7 +156,7 @@ function Sidebar() {
           onClick={foto}
           style={{
             backgroundColor: "transparent",
-            color: "#fff",
+            color: "black",
             fontSize: "16px",
             display: "block",
             width: "100%",
@@ -171,7 +170,7 @@ function Sidebar() {
           onClick={video}
           style={{
             backgroundColor: "transparent",
-            color: "#fff",
+            color: "black",
             fontSize: "16px",
             display: "block",
             width: "100%",

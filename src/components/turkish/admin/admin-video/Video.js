@@ -40,15 +40,15 @@ function Photo() {
   return (
     <div
       className="referanslar"
-      style={{ height: "100vh", border: "2px solid transparent" }}
+      style={{ height: "100%", border: "2px solid transparent" }}
     >
-      <h1 style={{ textAlign: "center", color: "white" }}>
+      <h1 style={{ textAlign: "center", color: "black" }}>
          Galeri Video Ekleme Sayafasi
       </h1>
 
-      <div className="container">
-        <h2 style={{ color: "white" }}>Video Ekle</h2>
-        <form style={{ color: "white" }}>
+      <div className="container-fluid">
+        <h2 style={{ color: "black" }}>Video Ekle</h2>
+        <form style={{ color: "black" }}>
           <div class="form-group">
             <label for="exampleFormControlInput1">Video Url</label>
             <input
@@ -82,8 +82,8 @@ function Photo() {
           </button>
         </form>
 
-        <h2 style={{ color: "white" }}>Video Sil</h2>
-        <table class="table" style={{ color: "white" }}>
+        <h2 style={{ color: "black" }}>Video Sil</h2>
+        <table class="table" style={{ color: "black" }}>
           <thead>
             <tr>
               <th scope="col">#</th>

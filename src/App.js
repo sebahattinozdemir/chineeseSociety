@@ -168,7 +168,7 @@ function App() {
   };
   return (
     <Router>
-      <div className="row app">
+      <div className="container-fluid app">
         <div className="row" id="menu">
           <div className="row languageOption">
             {state === true ? (
@@ -247,7 +247,7 @@ function App() {
 
         <br />
 
-        <div className="row">
+        <div className="container-fluid">
           <Switch>
             <Route exact path="/" component={ChiHome} />
             <Route exact path="/chi-turkiyede-egitim" component={ChiEgitim} />

@@ -47,15 +47,15 @@ function Uyeler() {
   return (
     <div
       className="referanslar"
-      style={{ height: "100vh", border: "2px solid transparent" }}
+      style={{ height: "100%", border: "2px solid transparent" }}
     >
-      <h1 style={{ textAlign: "center", color: "white" }}>
+      <h1 style={{ textAlign: "center", color: "black" }}>
         Uyeler Sayfasi Guncelleme
       </h1>
 
-      <div className="container">
-        <h2 style={{ color: "white" }}>Uye Ekle</h2>
-        <form style={{ color: "white" }}>
+      <div className="container-fluid">
+        <h2 style={{ color: "black" }}>Uye Ekle</h2>
+        <form style={{ color: "black" }}>
           <div class="form-group">
             <label for="exampleFormControlInput1">Foto Url</label>
             <input
@@ -116,8 +116,8 @@ function Uyeler() {
           </button>
         </form>
 
-        <h2 style={{ color: "white" }}>Uyeyi Sil</h2>
-        <table class="table" style={{ color: "white",border:"2px solid red"}}>
+        <h2 style={{ color: "black" }}>Uyeyi Sil</h2>
+        <table class="table" style={{ color: "black"}}>
           <thead>
             <tr>
               <th scope="col">#</th>

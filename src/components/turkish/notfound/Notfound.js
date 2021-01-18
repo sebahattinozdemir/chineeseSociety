@@ -15,7 +15,7 @@ function Notfound() {
   return (
     <div
       class="col-12 py-4 px-0 notfound"
-      style={{ width: "100vw", height: "100vh" }}
+      style={{ width: "100vw", height: "100%" }}
     >
       <div class="container">
         <div class="error">
