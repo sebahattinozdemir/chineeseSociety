@@ -37,6 +37,8 @@ import Egitim from "./components/turkish/investment/turkiyede-egitim/Egitim";
 import TurkSaglik from "./components/turkish/investment/turkiyede-saglik/TurkSaglik";
 import Yasam from "./components/turkish/investment/turkiyede-yasam/Yasam";
 import Yatirim from "./components/turkish/investment/turkiyede-yatirim/Yatirim";
+import AltBlog from "./components/turkish/medya/blog/Altblog";
+import AltHaber from "./components/turkish/medya/haber/Althaber";
 
 import ChFlag from "./chinese.ico";
 import ChiLogo from "./components/chinese/logo/Logo";
@@ -72,64 +74,14 @@ import ChiSaglik from "./components/chinese/investment/turkiyede-saglik/TurkSagl
 import ChiYasam from "./components/chinese/investment/turkiyede-yasam/Yasam";
 
 function App() {
-  const [services, setServices] = useState([]);
   const [blogs, setBlogs] = useState([]);
 
-  const [hizmetler, setHizmetlerimiz] = useState([]);
-  const [bloks, setBloks] = useState([]);
+  const [haberler, setHaberler] = useState([]);
 
   useEffect(() => {
     // fires once when the app loads
 
-    db.collection("services")
-      .orderBy("timeStamp", "desc")
-      .onSnapshot((snapshot) => {
-        setHizmetlerimiz(
-          snapshot.docs.map((doc) => ({
-            id: doc.id,
-            heading: doc.data().heading,
-            serviceContent: doc.data().service_content,
-            underServiceHead1: doc.data().under_service_head1,
-            underServiceHead2: doc.data().under_service_head2,
-            underServiceHead3: doc.data().under_service_head3,
-            underServiceText1: doc.data().under_service_text1,
-            underServiceText2: doc.data().under_service_text2,
-            underServiceText3: doc.data().under_service_text3,
-          }))
-        );
-      });
-
     db.collection("blogs")
-      .orderBy("timeStamp", "desc")
-      .onSnapshot((snapshot) => {
-        setBloks(
-          snapshot.docs.map((doc) => ({
-            id: doc.id,
-            heading: doc.data().heading,
-            content: doc.data().blog_content,
-          }))
-        );
-      });
-
-    db.collection("enServices")
-      .orderBy("timeStamp", "desc")
-      .onSnapshot((snapshot) => {
-        setServices(
-          snapshot.docs.map((doc) => ({
-            id: doc.id,
-            heading: doc.data().heading,
-            serviceContent: doc.data().service_content,
-            underServiceHead1: doc.data().under_service_head1,
-            underServiceHead2: doc.data().under_service_head2,
-            underServiceHead3: doc.data().under_service_head3,
-            underServiceText1: doc.data().under_service_text1,
-            underServiceText2: doc.data().under_service_text2,
-            underServiceText3: doc.data().under_service_text3,
-          }))
-        );
-      });
-
-    db.collection("enBlogs")
       .orderBy("timeStamp", "desc")
       .onSnapshot((snapshot) => {
         setBlogs(
@@ -141,35 +93,29 @@ function App() {
         );
       });
 
-    console.log(services);
+    db.collection("haberler")
+      .orderBy("timeStamp", "desc")
+      .onSnapshot((snapshot) => {
+        setHaberler(
+          snapshot.docs.map((doc) => ({
+            id: doc.id,
+            heading: doc.data().baslik,
+            content: doc.data().haberContent,
+          }))
+        );
+      });
   }, []);
 
   const [state, setState] = useState(true);
+
   const handleChange = () => {
     setState(!state);
     if (state) {
-      db.collection("services")
-        .orderBy("timeStamp", "desc")
-        .onSnapshot((snapshot) => {
-          setHizmetlerimiz(
-            snapshot.docs.map((doc) => ({
-              id: doc.id,
-              heading: doc.data().heading,
-              serviceContent: doc.data().service_content,
-              underServiceHead1: doc.data().under_service_head1,
-              underServiceHead2: doc.data().under_service_head2,
-              underServiceHead3: doc.data().under_service_head3,
-              underServiceText1: doc.data().under_service_text1,
-              underServiceText2: doc.data().under_service_text2,
-              underServiceText3: doc.data().under_service_text3,
-            }))
-          );
-        });
-
+      
       db.collection("blogs")
         .orderBy("timeStamp", "desc")
         .onSnapshot((snapshot) => {
-          setBloks(
+          setBlogs(
             snapshot.docs.map((doc) => ({
               id: doc.id,
               heading: doc.data().heading,
@@ -177,25 +123,21 @@ function App() {
             }))
           );
         });
-    } else {
-      db.collection("enServices")
+
+        db.collection("haberler")
         .orderBy("timeStamp", "desc")
         .onSnapshot((snapshot) => {
-          setServices(
+          setHaberler(
             snapshot.docs.map((doc) => ({
               id: doc.id,
-              heading: doc.data().heading,
-              serviceContent: doc.data().service_content,
-              underServiceHead1: doc.data().under_service_head1,
-              underServiceHead2: doc.data().under_service_head2,
-              underServiceHead3: doc.data().under_service_head3,
-              underServiceText1: doc.data().under_service_text1,
-              underServiceText2: doc.data().under_service_text2,
-              underServiceText3: doc.data().under_service_text3,
+              heading: doc.data().baslik,
+              content: doc.data().haberContent,
             }))
           );
         });
 
+
+    } else {
       db.collection("enBlogs")
         .orderBy("timeStamp", "desc")
         .onSnapshot((snapshot) => {
@@ -211,60 +153,58 @@ function App() {
   };
   return (
     <Router>
-      <div className="container-fluid app">
-
+      <div className="row app">
         <div className="row" id="menu">
-        <div className="row languageOption">
-          {state === true ? (
-            <Link to="/tr">
-              <label
-                onClick={handleChange}
-                style={{ color: "black", marginTop: "1rem" }}
-              >
-                <img
-                  src={TrFlag}
-                  style={{
-                    width: "2.5rem",
-                    height: "2.5rem",
-                    marginLeft: "1rem",
-                  }}
-                ></img>{" "}
-                &nbsp;Türkçe
-              </label>
-            </Link>
-          ) : (
-            <Link to="/">
-              <label
-                onClick={handleChange}
-                style={{ color: "black", marginTop: "1rem" }}
-              >
-                <img
-                  src={ChFlag}
-                  style={{
-                    width: "2.5rem",
-                    height: "2.5rem",
-                    marginLeft: "1rem",
-                  }}
-                ></img>{" "}
-                &nbsp;中文
-              </label>
-            </Link>
-          )}
-        </div>
+          <div className="row languageOption">
+            {state === true ? (
+              <Link to="/tr">
+                <label
+                  onClick={handleChange}
+                  style={{ color: "black", marginTop: "1rem" }}
+                >
+                  <img
+                    src={TrFlag}
+                    style={{
+                      width: "2.5rem",
+                      height: "2.5rem",
+                      marginLeft: "1rem",
+                    }}
+                  ></img>{" "}
+                  &nbsp;Türkçe
+                </label>
+              </Link>
+            ) : (
+              <Link to="/">
+                <label
+                  onClick={handleChange}
+                  style={{ color: "black", marginTop: "1rem" }}
+                >
+                  <img
+                    src={ChFlag}
+                    style={{
+                      width: "2.5rem",
+                      height: "2.5rem",
+                      marginLeft: "1rem",
+                    }}
+                  ></img>{" "}
+                  &nbsp;中文
+                </label>
+              </Link>
+            )}
+          </div>
 
-        <div className="row ">
-          {state === true ? (
-            <nav className="navbar" style={{ backgroundColor: "#ffffff" }}>
-              <ChiLogo />
-            </nav>
-          ) : (
-            <nav className="navbar" style={{ backgroundColor: "#ffffff" }}>
-              <Logo />
-            </nav>
-          )}
-        </div>
+          <div className="row ">
+            {state === true ? (
+              <nav className="navbar" style={{ backgroundColor: "#ffffff" }}>
+                <ChiLogo />
+              </nav>
+            ) : (
+              <nav className="navbar" style={{ backgroundColor: "#ffffff" }}>
+                <Logo />
+              </nav>
+            )}
+          </div>
 
-        
           {state === true ? (
             <nav
               className="navbar menu"
@@ -272,8 +212,6 @@ function App() {
                 backgroundColor: "#A4203A",
                 padding: "0%",
                 marginBottom: "0",
-    
-                
               }}
             >
               <ChiNavbar />
@@ -284,20 +222,17 @@ function App() {
               style={{
                 backgroundColor: "#A4203A",
                 padding: "0%",
-                marginBottom: "0",   
-               
+                marginBottom: "0",
               }}
             >
               <Navbar />
             </nav>
           )}
-        
-
         </div>
-   
+
         <br />
 
-        <div className="container-fluid">
+        <div className="row">
           <Switch>
             <Route exact path="/" component={ChiHome} />
             <Route exact path="/chi-turkiyede-egitim" component={ChiEgitim} />
@@ -408,12 +343,27 @@ function App() {
             <Route exact path="/sigorta" component={Sigorta} />
 
             <Route exact path="/haberler" component={Haber} />
+            {haberler.map((haber, index) => (
+              <Route
+                exact
+                path={"/haberler/" + haber.heading}
+                component={AltHaber}
+              />
+            ))}
             <Route exact path="/duyurular" component={Duyuru} />
 
             <Route exact path="/fotograflar" component={Fotograf} />
             <Route exact path="/videolar" component={Video} />
 
             <Route exact path="/blog" component={Blog} />
+            {blogs.map((blog, index) => (
+              <Route
+                exact
+                path={"/blogs/" + blog.heading}
+                component={AltBlog}
+              />
+            ))}
+
             <Route exact path="/iletisim" component={Contact} />
 
             <Route exact path="/turkiyede-egitim" component={Egitim} />
@@ -425,10 +375,7 @@ function App() {
             <Route component={Notfound} />
           </Switch>
 
-          <div id="footer">
-              {state === true ? <ChiFooter /> : <Footer />}
-          </div>
-          
+          <div id="footer">{state === true ? <ChiFooter /> : <Footer />}</div>
         </div>
       </div>
     </Router>

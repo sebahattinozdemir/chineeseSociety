@@ -117,7 +117,7 @@ function Uyeler() {
         </form>
 
         <h2 style={{ color: "white" }}>Uyeyi Sil</h2>
-        <table class="table" style={{ color: "white" }}>
+        <table class="table" style={{ color: "white",border:"2px solid red"}}>
           <thead>
             <tr>
               <th scope="col">#</th>

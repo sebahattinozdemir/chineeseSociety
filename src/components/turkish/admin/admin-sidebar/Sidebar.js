@@ -73,14 +73,12 @@ function Sidebar() {
   };
 
   return (
-    <div className={{ marginTop: "0px" }}>
+    <div>
       <div
         style={{
           width: "100%",
           height: "100vh",
           backgroundColor: "#1A2226",
-          marginTop: "0px",
-          border: "2px solid transparent",
         }}
       >
         <h3 style={{ textAlign: "center", color: "white" }}>SITE ISLEMLERI</h3>

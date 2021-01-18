@@ -10,7 +10,6 @@ function Login() {
 
   useEffect(() => {
     db.collection("login").onSnapshot((snapshot) => {
-      console.log(snapshot.docs.map((doc) => doc.data().name));
       setLogin(snapshot.docs.map((doc) => doc.data()));
     });
   }, []);
