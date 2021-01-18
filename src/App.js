@@ -264,7 +264,7 @@ function App() {
           )}
         </div>
 
-        <div className="row" style={{marginLeft:"0rem",marginRight:"0rem"}}>
+        
           {state === true ? (
             <nav
               className="navbar menu"
@@ -291,7 +291,7 @@ function App() {
               <Navbar />
             </nav>
           )}
-        </div>
+        
 
         </div>
    
