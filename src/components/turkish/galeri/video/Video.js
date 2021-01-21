@@ -33,7 +33,7 @@ export default function Video() {
         {videos.map((video, index) => (
           <div key = {video.id}
             className="col-lg-3 col-md-6 col-sm-6 col-12 video-wrapper"
-            style={{ margin: "5rem" }}
+            style={{  }}
           >
             <ReactPlayer
               className="react-player"
@@ -43,6 +43,8 @@ export default function Video() {
               width="40rem"
               height="20rem"
             />
+            <br/>
+            <br/>
           </div>
         ))}
       </div>

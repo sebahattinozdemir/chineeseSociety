@@ -32,7 +32,7 @@ function Login() {
             <div class="col-lg-12 login-key">
               <i class="fa fa-key" aria-hidden="true"></i>
             </div>
-            <div class="col-lg-12 login-title">ADMIN PANEL</div>
+            <div class="col-lg-12 login-title">TURKISH ADMIN PANEL</div>
 
             <div class="col-lg-12 login-form">
               <div class="col-lg-12 login-form">

@@ -70,7 +70,7 @@ function Footer() {
                     target="_blank"
                     style={{float: "left" }}
                   >
-                    <img src={WeChatIcon} style={{ width:"3rem",height:"3rem" }} ></img>
+                    <img className="wechat_ikon" src={WeChatIcon} style={{ width:"3rem",height:"3rem" }} ></img>
                     
                   </a>
               
@@ -81,7 +81,7 @@ function Footer() {
                     target="_blank"
                     style={{float: "left",paddingLeft:"1rem" }}
                   >
-                    <LinkedInIcon style={{ fontSize: "xx-large", color:"#3399FF"  }} />
+                    <LinkedInIcon className="sosyal_ikon" style={{ fontSize: "xx-large", color:"#3399FF"  }} />
                   </a>
                 
                   
@@ -91,7 +91,7 @@ function Footer() {
                     target="_blank"
                     style={{float: "left",paddingLeft:"1rem" }}
                   >
-                    <TwitterIcon style={{ fontSize: "xx-large", color:"#0080FF" }} />
+                    <TwitterIcon className="sosyal_ikon" style={{ fontSize: "xx-large", color:"#0080FF" }} />
                   </a>
               </div>
               
