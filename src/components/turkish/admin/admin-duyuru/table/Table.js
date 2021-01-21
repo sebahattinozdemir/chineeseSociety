@@ -41,7 +41,7 @@ function Table(props) {
 
   const guncelle = (e) => {
     e.preventDefault();
-    db.collection("duyurular").doc(props.duyurular.id).set(
+    db.collection("duyurular").doc(props.duyuru.id).set(
       {
         url:url,
         baslik: baslik,

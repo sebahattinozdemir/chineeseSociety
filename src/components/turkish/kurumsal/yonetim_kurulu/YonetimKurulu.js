@@ -10,7 +10,7 @@ export default function YonetimKurulu() {
   useEffect(() => {
     // fires once when the app loads
     db.collection("uyeler")
-      .orderBy("timeStamp", "desc")
+      .orderBy("timeStamp", "asc")
       .onSnapshot((snapshot) => {
         setUyeler(
           snapshot.docs.map((doc) => ({

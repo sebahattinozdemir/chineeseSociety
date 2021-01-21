@@ -10,7 +10,7 @@ export default function Uyeler() {
   useEffect(() => {
     // fires once when the app loads
     db.collection("duz-uyeler")
-      .orderBy("timeStamp", "desc")
+      .orderBy("timeStamp", "asc")
       .onSnapshot((snapshot) => {
         setUyeler(
           snapshot.docs.map((doc) => ({
