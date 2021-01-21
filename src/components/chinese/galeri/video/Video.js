@@ -33,14 +33,14 @@ export default function Video() {
           <div
             key={video.id}
             className="col-lg-3 col-md-6 col-sm-6 col-12 video-wrapper"
-            style={{ }}
+            style={{}}
           >
             <ReactPlayer
               className="react-player"
               style={{ margin: "auto", overFlow: "hidden" }}
               url={video.url}
               controls={true}
-              width="40rem"
+              width="35rem"
               height="20rem"
             />
             <br/>

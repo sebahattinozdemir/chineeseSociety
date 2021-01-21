@@ -40,7 +40,7 @@ export default function Video() {
               style={{ margin: "auto", overFlow: "hidden" }}
               url={video.url}
               controls={true}
-              width="40rem"
+              width="35rem"
               height="20rem"
             />
             <br/>
