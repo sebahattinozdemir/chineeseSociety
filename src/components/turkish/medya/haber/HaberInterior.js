@@ -12,15 +12,16 @@ function HaberInterior(props) {
           src={"https://drive.google.com/uc?export=view&id="+props.photo}
           className="card"
           alt="..."
-          style={{ width: "100%", height: "20rem", padding: "1%" }}
+          style={{ width: "100%", height: "20rem", padding: "1rem" }}
         ></img>
+       
         <Link
           className="b_title"
           to={{
             pathname: props.uzanti,
             state: props.content,
           }}
-          style={{ paddingLeft: "1rem" }}
+          style={{ paddingTop:"1rem" }}
         >
           {props.title}
         </Link>
