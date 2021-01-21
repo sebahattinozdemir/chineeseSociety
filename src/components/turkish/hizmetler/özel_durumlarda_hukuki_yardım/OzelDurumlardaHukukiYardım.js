@@ -17,20 +17,20 @@ export default function OzelDurumlardaHukukiYardım() {
             
              <div className="col-12 ozeldurumlar" style={{padding:"2rem",fontSize:"medium"}}>
                   <ul>
-                        <li>重刑刑事案件</li>
-                        <li>紧急状态下 监狱探视</li>
-                        <li>紧急状态下看守所探视</li>
-                        <li>紧急状态下检察院会面</li>
-                        <li>紧急状态下派出所笔录</li>
-                        <li>陈情书</li>
-                        <li>案件调查笔录</li>
-                        <li>医院紧急探视及取证</li>
-                        <li>案发现场调查</li>
-                        <li>护送递解出入境</li>
-                        <li>重要会议参与谈判、书写法律性可信性报告</li>
-                        <li>案件真实性调查</li>
-                        <li>证据保全</li>
-                        <li>等相关法律事务</li>
+                        <li>Ağır ceza davası</li>
+                        <li>Cezaevi görüşü (Acil durumda)</li>
+                        <li>Gözaltı merkezi görüşü  (Acil durumda)</li>
+                        <li>Savcılık görüşme (Acil durumda)</li>
+                        <li>Karakol ifade tutanağı (Acil durumda)</li>
+                        <li>İfade tutanağı</li>
+                        <li>Dosya inceleme tutanağı</li>
+                        <li>Hastane acil durum görüş ve delil toplama</li>
+                        <li>Olay yeri inceleme</li>
+                        <li>Sınır dışı ve iade </li>
+                        <li>Önemli toplantı görüşmeleri ve raporlama  </li>
+                        <li>Olay hukuki keşif ,inceleme</li>
+                        <li>Delilin emanete alınması </li>
+                        <li>Diğer hukuki hizmetler</li>
 
                   </ul>
              </div>

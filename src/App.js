@@ -208,7 +208,7 @@ function App() {
             )}
           </div>
 
-          <div className="row ">
+          
             {state === true ? (
               <nav className="navbar" style={{ backgroundColor: "#ffffff" }}>
                 <ChiLogo />
@@ -218,7 +218,7 @@ function App() {
                 <Logo />
               </nav>
             )}
-          </div>
+          
 
           {state === true ? (
             <nav

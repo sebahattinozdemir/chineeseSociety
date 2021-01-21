@@ -62,20 +62,21 @@ export default function Duyuru() {
               height: "auto",
             }}
           >
-            <img
-              src={duyuru.url}
-              className="card"
-              alt="..."
-              style={{
-                width: "100%",
-                height: "25rem",
-                padding: "1%",
-                borderRadius: "1rem",
-              }}
-            ></img>
-            <h4 style={{ fontWeight: "bold" }}>{duyuru.baslik}</h4>
-            <p style={{ padding: "1%", textAlign: "justify" }} {...html(duyuru.duyuruContent)}>
-            </p>
+              <img
+                src={duyuru.url}
+                className="card"
+                alt="..."
+                style={{
+                  width: "100%",
+                  height: "25rem",
+                  padding: "1%",
+                  borderRadius: "1rem",
+                }}
+              ></img>
+              <h4 style={{ fontWeight: "bold" }}>{duyuru.baslik}</h4>
+              <br/>
+              <p style={{  textAlign: "justify" }}  {...html(duyuru.duyuruContent)}>
+              </p>
           </div>
         ))}
       </div>

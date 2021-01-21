@@ -1,5 +1,5 @@
 import Header from "../../header/Header";
-import BusinessCenterIcon from '@material-ui/icons/BusinessCenter';
+import GavelIcon from "@material-ui/icons/Gavel";
 import React from 'react'
 
 export default function Sigorta() {
@@ -8,7 +8,7 @@ export default function Sigorta() {
              <Header
                 
                 title="Sigorta"
-                icon={<BusinessCenterIcon style={{fontSize: "x-large"}}/>}
+                icon={<GavelIcon style={{fontSize: "x-large"}}/>}
                 
             />
             

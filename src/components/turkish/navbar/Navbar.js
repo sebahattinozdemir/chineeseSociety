@@ -107,6 +107,9 @@ export default class Navbar extends Component {
                   <Link className="dropdown-item menu-item-link" to="/uyelerin-hukuki-hizmetleri">
                     Üyelerin Hukuki Hizmetleri
                   </Link>
+                  <Link className="dropdown-item menu-item-link" to="/sigorta">
+                    Sigorta
+                  </Link>
                   <Link className="dropdown-item menu-item-link" to="/ikamet-calisma-izni">
                     İkamet ve Çalışma İzni
                   </Link>
@@ -119,6 +122,11 @@ export default class Navbar extends Component {
                   <Link className="dropdown-item menu-item-link" to="/mali-danisma">
                     Mali Danışma
                   </Link>
+                  
+                  <Link className="dropdown-item menu-item-link" to="/aile-hukuku-davalari">
+                    Aile Hukuku Davaları
+                  </Link>
+                  
                   <Link className="dropdown-item menu-item-link" to="/ozel-durumlarda-hukuki-yardim">
                     Özel Durumlarda Hukuki Yardım
                   </Link>
@@ -155,12 +163,7 @@ export default class Navbar extends Component {
                   <Link className="dropdown-item menu-item-link" to="/davaci-veya-davali-dosya">
                     Davacı ve Davalı Dosyaları
                   </Link>
-                  <Link className="dropdown-item menu-item-link" to="/aile-hukuku-davalari">
-                    Aile Hukuku Davaları
-                  </Link>
-                  <Link className="dropdown-item menu-item-link" to="/sigorta">
-                    Sigorta
-                  </Link>
+                  
                   
                  
                 </div>

@@ -15,7 +15,7 @@ export default function OzelDurumlardaHukukiYardım() {
             <div className="row" style={{paddingTop: "2rem", minHeight:"30rem"}}>
              
             
-             <div className="col-12 ozeldurumlar" style={{padding:"2rem",fontSize:"medium"}}>
+             <div className="col-12 ozeldurumlar" style={{padding:"2rem",fontSize:"large"}}>
                   <ul>
                         <li>重刑刑事案件</li>
                         <li>紧急状态下 监狱探视</li>

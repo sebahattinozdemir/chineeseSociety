@@ -29,3 +29,37 @@
 
 
 
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 994px) {
+    .uye_ad{
+      font-size: small !important;
+    }
+    .uye_card{
+      width: 9rem !important;
+      height: 9rem !important;
+
+    }
+    
+}
+
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 570px) {
+  .uye_ad{
+    font-size: 8px !important;
+  }
+  .uye_card{
+    width: 6rem !important;
+    height: 6rem !important;
+
+  }
+  .uye_gorev{
+    font-size: smaller !important;
+  }
+  .uye_meslek{
+    font-size: smaller !important;
+  }
+  .uye_cerceve{
+    
+    height: 10rem;
+  }
+}

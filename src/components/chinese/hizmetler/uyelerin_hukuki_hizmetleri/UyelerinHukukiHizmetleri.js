@@ -8,14 +8,14 @@ export default function UyelerinHukukiHizmetleri() {
         <div>
              <Header
                 
-                title="会员法律服务"
+                title="协会相关服务"
                 icon={<GavelIcon style={{fontSize: "x-large"}}/>}
                 
             />
             <div className="row" style={{paddingTop: "2rem", minHeight:"30rem"}}>
              
             
-                <div className="col-12 uyelerinhizmetleri" style={{padding:"2rem",fontSize:"medium"}}>
+                <div className="col-12 uyelerinhizmetleri" style={{padding:"2rem",fontSize:"large"}}>
                         <p style={{textAlign:"justify"}}><b>机构奉行原则 : </b>协会全体成员利用精准专业更快更好为中国公民和中国企业服务，全力保障中国公民和中国企业的合法权益和利益不受非法侵犯</p>
                         <p style={{textAlign:"justify"}}><b>机构奉行信条 : </b>为国家尽忠，为人民服务</p>
                         <p style={{textAlign:"justify"}}><b>机构服务理念 : </b>吾之荣誉既忠诚</p>

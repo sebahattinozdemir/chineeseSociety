@@ -1,5 +1,6 @@
 
 import Header from "../../header/Header";
+import "./Kesif.css";
 import BusinessCenterIcon from '@material-ui/icons/BusinessCenter';
 import React from 'react'
 
@@ -15,7 +16,7 @@ export default function Kesif() {
               <div className="row" style={{paddingTop: "2rem", minHeight:"30rem"}}>
              
             
-             <div className="col-12 kesif" style={{padding:"2rem",fontSize:"medium"}}>
+             <div className="col-12 kesif" style={{padding:"2rem",fontSize:"large"}}>
                 <p style={{fontWeight:"bold",fontSize:"large"}}>根据多年来对中土双方企业贸易纠纷的处理过程中，大致的问题有以下方面：</p>
                 <p style={{fontWeight:"bold",fontSize:"large"}}>中国方面;</p>
                 <ol>

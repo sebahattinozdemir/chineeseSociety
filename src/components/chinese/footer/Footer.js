@@ -6,7 +6,7 @@ import EmailIcon from '@material-ui/icons/Email';
 import WhatsAppIcon from "@material-ui/icons/WhatsApp";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import TwitterIcon from '@material-ui/icons/Twitter';
-import WeChatIcon from "../../turkish/footer/wechat.ico";
+import WeChatIcon from "../../turkish/footer/weChat.png";
 import FaxMachineIcon from "../../turkish/footer/faxmachine.png";
 import React from 'react'
 import "../../turkish/footer/Footer.css";
@@ -59,7 +59,7 @@ function Footer() {
                 href="https://wa.me/+905525505878"
                 style={{float: "left",fontSize:"small"}}
               >
-                <WhatsAppIcon style={{ fontSize: "24px" }} />   
+                <WhatsAppIcon style={{ fontSize: "x-large",color:"#00CC00" }} />   
               </a>
               <p style={{fontSize:"small"}}>&nbsp;+90 552 550 58 78</p>
               
@@ -70,7 +70,7 @@ function Footer() {
                     target="_blank"
                     style={{float: "left" }}
                   >
-                    <img src={WeChatIcon} style={{ width:"2.5rem",height:"2.5rem" }} ></img>
+                    <img src={WeChatIcon} style={{ width:"3rem",height:"3rem" }} ></img>
                     
                   </a>
               
@@ -81,7 +81,7 @@ function Footer() {
                     target="_blank"
                     style={{float: "left",paddingLeft:"1rem" }}
                   >
-                    <LinkedInIcon style={{ fontSize: "24px" }} />
+                    <LinkedInIcon style={{ fontSize: "xx-large", color:"#3399FF"  }} />
                   </a>
                 
                   
@@ -91,7 +91,7 @@ function Footer() {
                     target="_blank"
                     style={{float: "left",paddingLeft:"1rem" }}
                   >
-                    <TwitterIcon style={{ fontSize: "24px" }} />
+                    <TwitterIcon style={{ fontSize: "xx-large", color:"#0080FF" }} />
                   </a>
               </div>
               
@@ -106,7 +106,7 @@ function Footer() {
           <div className="col-lg-3 col-md-6 col-sm-6 col-12" style={{paddingTop:"1%"}}>
             <b style={{ color: "#A4203A", fontSize: "20px" }}>土耳其办事处</b>
             <hr/>
-            <p><b>地址 </b>Çankaya Mahallesi
+            <p><b>地址 :</b>Çankaya Mahallesi
                 <br/>
                     Cinnah Caddesi No:67-69/5
                 <br/>

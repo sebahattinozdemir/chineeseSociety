@@ -1,4 +1,4 @@
-
+import "../../../turkish/faaliyetler/gecmis_davalar_islemler/GecmisDavalarIslemler.css";
 import Header from "../../header/Header";
 import BusinessCenterIcon from '@material-ui/icons/BusinessCenter';
 import React from 'react'
@@ -8,7 +8,7 @@ export default function GecmisDavalarIslemler() {
         <div>
              <Header
                 
-                title="案例 "
+                title="案例 " 
                 icon={<BusinessCenterIcon style={{fontSize: "x-large"}}/>}
                 
             />
@@ -20,7 +20,7 @@ export default function GecmisDavalarIslemler() {
 
                 <ol style={{paddingLeft:"1rem"}}>
                     <li> <b>商事、经济案件</b>
-                        <ol style={{listStyleType:"lower-latin",fontSize:"medium"}}>
+                        <ol style={{listStyleType:"lower-latin"}}>
                             <li>江苏某机械制造有限公司：拖欠货款案 <br/>
                             2016年6月我方诉讼胜诉，并于同日查封冻结拖欠货款公司资产和土地。依据土耳其盖布载地权总局2017年5月29日拍卖号11976，伊兹密尔第四执行局令
                             </li>

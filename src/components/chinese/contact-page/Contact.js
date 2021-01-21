@@ -11,7 +11,7 @@ function Contact() {
     <div>
       <Header
         
-        title="İ联系"
+        title="联系"
         icon={<ContactPhoneIcon style={{ fontSize: "x-large" }} />}
       />
       <br/>

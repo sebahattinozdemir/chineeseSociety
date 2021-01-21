@@ -106,7 +106,10 @@ export default class Navbar extends Component {
                   aria-labelledby="navbarDropdownMenuLink"
                 >
                   <Link className="dropdown-item menu-item-link" to="/chi-uyelerin-hukuki-hizmetleri">
-                   协会法律服务
+                  协会相关服务
+                  </Link>
+                  <Link className="dropdown-item menu-item-link" to="/chi-sigorta">
+                  保险 
                   </Link>
                   <Link className="dropdown-item menu-item-link" to="/chi-ikamet-calisma-izni">
                   居住证和工作许可证
@@ -120,6 +123,11 @@ export default class Navbar extends Component {
                   <Link className="dropdown-item menu-item-link" to="/chi-mali-danisma">
                   财务咨询
                   </Link>
+                  
+                  <Link className="dropdown-item menu-item-link" to="/chi-aile-hukuku-davalari">
+                  婚姻和家庭案例
+                  </Link>
+                 
                   <Link className="dropdown-item menu-item-link" to="/chi-ozel-durumlarda-hukuki-yardim">
                   特殊情况下的法律援助
                   </Link>
@@ -148,7 +156,7 @@ export default class Navbar extends Component {
                   aria-labelledby="navbarDropdownMenuLink"
                 >
                   <Link className="dropdown-item menu-item-link" to="/chi-gecmis-davalar-ve-islemler">
-                  案例子打大一点  
+                  案例  
                   </Link>
                   <Link className="dropdown-item menu-item-link" to="/chi-kesif">
                   案件调查 
@@ -156,12 +164,7 @@ export default class Navbar extends Component {
                   <Link className="dropdown-item menu-item-link" to="/chi-davaci-veya-davali-dosya">
                   原告或被告档案
                   </Link>
-                  <Link className="dropdown-item menu-item-link" to="/chi-aile-hukuku-davalari">
-                  婚姻和家庭案例
-                  </Link>
-                  <Link className="dropdown-item menu-item-link" to="/chi-sigorta">
-                  保险 
-                  </Link>
+                 
                   
                  
                 </div>

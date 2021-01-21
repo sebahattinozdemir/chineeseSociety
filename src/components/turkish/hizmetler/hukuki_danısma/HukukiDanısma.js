@@ -17,7 +17,7 @@ export default function HukukiDanısma() {
              
                 <div className="col-12 hukukidanısma" style={{padding:"2rem",fontSize:"medium"}}>
                     <ul>
-                            <li>法律顾问服务 </li>
+                            <li>Hukuki Danışmanlık Hizmeti </li>
                             
                     </ul>
                 </div>

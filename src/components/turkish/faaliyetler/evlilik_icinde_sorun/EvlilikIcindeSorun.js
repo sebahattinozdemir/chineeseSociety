@@ -1,5 +1,5 @@
 import Header from "../../header/Header";
-import BusinessCenterIcon from '@material-ui/icons/BusinessCenter';
+import GavelIcon from "@material-ui/icons/Gavel";
 import React from 'react'
 
 export default function EvlilikIcindeSorun() {
@@ -8,25 +8,25 @@ export default function EvlilikIcindeSorun() {
              <Header
                 
                 title="Aile Hukuku Davaları"
-                icon={<BusinessCenterIcon style={{fontSize: "x-large"}}/>}
+                icon={<GavelIcon style={{fontSize: "x-large"}}/>}
                 
             />
             <div className="row" style={{padding:"2rem", minHeight:"30rem"}}>
                 <div className="col-12 malidanısma" style={{padding:"2rem",fontSize:"medium"}}>
-                    <p><b>婚姻</b></p>
+                    <p style={{fontSize:"large"}}><b>Evlilik davaları :</b></p>
                     <ul>
-                            <li>离婚诉讼 </li>
-                            <li>婚姻存续财产保权</li>
-                            <li>子女抚养权 </li>
-                            <li>救济权</li>
+                            <li>Boşanma davası </li>
+                            <li>Evlilik içinde ihtiyati tedbir konulması  </li>
+                            <li>Çocuk velayeti </li>
+                            <li>Ekonomik haklar</li>
                             
                     </ul>
                     <br/>
-                    <p><b>家庭</b></p>
+                    <p style={{fontSize:"large"}}><b>Aile davaları :</b></p>
                     <ul>
-                            <li>遗产继承 </li>
-                            <li>财产分割</li>
-                            <li>精神损害赔偿 </li>
+                            <li>Miras </li>
+                            <li>Mal paylaşımı </li>
+                            <li>manevi tazminat  </li>
                             
                             
                     </ul>

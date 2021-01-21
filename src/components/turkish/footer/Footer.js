@@ -5,7 +5,8 @@ import EmailIcon from '@material-ui/icons/Email';
 import WhatsAppIcon from "@material-ui/icons/WhatsApp";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import TwitterIcon from '@material-ui/icons/Twitter';
-import WeChatIcon from "./wechat.ico";
+import WeChatIcon from "./weChat.png";
+
 import FaxMachineIcon from "./faxmachine.png";
 import React from 'react'
 import "./Footer.css"
@@ -61,7 +62,7 @@ function Footer() {
                 href="https://wa.me/+905525505878"
                 style={{float: "left",fontSize:"small"}}
               >
-                <WhatsAppIcon style={{ fontSize: "24px" }} />   
+                <WhatsAppIcon style={{ fontSize: "x-large" , color:"#00CC00" }} />   
               </a>
               <p style={{fontSize:"small"}}>&nbsp;+90 552 550 58 78</p>
               
@@ -72,7 +73,7 @@ function Footer() {
                     target="_blank"
                     style={{float: "left" }}
                   >
-                    <img src={WeChatIcon} style={{ width:"2.5rem",height:"2.5rem" }} ></img>
+                    <img src={WeChatIcon} style={{ width:"3rem",height:"3rem"}} ></img>
                     
                   </a>
               
@@ -83,7 +84,7 @@ function Footer() {
                     target="_blank"
                     style={{float: "left",paddingLeft:"1rem" }}
                   >
-                    <LinkedInIcon style={{ fontSize: "24px" }} />
+                    <LinkedInIcon style={{ fontSize: "xx-large", color:"#3399FF"  }} />
                   </a>
                 
                   
@@ -93,7 +94,7 @@ function Footer() {
                     target="_blank"
                     style={{float: "left",paddingLeft:"1rem" }}
                   >
-                    <TwitterIcon style={{ fontSize: "24px" }} />
+                    <TwitterIcon style={{ fontSize: "xx-large", color:"#0080FF" }} />
                   </a>
               </div>
               
@@ -111,7 +112,7 @@ function Footer() {
                 <br/>
                     Cinnah Caddesi No:67-69/5
                 <br/>
-                    Kızılay / Çankaya / Ankara
+                    Çankaya / Ankara
 
             </p>
             <img src={TurkeyVector} className="footerphoto" alt="Turkey" title="Turkey"></img>
