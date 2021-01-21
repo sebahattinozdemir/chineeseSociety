@@ -70,7 +70,7 @@ export default class Navbar extends Component {
                   会长致辞
                   </Link>
                   <Link className="dropdown-item menu-item-link" to="/chi-yonetim-kurulu">
-                  协会成员
+                  管理委员会
                   </Link>
                   <Link className="dropdown-item menu-item-link" to="/chi-uyelerimiz">
                   我们会员

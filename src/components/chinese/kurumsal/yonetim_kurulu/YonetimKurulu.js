@@ -36,7 +36,7 @@ export default function YonetimKurulu() {
   return (
     <div>
       <Header
-        title="委员会"
+        title="管理委员会"
         icon={<BusinessIcon style={{ fontSize: "x-large" }} />}
       />
       <div className="row" style={{ paddingTop: "2rem", minHeight: "30rem" }}>

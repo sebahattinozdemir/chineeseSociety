@@ -37,7 +37,7 @@ export default function GecmisDavalarIslemler() {
                             Ticaret anlaşmazlığı, kötü niyetli temerrüt ve gümrük mallarını elde etmek için sahte belgelerin kullanılmasını içeriyordu. İlgili miktar: 185,630 usd 
 
                             </li>
-                            <li><b>fHangzhou ithalat ve ihracat ltd. şti.  ile Türkiye arasındaki uluslararası ticaret anlaşmazlığı</b><br/>
+                            <li><b>Hangzhou ithalat ve ihracat ltd. şti.  ile Türkiye arasındaki uluslararası ticaret anlaşmazlığı</b><br/>
                             Ticaret anlaşmazlığı, bir Türk şirketinin aktarma ticaretinde kötü niyetle sözleşmeyi ihlal etmek ve gecikmiş borçlarından temerrüde düştüğü bir davadır. 64,430 Usd 
                             </li>
                             <li><b>Çin Zhejiang’daki  bir sanayi şirketi ile bir Türk şirketi arasındaki uluslararası ticaret anlaşmazlığı.</b><br/>
