@@ -8,12 +8,14 @@
 .bas{
     font-weight: bold;
     text-align: justify;
+    font-size: medium;
+
 
 }
 
 .tzktext{
     text-indent: 2rem;
-    font-size: small;
+    font-size: medium;
     text-align: justify;
 
 }
@@ -22,10 +24,11 @@ ol{
     padding-left: 5rem;
 }
 
-ol li{
-    font-size: small;
+.tzkol li{
+    font-size: medium !important;
     text-indent: 2rem;
     text-align: justify;
+   
     
 }
 td {

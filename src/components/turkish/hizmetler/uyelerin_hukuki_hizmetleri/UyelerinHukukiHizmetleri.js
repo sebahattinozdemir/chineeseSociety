@@ -20,7 +20,7 @@ export default function UyelerinHukukiHizmetleri() {
                         Çin vatandaşlarına ve Çinli şirketlere daha hızlı ve daha iyi hizmet verebilmek için çalışacaklar  ve Çin 
                         vatandaşlarının ve 
                         Çin şirketlerinin hukuki hak ve menfaatlerini yasa dışı ihlallerden korumak için her türlü çabayı göstereceklerdir.</p>
-                        <p style={{textAlign:"justify"}}><b>Derneğin uyguladığı prensip : :</b> Ülkeye sadık olup ve insanlara hizmet etmek . </p> 
+                        <p style={{textAlign:"justify"}}><b>Derneğin uyguladığı prensip :</b> Ülkeye sadık olup ve insanlara hizmet etmek . </p> 
                         <p style={{textAlign:"justify"}}><b>Derneğin hizmet felsefesi :</b> Benim şerefim sadakattir .</p> 
                         <p style={{textAlign:"justify"}}><b>Derneğin niteliği :</b> Benim şerefim sadakattir .</p> 
                         <p style={{textAlign:"justify"}}><b>Dernek üyelerinin verdiğin hizmetler :</b>

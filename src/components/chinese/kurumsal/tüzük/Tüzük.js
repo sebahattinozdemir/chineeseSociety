@@ -23,7 +23,7 @@ export default function Tüzük() {
                 <h4 className="bas">Derneğin Amacı ve Bu Amacı Gerçekleştirmek İçin Dernekçe Sürdürülecek Çalışma Konuları ve Biçimleri İle Faaliyet Alanı</h4>
                     <p className="tzktext"><b>Madde 2- </b>Dernek, Çin Vatandaş ve Çinli Firmaların sorunlarına danışmanlık , yardım , koruma faaliyetlerinin etkinleştirilmesi ve geliştirilmesini sağlamak ve bu konuda çalışmalar  yapan  kişi ve kuruluşlara destek vermek amacı ile kurulmuştur. </p>
                 <h4 className="bas">Dernekçe Sürdürülecek Çalışma Konuları ve Biçimleri </h4>
-                        <ol>
+                        <ol className="tzkol">
                             <li>Faaliyetlerinin etkinleştirilmesi ve geliştirilmesi için araştırmalar yapmak,  </li>
                             <li>Kurs, seminer, konferans ve panel gibi eğitim çalışmaları düzenlemek, </li>
                             <li>Amacın gerçekleştirilmesi için gerekli olan her türlü bilgi, belge, doküman ve yayınları temin etmek, dokümantasyon merkezi oluşturmak, çalışmalarını duyurmak için amaçları doğrultusunda gazete, dergi, kitap ve bülten gibi yayınlar çıkarmak,</li>
@@ -54,7 +54,7 @@ export default function Tüzük() {
  </p>
                 <h4 className="bas">Üyelikten Çıkarılma </h4>
                 <p className="tzktext"><b>Madde 5- </b>Dernek üyeliğinden çıkarılmayı gerektiren haller.</p>   
-                        <ol>
+                        <ol className="tzkol">
                             <li>Dernek tüzüğüne aykırı davranışlarda bulunmak,</li>
                             <li>Verilen görevlerden sürekli kaçınmak, </li>
                             <li>Yazılı ikazlara rağmen üyelik aidatını altı ay içinde ödememek,</li>
@@ -66,7 +66,7 @@ export default function Tüzük() {
 </p>
                 <h4 className="bas">Dernek Organları </h4>
                 <p className="tzktext"><b>Madde 6- </b>Derneğin organları aşağıda gösterilmiştir.</p>   
-                <ol>
+                <ol className="tzkol">
                     <li>Genel kurul, </li>
                     <li>Yönetim kurulu,</li>
                     <li>Denetim kurulu,</li>
@@ -74,7 +74,7 @@ export default function Tüzük() {
 
                 <h4 className="bas">Dernek Genel Kurulunun Kuruluş Şekli, Toplanma Zamanı ve Çağrı ve Toplantı Usulü </h4>
                 <p className="tzktext"><b>Madde 7- </b>Genel kurul, derneğin en yetkili karar organı olup; derneğe kayıtlı üyelerden oluşur. <br/> Genel kurul;</p>   
-                <ol>
+                <ol className="tzkol">
                     <li>Bu tüzükte belli edilen zamanda olağan, </li>
                     <li>Yönetim veya denetim kurulunun gerekli gördüğü hallerde veya dernek üyelerinden beşte birinin yazılı isteği üzerine otuz gün içinde olağanüstü toplanır. </li>
                     
@@ -113,7 +113,7 @@ export default function Tüzük() {
 
                     <h4 className="bas">Genel Kurulun Görev ve Yetkileri</h4>
                     <p className="tzktext"><b>Madde 9- </b>Aşağıda yazılı hususlar genel kurulca görüşülüp karara bağlanır.    </p>
-                    <ol>
+                    <ol className="tzkol">
                         <li>Dernek organlarının seçilmesi,</li>
                         <li>Dernek tüzüğünün değiştirilmesi,</li>
                         <li>Yönetim ve denetim kurulları raporlarının görüşülmesi ve yönetim kurulunun ibrası,</li>
@@ -140,7 +140,7 @@ export default function Tüzük() {
 
                     <h4 className="bas">Yönetim Kurulunun Görev ve Yetkileri </h4>
                     <p className="tzktext">Yönetim kurulu aşağıdaki hususları yerine getirir.</p>
-                    <ol>
+                    <ol className="tzkol">
                         <li>Derneği temsil etmek veya bu hususta kendi üyelerinden bir veya birkaçına yetki vermek,</li>
                         <li>Gelir ve gider hesaplarına ilişkin işlemleri yapmak ve gelecek döneme ait bütçeyi hazırlayarak genel kurula sunmak,</li>
                         <li>Derneğin çalışmaları ile ilgili yönetmelikleri hazırlayarak genel kurul onayına sunmak</li>
@@ -168,7 +168,7 @@ export default function Tüzük() {
 
                     <h4 className="bas">Derneğin Gelir Kaynakları </h4>
                     <p className="tzktext"><b>Madde 12- </b>Derneğin gelir kaynakları aşağıda sayılmıştır.</p>
-                    <ol>
+                    <ol className="tzkol">
                         <li>Üye Aidatı: Üyelerden giriş ödentisi olarak <b>100,00 TL</b>, aylık olarak ta <b>10,00 TL</b> aidat alınır. Bu miktarları artırmaya veya eksiltmeye genel kurul yetkilidir. </li>
                         <li>Gerçek ve tüzel kişilerin kendi isteği ile derneğe yaptıkları bağış ve yardımlar.</li>
                         <li>Dernek tarafından tertiplenen çay ve yemekli toplantı, gezi ve eğlence, temsil, konser, spor yarışması ve konferans gibi faaliyetlerden sağlanan gelirler,</li>
@@ -193,7 +193,7 @@ export default function Tüzük() {
                     <h4 className="bas">Tutulacak Defterler </h4>
                     <p className="tzktext">Dernekte, aşağıda yazılı defterler tutulur. <br/>
                     a)İşletme hesabı esasında tutulacak defterler ve uyulacak esaslar aşağıdaki gibidir:</p>
-                    <ol>
+                    <ol className="tzkol">
                         <li>Karar Defteri: Yönetim kurulu kararları tarih ve numara sırasıyla bu deftere yazılır ve kararların altı toplantıya katılan üyelerce imzalanır.</li>
                         <li>Üye Kayıt Defteri: Derneğe üye olarak girenlerin kimlik bilgileri, derneğe giriş ve çıkış tarihleri bu deftere işlenir. Üyelerin ödedikleri giriş ve yıllık aidat miktarları bu deftere işlenebilir.</li>
                         <li>Evrak Kayıt Defteri: Gelen ve giden evraklar, tarih ve sıra numarası ile bu deftere kaydedilir. Gelen evrakın asılları ve giden evrakın kopyaları dosyalanır. Elektronik posta yoluyla gelen veya giden evraklar çıktısı alınmak suretiyle saklanır. </li>
@@ -204,7 +204,7 @@ export default function Tüzük() {
                     </ol>
                     <p className="tzktext">Alındı Belgesi Kayıt Defteri ile Demirbaş Defterinin tutulması zorunlu değildir. <br/>
                     b)Bilanço esasında tutulacak defterler ve uyulacak esaslar aşağıdaki gibidir:</p>
-                    <ol>
+                    <ol className="tzkol">
                         <li>(a) bendinin 1, 2 ve 3 üncü alt bentlerinde kayıtlı defterler bilanço esasında defter tutulması durumunda da tutulur.</li>
                         <li>Yevmiye Defteri ve Büyük Defter: Bu defterlerin tutulma usulü ile kayıt şekli Vergi Usul Kanunu ile bu Kanununun Maliye Bakanlığına verdiği yetkiye istinaden yayımlanan Muhasebe Sistemi Uygulama Genel Tebliğleri esaslarına göre yapılır.</li>
                     </ol>
