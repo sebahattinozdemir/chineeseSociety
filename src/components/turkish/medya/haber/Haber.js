@@ -16,7 +16,7 @@ function Haber() {
         setHaberler(
           snapshot.docs.map((doc) => ({
             id: doc.id,
-            url:doc.data().url.substring(doc.data().url.lastIndexOf('file')+7, doc.data().url.lastIndexOf('/')),
+            url:"https://drive.google.com/uc?export=view&id="+doc.data().url.substring(doc.data().url.lastIndexOf('file')+7, doc.data().url.lastIndexOf('/')),
             content: doc.data().haberContent,
             heading: doc.data().baslik,
           }))
