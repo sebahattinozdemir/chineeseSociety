@@ -32,7 +32,7 @@ function Footer() {
             <b style={{ color: "#A4203A", fontSize: "20px" }}>社交媒体</b>
             <hr/>
             <div>
-                  <a className="footeremail" href="cvcshkd@gmail.com" style={{ float: "left"}} >
+                  <a className="footeremail" href="chi-iletisim" style={{ float: "left"}} >
                     <EmailIcon style={{fontSize:"24px"}}/>
                   </a> 
                   <p style={{fontSize:"small"}}>&nbsp;cvcshkd@gmail.com</p>

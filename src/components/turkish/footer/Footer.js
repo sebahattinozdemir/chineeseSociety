@@ -35,7 +35,7 @@ function Footer() {
             <hr/>
             
             <div>
-                  <a className="footeremail" href="cvcshkd@gmail.com" style={{ float: "left"}} >
+                  <a className="footeremail" href="/iletisim" style={{ float: "left"}} >
                     <EmailIcon style={{fontSize:"24px"}}/>
                   </a> 
                   <p style={{fontSize:"small"}}>&nbsp;cvcshkd@gmail.com</p>
