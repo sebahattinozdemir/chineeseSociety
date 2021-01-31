@@ -6,8 +6,11 @@ import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import Slide from "@material-ui/core/Slide";
-import db from "./../../../../../firebase";
-import firebase from "firebase";
+import { useSnackbar } from 'notistack';
+
+//stores
+import GenericStore from "../../../../../stores/GenericStore";
+const GenericService = new GenericStore('member')
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -23,9 +26,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Table(props) {
-  const [open, setOpen]         = React.useState(false);
-  const [url, setUrl]           = useState(props.uye.url);
-  const [name, setName]         = useState(props.uye.name);
+  const { enqueueSnackbar } = useSnackbar();
+  const [open, setOpen] = React.useState(false);
+  const [url, setUrl] = useState(props.uye.url);
+  const [name, setName] = useState(props.uye.name);
   const [mission, setMission] = useState(props.uye.mission);
   const [position, setPosition] = useState(props.uye.position);
 
@@ -41,16 +45,39 @@ function Table(props) {
 
   const guncelle = (e) => {
     e.preventDefault();
-    db.collection("chi-duz-uyeler").doc(props.uye.id).set(
-      {
-        url: url,
-        name: name,
-        mission:mission,
-        position: position,
-        timeStamp: firebase.firestore.FieldValue.serverTimestamp(),
-      },
-      { merge: true }
-    );
+
+    GenericService.update({
+      _id: props.uye.id,
+      photoUrl: url,
+      nameAndSurname: name,
+      mission: mission,
+      position: position,
+    })
+      .then((data) => {
+        enqueueSnackbar('Üye bilgileri güncellendi.', {
+          autoHideDuration: 3000,
+          variant: 'success'
+        });
+      })
+      .catch((err) => {
+        enqueueSnackbar('Üye bilgileri güncellenemedi.', {
+          autoHideDuration: 3000,
+          variant: 'error'
+        });
+      })
+
+    props.getMembers()
+
+    // db.collection("chi-duz-uyeler").doc(props.uye.id).set(
+    //   {
+    //     url: url,
+    //     name: name,
+    //     mission: mission,
+    //     position: position,
+    //     timeStamp: firebase.firestore.FieldValue.serverTimestamp(),
+    //   },
+    //   { merge: true }
+    // );
     setOpen(false);
   };
 
@@ -143,8 +170,23 @@ function Table(props) {
         <td>
           <button
             className="btn btn-danger"
-            onClick={(event) =>
-              db.collection("chi-duz-uyeler").doc(props.uye.id).delete()
+            onClick={(event) => {
+              GenericService.delete(props.uye.id)
+                .then((data) => {
+                  enqueueSnackbar('Üye silindi.', {
+                    autoHideDuration: 3000,
+                    variant: 'success'
+                  });
+                })
+                .catch((err) => {
+                  enqueueSnackbar('Üye silinemedi.', {
+                    autoHideDuration: 3000,
+                    variant: 'error'
+                  });
+                })
+
+              props.getMembers()
+            }
             }
           >
             X

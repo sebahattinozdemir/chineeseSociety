@@ -1,40 +1,56 @@
 import React, { useState, useEffect } from "react";
 import "./Yonetim.css";
 import Table from "./table/Table";
-import db from "../../../../firebase";
-import firebase from "firebase";
+import { useSnackbar } from 'notistack';
 
-function Yonetim() {
-  
-  const [uyeler, setUyeler] = useState([]);
+//stores
+import GenericStore from "../../../../stores/GenericStore";
+const GenericService = new GenericStore('managementMember')
+
+const Yonetim = () => {
+  const { enqueueSnackbar } = useSnackbar();
+  const [uyeler, setUyeler] = useState(GenericService._get.data);
   const [url, setUrl] = useState("");
   const [name, setName] = useState("");
   const [position, setPosition] = useState("");
 
   useEffect(() => {
-    // fires once when the app loads
-    db.collection("chi-uyeler")
-      .orderBy("timeStamp", "desc")
-      .onSnapshot((snapshot) => {
+    getManagementMembers()
+  }, []);
+
+  const getManagementMembers = () => {
+    GenericService.get()
+      .then(async (data) => {
         setUyeler(
-          snapshot.docs.map((doc) => ({
-            id:       doc.id,
-            url:      doc.data().url,
-            name:     doc.data().name,
-            position: doc.data().position,
+          data.map((member) => ({
+            id: member._id,
+            url: member.photoUrl,
+            name: member.nameAndSurname,
+            position: member.position,
           }))
         );
-      });
-  }, []);
+      })
+      .catch((err) => {
+        console.log(`Oppss ! ${err}`)
+      })
+  }
 
   const addUye = (event) => {
     event.preventDefault();
-    db.collection("chi-uyeler").add({
-      url: url,
-      name: name,
+    GenericService.save({
+      photoUrl: url,
+      nameAndSurname: name,
       position: position,
-      timeStamp: firebase.firestore.FieldValue.serverTimestamp(),
-    });
+    }).then((data) => {
+      enqueueSnackbar('Yönetim kurulu üyesi eklendi.', {
+        autoHideDuration: 3000,
+        variant: 'success'
+      });
+    }).catch((err) => {
+      console.log(`Oppss ! ${err}`)
+    })
+
+    getManagementMembers()
     setName("");
     setPosition("");
     setUrl("");
@@ -43,7 +59,7 @@ function Yonetim() {
   return (
     <div
       className="referanslar"
-      style={{border: "2px solid transparent" }}
+      style={{ border: "2px solid transparent" }}
     >
       <h1 style={{ textAlign: "center", color: "black" }}>
         Yonetim Kurulu Sayfasi Guncelleme
@@ -104,13 +120,13 @@ function Yonetim() {
             <tr>
               <th scope="col">#</th>
               <th scope="col">Uye Adi </th>
+              <th scope="col">Uye Pozisyonu </th>
               <th scope="col">Sil</th>
               <th scope="col">Guncelle</th>
             </tr>
           </thead>
-
           {uyeler.map((uye, index) => (
-            <Table key={uye.id} uye={uye} index={index} />
+            <Table key={uye.id} uye={uye} index={index} getMembers={getManagementMembers} />
           ))}
         </table>
       </div>

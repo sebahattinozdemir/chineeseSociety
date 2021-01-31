@@ -5,7 +5,7 @@ import db from "../../../../firebase";
 import firebase from "firebase";
 
 function Yonetim() {
-  
+
   const [uyeler, setUyeler] = useState([]);
   const [url, setUrl] = useState("");
   const [name, setName] = useState("");
@@ -18,9 +18,9 @@ function Yonetim() {
       .onSnapshot((snapshot) => {
         setUyeler(
           snapshot.docs.map((doc) => ({
-            id:       doc.id,
-            url:      doc.data().url,
-            name:     doc.data().name,
+            id: doc.id,
+            url: doc.data().url,
+            name: doc.data().name,
             position: doc.data().position,
           }))
         );

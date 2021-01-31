@@ -30,7 +30,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 function Blog() {
   const classes = useStyles();
 
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   const [blogs, setBlogs] = useState([]);
   const [url, setUrl] = useState("");

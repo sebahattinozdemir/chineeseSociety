@@ -6,8 +6,11 @@ import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import Slide from "@material-ui/core/Slide";
-import db from "./../../../../../firebase";
-import firebase from "firebase";
+import { useSnackbar } from 'notistack';
+
+//stores
+import GenericStore from "../../../../../stores/GenericStore";
+const GenericService = new GenericStore('managementMember')
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -22,11 +25,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Table(props) {
-  const [open, setOpen]         = React.useState(false);
-  const [url, setUrl]           = useState(props.uye.url);
-  const [name, setName]         = useState(props.uye.name);
-  const [position, setPosition] = useState(props.uye.position);
+function Table({ key, uye, index, getMembers }) {
+  const [open, setOpen] = React.useState(false);
+  const [url, setUrl] = useState(uye.url);
+  const [name, setName] = useState(uye.name);
+  const [position, setPosition] = useState(uye.position);
+
+  const { enqueueSnackbar } = useSnackbar();
 
   const classes = useStyles();
 
@@ -40,15 +45,23 @@ function Table(props) {
 
   const guncelle = (e) => {
     e.preventDefault();
-    db.collection("chi-uyeler").doc(props.uye.id).set(
-      {
-        url: url,
-        name: name,
-        position: position,
-        timeStamp: firebase.firestore.FieldValue.serverTimestamp(),
-      },
-      { merge: true }
-    );
+    GenericService.update({
+      _id: uye.id,
+      photoUrl: url,
+      nameAndSurname: name,
+      position: position,
+    }).then((data) => {
+      enqueueSnackbar('Yönetim kurulu üyesi güncellendi.', {
+        autoHideDuration: 3000,
+        variant: 'success'
+      });
+    }).catch((err) => {
+      enqueueSnackbar('Hata oluştu.', {
+        autoHideDuration: 3000,
+        variant: 'error'
+      });
+    })
+    getMembers()
     setOpen(false);
   };
 
@@ -122,13 +135,28 @@ function Table(props) {
       </Dialog>
 
       <tr>
-        <th scope="row">{props.index + 1}</th>
-        <td>{props.uye.name}</td>
+        <th scope="row">{index + 1}</th>
+        <td>{uye.name}</td>
+        <td>{uye.position}</td>
         <td>
           <button
             className="btn btn-danger"
-            onClick={(event) =>
-              db.collection("chi-uyeler").doc(props.uye.id).delete()
+            onClick={(event) => {
+              GenericService.delete(uye.id)
+                .then((data) => {
+                  enqueueSnackbar('Yönetim kurulu üyesi silindi.', {
+                    autoHideDuration: 3000,
+                    variant: 'success'
+                  });
+                })
+                .catch((err) => {
+                  enqueueSnackbar('Hata oluştu.', {
+                    autoHideDuration: 3000,
+                    variant: 'error'
+                  });
+                })
+              getMembers()
+            }
             }
           >
             X

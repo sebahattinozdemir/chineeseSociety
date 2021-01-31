@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
 import "./Duz-Uyeler.css";
 import Table from "./table/Table";
-import db from "../../../../firebase";
-import firebase from "firebase";
+import { useSnackbar } from 'notistack';
+
+
+//stores
+import GenericStore from "../../../../stores/GenericStore";
+const GenericService = new GenericStore('member')
 
 function Uyeler() {
-  
+  const { enqueueSnackbar } = useSnackbar();
   const [uyeler, setUyeler] = useState([]);
   const [url, setUrl] = useState("");
   const [name, setName] = useState("");
@@ -13,31 +17,46 @@ function Uyeler() {
   const [position, setPosition] = useState("");
 
   useEffect(() => {
-    // fires once when the app loads
-    db.collection("chi-duz-uyeler")
-      .orderBy("timeStamp", "desc")
-      .onSnapshot((snapshot) => {
+    getMembers()
+  }, []);
+
+  const getMembers = () => {
+    GenericService.get()
+      .then(async (data) => {
         setUyeler(
-          snapshot.docs.map((doc) => ({
-            id:       doc.id,
-            url:      doc.data().url,
-            name:     doc.data().name,
-            mission:doc.data().mission,
-            position: doc.data().position,
+          data.map((member) => ({
+            id: member._id,
+            url: member.photoUrl,
+            name: member.nameAndSurname,
+            position: member.position,
+            mission: member.mission
           }))
         );
-      });
-  }, []);
+      })
+      .catch((err) => {
+        console.log(`Oppss ! ${err}`)
+      })
+  }
 
   const addUye = (event) => {
     event.preventDefault();
-    db.collection("chi-duz-uyeler").add({
-      url: url,
-      name: name,
+    GenericService.save({
+      photoUrl: url,
+      nameAndSurname: name,
       mission: mission,
       position: position,
-      timeStamp: firebase.firestore.FieldValue.serverTimestamp(),
-    });
+    }).then((data) => {
+      enqueueSnackbar('Üye eklendi.', {
+        autoHideDuration: 3000,
+        variant: 'success'
+      });
+    }).catch((err) => {
+      enqueueSnackbar('Üye eklenemedi.', {
+        autoHideDuration: 3000,
+        variant: 'error'
+      });
+    })
+    getMembers()
     setName("");
     setPosition("");
     setMission("");
@@ -117,7 +136,7 @@ function Uyeler() {
         </form>
 
         <h2 style={{ color: "black" }}>Uyeyi Sil</h2>
-        <table class="table" style={{ color: "black"}}>
+        <table class="table" style={{ color: "black" }}>
           <thead>
             <tr>
               <th scope="col">#</th>
@@ -130,7 +149,7 @@ function Uyeler() {
           </thead>
 
           {uyeler.map((uye, index) => (
-            <Table key={uye.id} uye={uye} index={index} />
+            <Table key={uye.id} uye={uye} index={index} getMembers={getMembers} />
           ))}
         </table>
       </div>
