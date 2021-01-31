@@ -5,6 +5,6 @@ export const config = () => {
         }
         :
         {
-            API_URL: 'https://car-galery-api-endpoints.herokuapp.com/api',
+            API_URL: 'https://sebertech-backend.herokuapp.com/api',
         }
 }
