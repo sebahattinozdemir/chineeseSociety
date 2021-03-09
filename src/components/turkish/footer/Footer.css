@@ -1,0 +1,45 @@
+
+.dropdown-item{
+    font-size: 16px;
+    text-align: left;
+}
+.footerphoto{
+    width:98%; 
+    height:10rem;
+    padding:2%;
+    float:left;
+}
+.footeremail{
+    color:black;
+    font-size: medium;
+}
+.footeremail:hover{
+    text-decoration: none;
+    color:#A4203A;
+}
+.footerphone,.footerwhatsapp,.footerlinkedin{
+    color:black;
+    
+}
+.footerphone:hover,.footerwhatsapp:hover,.footerlinkedin:hover{
+    color:#A4203A;
+    
+}
+
+/* On screens that are less than 700px wide, make the sidebar into a topbar */
+@media screen and (max-width: 700px) {
+    
+   .sosyal_ikon{
+       font-size: x-large !important;
+   }
+   .wechat_ikon{
+       width: 2.3rem !important;
+       height: 2.3rem !important;
+   }
+    
+}
+
+
+
+
+

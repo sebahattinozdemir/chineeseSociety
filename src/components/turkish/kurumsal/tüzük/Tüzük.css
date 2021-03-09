@@ -1,0 +1,43 @@
+.tüzükbaslik{
+    text-align: center;
+    font-size: medium;
+    font-weight: bold;
+
+}
+
+.bas{
+    font-weight: bold;
+    text-align: justify;
+    font-size: medium;
+
+
+}
+
+.tzktext{
+    text-indent: 2rem;
+    font-size: medium;
+    text-align: justify;
+
+}
+
+ol{
+    padding-left: 5rem;
+}
+
+.tzkol li{
+    font-size: medium !important;
+    text-indent: 2rem;
+    text-align: justify;
+   
+    
+}
+td {
+    font-weight: bold;
+  }
+/* On screens that are less than 700px wide, make the sidebar into a topbar */
+@media screen and (max-width: 700px) {
+    td {
+        font-weight:lighter;
+      }
+
+}
