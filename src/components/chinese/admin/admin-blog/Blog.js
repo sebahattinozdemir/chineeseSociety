@@ -14,12 +14,12 @@ import { useSnackbar } from 'notistack';
 
 //stores
 import GenericStore from "../../../../stores/GenericStore";
-const GenericService = new GenericStore('blog')
+const GenericService = new GenericStore('blog', 'ch')
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
     position: "relative",
-  }, 
+  },
   title: {
     marginLeft: theme.spacing(2),
     flex: 1,
@@ -43,7 +43,7 @@ function Blog() {
 
   useEffect(() => {
     // fires once when the app loads
-      getBlogs();
+    getBlogs();
   }, []);
 
   const getBlogs = () => {
@@ -52,11 +52,11 @@ function Blog() {
         setBlogs(
           data.map((blog) => ({
             id: blog._id,
-            url:blog.photoUrl,
+            url: blog.photoUrl,
             heading: blog.title,
             blogContent: blog.content,
 
-        
+
           }))
         );
       })
@@ -79,8 +79,13 @@ function Blog() {
       photoUrl: url,
       title: heading,
       content: blogContent,
+      'language': 'ch'
     }).then((data) => {
       getBlogs()
+      setUrl("");
+      setHeading("");
+      setBlogContent("");
+      setOpen(false);
       enqueueSnackbar('Blog eklendi.', {
         autoHideDuration: 3000,
         variant: 'success'
@@ -88,12 +93,6 @@ function Blog() {
     }).catch((err) => {
       console.log(`Oppss ! ${err}`)
     })
-
-
-    setUrl("");
-    setHeading("");
-    setBlogContent("");
-    setOpen(false);
   };
 
   return (
@@ -122,7 +121,7 @@ function Blog() {
           <div className="container" style={{ marginTop: "10%" }}>
             <form>
               <div class="form-group">
-              <label for="exampleFormControlInput1">Foto Url</label>
+                <label for="exampleFormControlInput1">Foto Url</label>
                 <input
                   type="text"
                   class="form-control"
@@ -206,8 +205,8 @@ function Blog() {
               <th scope="col">Guncelle</th>
             </tr>
           </thead>
-          {blogs.map((blog,index) => (
-            <Table key={blog.id} blog={blog} index = {index} getBlogs={getBlogs}/>
+          {blogs.map((blog, index) => (
+            <Table key={blog.id} blog={blog} index={index} getBlogs={getBlogs} />
           ))}
         </table>
       </div>

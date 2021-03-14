@@ -6,7 +6,7 @@ import { useSnackbar } from 'notistack';
 
 //stores
 import GenericStore from "../../../../stores/GenericStore";
-const GenericService = new GenericStore('member')
+const GenericService = new GenericStore('member', 'ch')
 
 function Uyeler() {
   const { enqueueSnackbar } = useSnackbar();
@@ -45,7 +45,9 @@ function Uyeler() {
       nameAndSurname: name,
       mission: mission,
       position: position,
+      language: 'ch'
     }).then((data) => {
+      getMembers()
       enqueueSnackbar('Üye eklendi.', {
         autoHideDuration: 3000,
         variant: 'success'
@@ -56,7 +58,6 @@ function Uyeler() {
         variant: 'error'
       });
     })
-    getMembers()
     setName("");
     setPosition("");
     setMission("");

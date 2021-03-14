@@ -16,7 +16,7 @@ import { useSnackbar } from 'notistack';
 
 //stores
 import GenericStore from "../../../../stores/GenericStore";
-const GenericService = new GenericStore('announcement')
+const GenericService = new GenericStore('announcement','ch')
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -58,9 +58,7 @@ function Duyuru() {
             id: announcement._id,
             url:announcement.photoUrl,
             baslik: announcement.title,
-            duyuruContent: announcement.content,
-
-        
+            duyuruContent: announcement.content
           }))
         );
       })
@@ -83,6 +81,7 @@ function Duyuru() {
       photoUrl: url,
       title: baslik,
       content: duyuruContent,
+      language: 'ch'
     }).then((data) => {
       getAnnouncements()
       enqueueSnackbar('Duyuru eklendi.', {

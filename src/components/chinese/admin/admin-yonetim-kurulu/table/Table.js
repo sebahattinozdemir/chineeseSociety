@@ -10,7 +10,7 @@ import { useSnackbar } from 'notistack';
 
 //stores
 import GenericStore from "../../../../../stores/GenericStore";
-const GenericService = new GenericStore('managementMember')
+const GenericService = new GenericStore('managementMember', 'ch')
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;

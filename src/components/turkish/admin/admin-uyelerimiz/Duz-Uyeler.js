@@ -8,7 +8,7 @@ import { useSnackbar } from 'notistack';
 
 //stores
 import GenericStore from "../../../../stores/GenericStore";
-const GenericService = new GenericStore('member')
+const GenericService = new GenericStore('member', 'tr')
 
 function Uyeler() {
   const { enqueueSnackbar } = useSnackbar();
@@ -46,23 +46,24 @@ function Uyeler() {
       photoUrl: url,
       nameAndSurname: name,
       mission: mission,
-      position: position, 
+      position: position,
+      language: 'tr'
     }).then((data) => {
       enqueueSnackbar('Üye eklendi.', {
         autoHideDuration: 3000,
         variant: 'success'
       });
+      getMembers()
+      setName("");
+      setPosition("");
+      setMission("");
+      setUrl("");
     }).catch((err) => {
       enqueueSnackbar('Üye eklenemedi.', {
         autoHideDuration: 3000,
         variant: 'error'
       });
     })
-    getMembers()
-    setName("");
-    setPosition("");
-    setMission("");
-    setUrl("");
   };
 
   return (
@@ -103,7 +104,7 @@ function Uyeler() {
                 setName(event.target.value);
               }}
             />
-          </div> 
+          </div>
 
           <div class="form-group">
             <label for="exampleFormControlInput1">Uye Gorevi</label>
@@ -138,7 +139,7 @@ function Uyeler() {
         </form>
 
         <h2 style={{ color: "black" }}>Uyeyi Sil</h2>
-        <table class="table" style={{ color: "black"}}>
+        <table class="table" style={{ color: "black" }}>
           <thead>
             <tr>
               <th scope="col">#</th>
@@ -151,7 +152,7 @@ function Uyeler() {
           </thead>
 
           {uyeler.map((uye, index) => (
-           <Table key={uye.id} uye={uye} index={index} getMembers={getMembers} />
+            <Table key={uye.id} uye={uye} index={index} getMembers={getMembers} />
           ))}
         </table>
       </div>

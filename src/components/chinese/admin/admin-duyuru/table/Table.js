@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Dialog from "@material-ui/core/Dialog";
 import AppBar from "@material-ui/core/AppBar";
@@ -15,7 +15,7 @@ import { useSnackbar } from 'notistack';
 
 //stores
 import GenericStore from "../../../../../stores/GenericStore";
-const GenericService = new GenericStore('announcement')
+const GenericService = new GenericStore('announcement', 'ch')
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -53,7 +53,7 @@ function Table(props) {
       photoUrl: url,
       title: baslik,
       content: duyuruContent,
-    
+
     })
       .then((data) => {
         props.getAnnouncements()
@@ -95,7 +95,7 @@ function Table(props) {
           <div className="container" style={{ marginTop: "10%" }}>
             <form>
               <div class="form-group">
-              <label for="exampleFormControlInput1">Foto Url</label>
+                <label for="exampleFormControlInput1">Foto Url</label>
                 <input
                   type="text"
                   class="form-control"
@@ -151,11 +151,11 @@ function Table(props) {
         </div>
       </Dialog>
       <tr>
-                <th scope="row">{props.index+1}</th>
+        <th scope="row">{props.index + 1}</th>
         <td>{props.duyuru.baslik}</td>
 
         <td>
-           <button
+          <button
             className="btn btn-danger"
             onClick={(event) => {
               GenericService.delete(props.duyuru.id)

@@ -2,10 +2,11 @@ import { makeAutoObservable } from 'mobx';
 const { URL_OBJECT } = require('../../config');
 
 class GenericStore {
-    constructor(resourceName) {
+    constructor(resourceName, language = 'ch') {
         // Call it here
         makeAutoObservable(this)
         this.RESOURCE_NAME = resourceName
+        this.LANGUAGE = language
     }
 
     _get = {
@@ -44,6 +45,7 @@ class GenericStore {
         return fetch(`${URL_OBJECT.API_URL}/${this.RESOURCE_NAME}`, {
             headers: {
                 'Content-Type': 'application/json',
+                'language': this.LANGUAGE
             },
             method: 'GET'
         }).then(async (response) => {
@@ -76,7 +78,7 @@ class GenericStore {
 
         return fetch(`${URL_OBJECT.API_URL}/${this.RESOURCE_NAME}`, {
             headers: {
-                'Content-Type': 'application/json',
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(contract),
             method: 'POST',
@@ -112,7 +114,7 @@ class GenericStore {
 
         return fetch(`${URL_OBJECT.API_URL}/${this.RESOURCE_NAME}/${contract._id}`, {
             headers: {
-                'Content-Type': 'application/json',
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(contract),
             method: 'PUT',
@@ -149,7 +151,7 @@ class GenericStore {
 
         return fetch(`${URL_OBJECT.API_URL}/${this.RESOURCE_NAME}/${id}`, {
             headers: {
-                'Content-Type': 'application/json',
+                'Content-Type': 'application/json'
             },
             method: 'DELETE',
         }).then(async (response) => {

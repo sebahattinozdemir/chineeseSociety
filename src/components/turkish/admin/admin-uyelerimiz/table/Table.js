@@ -12,7 +12,7 @@ import { useSnackbar } from 'notistack';
 
 //stores
 import GenericStore from "../../../../../stores/GenericStore";
-const GenericService = new GenericStore('member')
+const GenericService = new GenericStore('member', 'tr')
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -24,18 +24,18 @@ const useStyles = makeStyles((theme) => ({
   title: {
     marginLeft: theme.spacing(2),
     flex: 1,
-  }, 
+  },
 }));
 
 function Table(props) {
   const { enqueueSnackbar } = useSnackbar();
-  const [open, setOpen]         = React.useState(false);
-  const [url, setUrl]           = useState(props.uye.url);
-  const [name, setName]         = useState(props.uye.name);
+  const [open, setOpen] = React.useState(false);
+  const [url, setUrl] = useState(props.uye.url);
+  const [name, setName] = useState(props.uye.name);
   const [mission, setMission] = useState(props.uye.mission);
   const [position, setPosition] = useState(props.uye.position);
 
-  const classes = useStyles(); 
+  const classes = useStyles();
 
   const handleClose = () => {
     setOpen(false);
@@ -159,7 +159,7 @@ function Table(props) {
         <td>{props.uye.mission}</td>
         <td>{props.uye.position}</td>
         <td>
-        <button
+          <button
             className="btn btn-danger"
             onClick={(event) => {
               GenericService.delete(props.uye.id)

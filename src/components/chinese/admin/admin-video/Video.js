@@ -8,14 +8,14 @@ import { useSnackbar } from 'notistack';
 
 //stores
 import GenericStore from "../../../../stores/GenericStore";
-const GenericService = new GenericStore('video')
+const GenericService = new GenericStore('video', 'ch')
 
 function Photo() {
   const { enqueueSnackbar } = useSnackbar();
   const [urls, setUrls] = useState([]);
   const [url, setUrl] = useState("");
   const [name, setName] = useState("");
-  
+
   useEffect(() => {
     // fires once when the app loads
     getVideos();
@@ -28,8 +28,7 @@ function Photo() {
           data.map((video) => ({
             id: video._id,
             url: video.videoUrl,
-            name: video.videoName,
-           
+            name: video.videoName
           }))
         );
       })
@@ -44,21 +43,21 @@ function Photo() {
     GenericService.save({
       videoUrl: url,
       videoName: name,
-      
+      language: 'ch'
     }).then((data) => {
       enqueueSnackbar('Video eklendi.', {
         autoHideDuration: 3000,
         variant: 'success'
       });
+      getVideos();
+      setUrl("");
+      setName("");
     }).catch((err) => {
       enqueueSnackbar('Video eklenemedi.', {
         autoHideDuration: 3000,
         variant: 'error'
       });
     })
-    getVideos();
-    setUrl("");
-    setName("");
   };
 
   return (
@@ -67,7 +66,7 @@ function Photo() {
       style={{ height: "100%", border: "2px solid transparent" }}
     >
       <h1 style={{ textAlign: "center", color: "black" }}>
-         Galeri Video Ekleme Sayafasi
+        Galeri Video Ekleme Sayafasi
       </h1>
 
       <div className="container-fluid">

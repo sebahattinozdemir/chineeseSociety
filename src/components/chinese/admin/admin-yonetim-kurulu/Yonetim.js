@@ -5,7 +5,7 @@ import { useSnackbar } from 'notistack';
 
 //stores
 import GenericStore from "../../../../stores/GenericStore";
-const GenericService = new GenericStore('managementMember')
+const GenericService = new GenericStore('managementMember', 'ch')
 
 const Yonetim = () => {
   const { enqueueSnackbar } = useSnackbar();
@@ -41,6 +41,7 @@ const Yonetim = () => {
       photoUrl: url,
       nameAndSurname: name,
       position: position,
+      language: 'ch'
     }).then((data) => {
       getManagementMembers()
       enqueueSnackbar('Yönetim kurulu üyesi eklendi.', {
@@ -95,7 +96,7 @@ const Yonetim = () => {
                 setName(event.target.value);
               }}
             />
-          </div> 
+          </div>
 
           <div class="form-group">
             <label for="exampleFormControlInput1">Uye Pozisyonu</label>

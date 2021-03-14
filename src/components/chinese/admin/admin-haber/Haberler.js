@@ -18,7 +18,7 @@ import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
 //stores
 import GenericStore from "../../../../stores/GenericStore";
-const GenericService = new GenericStore('news')
+const GenericService = new GenericStore('news', 'ch')
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -48,7 +48,7 @@ function Haberler() {
 
   useEffect(() => {
     getNews()
-   
+
   }, []);
 
   //get news
@@ -85,7 +85,8 @@ function Haberler() {
       photoUrl: url,
       title: baslik,
       content: haberContent,
-      newsUrl: haberUrl
+      newsUrl: haberUrl,
+      language: 'ch'
     }).then((data) => {
       getNews()
       enqueueSnackbar('Haber eklendi.', {
@@ -140,7 +141,7 @@ function Haberler() {
                   onChange={(event) => setUrl(event.target.value)}
                 />
               </div>
-          
+
               <div class="form-group">
                 <label for="exampleFormControlInput1">Baslik Ekle</label>
                 <input
@@ -206,7 +207,7 @@ function Haberler() {
         class="dropdown btn btn-outline"
         style={{
           fontSize: "16px",
-          display: "block", 
+          display: "block",
           width: "20%",
         }}
       ></div>
@@ -226,7 +227,7 @@ function Haberler() {
             </tr>
           </thead>
           {haberler.map((haber, index) => (
-            <Table key={haber.id} haber={haber}  index={index} getNews={getNews} />
+            <Table key={haber.id} haber={haber} index={index} getNews={getNews} />
           ))}
         </table>
       </div>

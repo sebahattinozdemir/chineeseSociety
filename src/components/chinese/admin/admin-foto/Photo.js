@@ -8,14 +8,14 @@ import { useSnackbar } from 'notistack';
 
 //stores
 import GenericStore from "../../../../stores/GenericStore";
-const GenericService = new GenericStore('gallery')
+const GenericService = new GenericStore('gallery', 'ch')
 
 function Photo() {
   const { enqueueSnackbar } = useSnackbar();
   const [urls, setUrls] = useState([]);
   const [url, setUrl] = useState("");
   const [name, setName] = useState("");
-  
+
   useEffect(() => {
     // fires once when the app loads
     getPhotos();
@@ -30,7 +30,7 @@ function Photo() {
             id: gallery._id,
             url: gallery.photoUrl,
             name: gallery.photoName,
-           
+
           }))
         );
       })
@@ -39,13 +39,12 @@ function Photo() {
       })
   }
 
-
   const addPhoto = (event) => {
     event.preventDefault();
     GenericService.save({
       photoUrl: url,
       photoName: name,
-      
+      language: 'ch'
     }).then((data) => {
       enqueueSnackbar('Fotoğraf eklendi.', {
         autoHideDuration: 3000,
@@ -60,9 +59,9 @@ function Photo() {
     getPhotos();
     setUrl("");
     setName("");
-    
+
   };
-    
+
 
   return (
     <div
@@ -70,7 +69,7 @@ function Photo() {
       style={{ height: "100%", border: "2px solid transparent" }}
     >
       <h1 style={{ textAlign: "center", color: "black" }}>
-         Galeri Foto Ekleme Sayafasi
+        Galeri Foto Ekleme Sayafasi
       </h1>
 
       <div className="container-fluid">
@@ -121,7 +120,7 @@ function Photo() {
           </thead>
 
           {urls.map((photo, index) => (
-            <Table key={photo.id} photo={photo} index={index} getPhotos={getPhotos}/>
+            <Table key={photo.id} photo={photo} index={index} getPhotos={getPhotos} />
           ))}
         </table>
       </div>

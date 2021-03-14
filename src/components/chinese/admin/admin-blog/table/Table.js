@@ -15,7 +15,7 @@ import { useSnackbar } from 'notistack';
 
 //stores
 import GenericStore from "../../../../../stores/GenericStore";
-const GenericService = new GenericStore('blog')
+const GenericService = new GenericStore('blog','ch')
 
 
 const Transition = React.forwardRef(function Transition(props, ref) {
