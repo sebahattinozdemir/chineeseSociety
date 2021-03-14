@@ -16,7 +16,7 @@ import { useSnackbar } from 'notistack';
 
 //stores
 import GenericStore from "../../../../stores/GenericStore";
-const GenericService = new GenericStore('announcement','ch')
+const GenericService = new GenericStore('announcement', 'ch')
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -56,7 +56,7 @@ function Duyuru() {
         setDuyuru(
           data.map((announcement) => ({
             id: announcement._id,
-            url:announcement.photoUrl,
+            url: announcement.photoUrl,
             baslik: announcement.title,
             duyuruContent: announcement.content
           }))
@@ -84,6 +84,10 @@ function Duyuru() {
       language: 'ch'
     }).then((data) => {
       getAnnouncements()
+      setUrl("");
+      setBaslik("");
+      setDuyuruContent("");
+      setOpen(false);
       enqueueSnackbar('Duyuru eklendi.', {
         autoHideDuration: 3000,
         variant: 'success'
@@ -91,11 +95,6 @@ function Duyuru() {
     }).catch((err) => {
       console.log(`Oppss ! ${err}`)
     })
-
-    setUrl("");
-    setBaslik("");
-    setDuyuruContent("");
-    setOpen(false);
   };
 
   return (
@@ -124,7 +123,7 @@ function Duyuru() {
           <div className="container" style={{ marginTop: "10%" }}>
             <form>
               <div class="form-group">
-              <label for="exampleFormControlInput1">Foto Url</label>
+                <label for="exampleFormControlInput1">Foto Url</label>
                 <input
                   type="text"
                   class="form-control"
@@ -195,7 +194,7 @@ function Duyuru() {
       <div className="container-fluid">
         <h2 style={{ color: "black" }}>Duyurular</h2>
         <button className="btn btn-primary" onClick={handleClickOpen}>
-         Duyuru Ekle
+          Duyuru Ekle
         </button>
         <table class="table" style={{ color: "black" }}>
           <thead>
@@ -206,8 +205,8 @@ function Duyuru() {
               <th scope="col">Guncelle</th>
             </tr>
           </thead>
-          {duyuru.map((duyuru,index) => (
-            <Table key={duyuru.id} duyuru={duyuru} index = {index} getAnnouncements={getAnnouncements}/>
+          {duyuru.map((duyuru, index) => (
+            <Table key={duyuru.id} duyuru={duyuru} index={index} getAnnouncements={getAnnouncements} />
           ))}
         </table>
       </div>

@@ -3,25 +3,32 @@ import Header from "../../header/Header";
 import CameraAltIcon from "@material-ui/icons/CameraAlt";
 import ReactPlayer from "react-player";
 import React, { useEffect, useState } from "react";
-import db from "./../../../../firebase";
-
+//stores
+import GenericStore from "../../../../stores/GenericStore";
+const GenericService = new GenericStore('video', 'ch')
 
 export default function Video() {
-    const [videos, setVideos] = useState([]);
+  const [videos, setVideos] = useState([]);
 
-    useEffect(() => {
-      // fires once when the app loads
-      db.collection("videos")
-        .orderBy("timeStamp", "desc")
-        .onSnapshot((snapshot) => {
-          setVideos(
-            snapshot.docs.map((doc) => ({
-              id: doc.id,
-              url: "https://drive.google.com/uc?export=view&id="+doc.data().url.substring(doc.data().url.lastIndexOf('file')+7, doc.data().url.lastIndexOf('/')),
-            }))
-          );
-        });
-    }, []);
+  useEffect(() => {
+    getVideos()
+  }, []); 
+
+  const getVideos = () => {
+    GenericService.get()
+      .then(async (data) => {
+        setVideos(
+          data.map((video) => ({
+            id: video._id,
+            url: video.videoUrl.replace('?dl=0', '?raw=1'),
+            name: video.videoName
+          }))
+        );
+      })
+      .catch((err) => {
+        console.log(`Oppss ! ${err}`)
+      })
+  }
   return (
     <div>
       <Header
@@ -43,8 +50,8 @@ export default function Video() {
               width="35rem"
               height="20rem"
             />
-            <br/>
-            <br/>
+            <br />
+            <br />
           </div>
         ))}
       </div>

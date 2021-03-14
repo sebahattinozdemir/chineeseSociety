@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Video.css";
 import Table from "./table/Table";
-import db from "../../../../firebase";
-import firebase from "firebase";
 import { useSnackbar } from 'notistack';
-
 
 //stores
 import GenericStore from "../../../../stores/GenericStore";

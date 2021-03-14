@@ -6,8 +6,6 @@ import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import Slide from "@material-ui/core/Slide";
-import db from "./../../../../../firebase";
-import firebase from "firebase";
 import { useSnackbar } from 'notistack';
 
 //stores
@@ -58,6 +56,7 @@ function Table(props) {
           autoHideDuration: 3000,
           variant: 'success'
         });
+        setOpen(false);
       })
       .catch((err) => {
         enqueueSnackbar('Fotoğraf güncellenemedi.', {
@@ -65,7 +64,6 @@ function Table(props) {
           variant: 'error'
         });
       })
-    setOpen(false);
   };
 
   return (

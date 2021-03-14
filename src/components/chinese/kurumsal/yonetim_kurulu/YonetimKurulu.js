@@ -1,37 +1,35 @@
 import "../../../turkish/kurumsal/yonetim_kurulu/YonetimKurulu.css";
-import u1 from "../../../turkish/kurumsal/uyelerimiz/uyeler/u1.jpg";
-import u2 from "../../../turkish/kurumsal/uyelerimiz/uyeler/u2.jpg";
-import u7 from "../../../turkish/kurumsal/uyelerimiz/uyeler/u7.jpg";
 import Header from "../../header/Header";
 import BusinessIcon from "@material-ui/icons/Business";
 import React, { useEffect, useState } from "react";
-import db from "./../../../../firebase";
+
+//stores
+import GenericStore from "../../../../stores/GenericStore";
+const GenericService = new GenericStore('managementMember', 'ch')
 
 export default function YonetimKurulu() {
   const [uyeler, setUyeler] = useState([]);
 
   useEffect(() => {
-    // fires once when the app loads
-    db.collection("chi-uyeler")
-      .orderBy("timeStamp", "asc")
-      .onSnapshot((snapshot) => {
+    getManagementMembers()
+  }, []);
+
+  const getManagementMembers = () => {
+    GenericService.get()
+      .then(async (data) => {
         setUyeler(
-          snapshot.docs.map((doc) => ({
-            id: doc.id,
-            url:
-              "https://drive.google.com/uc?export=view&id=" +
-              doc
-                .data()
-                .url.substring(
-                  doc.data().url.lastIndexOf("file") + 7,
-                  doc.data().url.lastIndexOf("/")
-                ),
-            name: doc.data().name,
-            position: doc.data().position,
+          data.map((member) => ({
+            id: member._id,
+            url: member.photoUrl.replace('?dl=0', '?raw=1'),
+            name: member.nameAndSurname,
+            position: member.position,
           }))
         );
-      });
-  }, []);
+      })
+      .catch((err) => {
+        console.log(`Oppss ! ${err}`)
+      })
+  }
 
   return (
     <div>
@@ -40,7 +38,7 @@ export default function YonetimKurulu() {
         icon={<BusinessIcon style={{ fontSize: "x-large" }} />}
       />
       <div className="row" style={{ paddingTop: "2rem", minHeight: "30rem" }}>
-    
+
         {uyeler.map((uye, index) => (
           <div className="col-lg-4 col-md-6 col-sm-6 col-12 mb-2">
             <div className="uye_cerceve">

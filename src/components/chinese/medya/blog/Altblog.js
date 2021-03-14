@@ -1,4 +1,4 @@
-import Header from "../../header/Header"; 
+import Header from "../../header/Header";
 import "./Altblog.css";
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import React from 'react'
@@ -10,15 +10,15 @@ function Altblog(props) {
             <Header
                 subtitle={props.location.state.heading}
                 title="博客"
-                icon={<AssignmentIcon style={{fontSize:"35px"}} />}
+                icon={<AssignmentIcon style={{ fontSize: "35px" }} />}
             />
-                   <div className="row" style={{margin:"0%",padding:"1%"}}>
-                        <div className="col-12" style={{margin:"3%"}} > 
-                            <h1 className="blogtitle" {...html(props.location.state.heading)}></h1>
-                            <p class="blogtext" {...html(props.location.state.content)}></p>
+            <div className="row" style={{ margin: "0%", padding: "1%" }}>
+                <div className="col-12" style={{ margin: "3%" }} >
+                    <h1 className="blogtitle" {...html(props.location.state.title)}></h1>
+                    <p class="blogtext" {...html(props.location.state.content)}></p>
 
-                        </div>
-                   </div>
+                </div>
+            </div>
         </div>
     )
 }

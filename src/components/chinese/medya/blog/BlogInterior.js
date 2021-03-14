@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./Blog.css";
 function BlogInterior(props) {
   return (
-    
+     
       <div
         className="col-lg-3 col-md-6 col-sm-6 col-12"
         style={{ border: "1px #A4203A solid", borderRadius: "1em",margin:"1%" }}
@@ -18,7 +18,7 @@ function BlogInterior(props) {
           className="b_title"
           to={{
             pathname: props.uzanti,
-            state: props.content,
+            state: props,
           }}
           style={{ paddingLeft: "1%" }}
         >

@@ -8,10 +8,13 @@ import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import Slide from "@material-ui/core/Slide";
 import Table from "./table/Table";
-import db from "./../../../../firebase";
-import firebase from "firebase";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import { useSnackbar } from 'notistack'
+
+//stores
+import GenericStore from "../../../../stores/GenericStore";
+const GenericService = new GenericStore('announcement', 'tr')
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -30,7 +33,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 function Duyuru() {
   const classes = useStyles();
-
+  const { enqueueSnackbar } = useSnackbar()
   const [open, setOpen] = React.useState(false);
 
   const [duyuru, setDuyuru] = useState([]);
@@ -39,20 +42,25 @@ function Duyuru() {
   const [duyuruContent, setDuyuruContent] = useState("");
 
   useEffect(() => {
-    // fires once when the app loads
-    db.collection("duyurular")
-      .orderBy("timeStamp", "desc")
-      .onSnapshot((snapshot) => {
+    getAnnouncements();
+  }, []);
+
+  const getAnnouncements = () => {
+    GenericService.get()
+      .then(async (data) => {
         setDuyuru(
-          snapshot.docs.map((doc) => ({
-            id: doc.id,
-            url:doc.data().url,
-            baslik: doc.data().baslik,
-            duyuruContent: doc.data().duyuruContent,
+          data.map((announcement) => ({
+            id: announcement._id,
+            url: announcement.photoUrl,
+            baslik: announcement.title,
+            duyuruContent: announcement.content
           }))
         );
-      });
-  }, []);
+      })
+      .catch((err) => {
+        console.log(`Oppss ! ${err}`)
+      })
+  }
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -64,16 +72,25 @@ function Duyuru() {
 
   const kaydet = (e) => {
     e.preventDefault();
-    db.collection("duyurular").add({
-      url:url,
-      baslik: baslik,
-      duyuruContent: duyuruContent,
-      timeStamp: firebase.firestore.FieldValue.serverTimestamp(),
-    });
-    setUrl("");
-    setBaslik("");
-    setDuyuruContent("");
-    setOpen(false);
+    GenericService.save({
+      photoUrl: url,
+      title: baslik,
+      content: duyuruContent,
+      language: 'tr'
+    }).then((data) => {
+      getAnnouncements()
+      setUrl("");
+      setBaslik("");
+      setDuyuruContent("");
+      setOpen(false);
+      enqueueSnackbar('Duyuru eklendi.', {
+        autoHideDuration: 3000,
+        variant: 'success'
+      });
+    }).catch((err) => {
+      console.log(`Oppss ! ${err}`)
+    })
+
   };
 
   return (
@@ -102,7 +119,7 @@ function Duyuru() {
           <div className="container" style={{ marginTop: "10%" }}>
             <form>
               <div class="form-group">
-              <label for="exampleFormControlInput1">Foto Url</label>
+                <label for="exampleFormControlInput1">Foto Url</label>
                 <input
                   type="text"
                   class="form-control"
@@ -173,7 +190,7 @@ function Duyuru() {
       <div className="container-fluid">
         <h2 style={{ color: "black" }}>Duyurular</h2>
         <button className="btn btn-primary" onClick={handleClickOpen}>
-         Duyuru Ekle
+          Duyuru Ekle
         </button>
         <table class="table" style={{ color: "black" }}>
           <thead>
@@ -184,8 +201,8 @@ function Duyuru() {
               <th scope="col">Guncelle</th>
             </tr>
           </thead>
-          {duyuru.map((duyuru,index) => (
-            <Table key={duyuru.id} duyuru={duyuru} index = {index}/>
+          {duyuru.map((duyuru, index) => (
+            <Table key={duyuru.id} duyuru={duyuru} index={index} getAnnouncements={getAnnouncements} />
           ))}
         </table>
       </div>

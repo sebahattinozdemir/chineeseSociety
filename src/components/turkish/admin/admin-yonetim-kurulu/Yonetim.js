@@ -7,10 +7,9 @@ import { useSnackbar } from 'notistack';
 
 //stores
 import GenericStore from "../../../../stores/GenericStore";
-const GenericService = new GenericStore('managementMember')
+const GenericService = new GenericStore('managementMember','tr')
 
 const Yonetim = () => {
-
   const { enqueueSnackbar } = useSnackbar();
   const [uyeler, setUyeler] = useState(GenericService._get.data);
   const [url, setUrl] = useState("");
@@ -44,6 +43,7 @@ const Yonetim = () => {
       photoUrl: url,
       nameAndSurname: name,
       position: position,
+      language:'tr'
     }).then((data) => {
       getManagementMembers()
       enqueueSnackbar('Türkçe sayfaya Yönetim kurulu üyesi eklendi.', {

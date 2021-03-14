@@ -8,7 +8,7 @@ import { useSnackbar } from 'notistack';
 import { makeStyles } from "@material-ui/core/styles";
 //stores
 import GenericStore from "../../../../stores/GenericStore";
-const GenericService = new GenericStore('news')
+const GenericService = new GenericStore('news', 'ch')
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
 
 function Haber() {
 
-  
+
   const classes = useStyles();
   const { enqueueSnackbar } = useSnackbar();
   const [open, setOpen] = React.useState(false);
@@ -35,7 +35,7 @@ function Haber() {
 
   useEffect(() => {
     getNews()
-   
+
   }, []);
 
   //get news
@@ -45,7 +45,7 @@ function Haber() {
         setHaberler(
           data.map((news) => ({
             id: news._id,
-            url: news.photoUrl.replace("?dl=0","?raw=1"),
+            url: news.photoUrl.replace("?dl=0", "?raw=1"),
             baslik: news.title,
             haberContent: news.content,
             haberUrl: news.newsUrl
@@ -65,17 +65,17 @@ function Haber() {
         title="新闻"
         icon={<AssignmentIcon style={{ fontSize: "x-large" }} />}
       />
-      <div className="row" style={{ paddingTop: "2rem", minHeight:"30rem"}}>
-      {haberler.map((haber,index) => (
-         <HaberInterior 
-            photo = {haber.url} 
+      <div className="row" style={{ paddingTop: "2rem", minHeight: "30rem" }}>
+        {haberler.map((haber, index) => (
+          <HaberInterior
+            photo={haber.url}
             key={haber.id}
             index={index}
             title={haber.baslik}
-            content = {haber.haberContent} 
-            haberUrl = {haber.haberUrl}   
-            />
-          ))}
+            content={haber.haberContent}
+            haberUrl={haber.haberUrl}
+          />
+        ))}
       </div>
     </div>
   );

@@ -16,13 +16,13 @@ import { useSnackbar } from 'notistack';
 
 //stores
 import GenericStore from "../../../../stores/GenericStore";
-const GenericService = new GenericStore('news')
+const GenericService = new GenericStore('news', 'tr')
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
     position: "relative",
   },
-  title: { 
+  title: {
     marginLeft: theme.spacing(2),
     flex: 1,
   },
@@ -46,7 +46,7 @@ function Haberler() {
 
   useEffect(() => {
     getNews()
-   
+
   }, []);
 
   //get news
@@ -78,12 +78,12 @@ function Haberler() {
 
   const kaydet = (e) => {
     e.preventDefault();
-
     GenericService.save({
       photoUrl: url,
       title: baslik,
       content: haberContent,
       newsUrl: haberUrl,
+      language: 'tr'
     }).then((data) => {
       getNews()
       enqueueSnackbar('Haber eklendi.', {
@@ -120,7 +120,7 @@ function Haberler() {
             >
               <CloseIcon />
             </IconButton>
-            <h3 style={{ marginLeft: "5%" }}>Blog Sayfasi Ekle</h3>
+            <h3 style={{ marginLeft: "5%" }}>Haber Sayfasi Ekle</h3>
           </Toolbar>
         </AppBar>
 
@@ -128,7 +128,7 @@ function Haberler() {
           <div className="container" style={{ marginTop: "10%" }}>
             <form>
               <div class="form-group">
-              <label for="exampleFormControlInput1">Foto Url</label>
+                <label for="exampleFormControlInput1">Foto Url</label>
                 <input
                   type="text"
                   class="form-control"
@@ -139,7 +139,7 @@ function Haberler() {
                 />
               </div>
               <div class="form-group">
-                <label for="exampleFormControlInput1">Baslik Ekle</label>
+                <label for="exampleFormControlInput1">Haber Başlığı Ekle</label>
                 <input
                   type="text"
                   class="form-control"
@@ -150,8 +150,19 @@ function Haberler() {
                 />
               </div>
               <div class="form-group">
+                <label for="exampleFormControlInput1">Haber Linki</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="exampleFormControlInput1"
+                  placeholder="Sayfa Adi"
+                  value={haberUrl}
+                  onChange={(event) => setHaberUrl(event.target.value)}
+                />
+              </div>
+              <div class="form-group">
                 <label for="exampleFormControlTextarea1">
-                  Blog Yazisi Ekle
+                  Haber Yazisi Ekle
                 </label>
                 <CKEditor
                   editor={ClassicEditor}
@@ -211,8 +222,8 @@ function Haberler() {
               <th scope="col">Guncelle</th>
             </tr>
           </thead>
-          {haberler.map((haber,index) => (
-            <Table key={haber.id} haber={haber} index = {index} getNews={getNews}/>
+          {haberler.map((haber, index) => (
+            <Table key={haber.id} haber={haber} index={index} getNews={getNews} />
           ))}
         </table>
       </div>

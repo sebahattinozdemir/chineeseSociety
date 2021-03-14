@@ -9,16 +9,16 @@ function BlogInterior(props) {
         style={{ border: "1px #A4203A solid", borderRadius: "1em",margin:"1%" }}
       >
         <img
-          src={"https://drive.google.com/uc?export=view&id="+props.photo}
+          src={props.photo}
           className="card"
           alt="..."
           style={{ width: "100%", height: "25rem", padding: "1%" }}
         ></img>
         <Link
           className="b_title"
-          to={{
+          to={{ 
             pathname: props.uzanti,
-            state: props.content,
+            state: props,
           }}
           style={{ paddingLeft: "1%" }}
         >

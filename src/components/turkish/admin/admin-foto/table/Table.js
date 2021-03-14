@@ -6,8 +6,11 @@ import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import Slide from "@material-ui/core/Slide";
-import db from "./../../../../../firebase";
-import firebase from "firebase";
+import { useSnackbar } from 'notistack';
+
+//stores
+import GenericStore from "../../../../../stores/GenericStore";
+const GenericService = new GenericStore('gallery')
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -23,10 +26,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Table(props) {
-
-  const [open, setOpen]         = React.useState(false);
-  const [url, setUrl]           = useState(props.photo.url);
-  const [name, setName]         = useState(props.photo.name);
+  const { enqueueSnackbar } = useSnackbar();
+  const [open, setOpen] = React.useState(false);
+  const [url, setUrl] = useState(props.photo.url);
+  const [name, setName] = useState(props.photo.name);
 
 
   const classes = useStyles();
@@ -41,15 +44,26 @@ function Table(props) {
 
   const guncelle = (e) => {
     e.preventDefault();
-    db.collection("photos").doc(props.photo.id).set(
-      {
-        url: url,
-        name: name,
-        timeStamp: firebase.firestore.FieldValue.serverTimestamp(),
-      },
-      { merge: true }
-    );
-    setOpen(false);
+    GenericService.update({
+      _id: props.photo.id,
+      photoUrl: url,
+      photoName: name,
+
+    })
+      .then((data) => {
+        props.getPhotos()
+        enqueueSnackbar('Fotoğraf güncellendi.', {
+          autoHideDuration: 3000,
+          variant: 'success'
+        });
+        setOpen(false);
+      })
+      .catch((err) => {
+        enqueueSnackbar('Fotoğraf güncellenemedi.', {
+          autoHideDuration: 3000,
+          variant: 'error'
+        });
+      })
   };
 
   return (
@@ -115,8 +129,22 @@ function Table(props) {
         <td>
           <button
             className="btn btn-danger"
-            onClick={(event) =>
-              db.collection("photos").doc(props.photo.id).delete()
+            onClick={(event) => {
+              GenericService.delete(props.photo.id)
+                .then((data) => {
+                  props.getPhotos()
+                  enqueueSnackbar('Fotoğraf silindi.', {
+                    autoHideDuration: 3000,
+                    variant: 'success'
+                  });
+                })
+                .catch((err) => {
+                  enqueueSnackbar('Fotoğraf silinemedi.', {
+                    autoHideDuration: 3000,
+                    variant: 'error'
+                  });
+                })
+            }
             }
           >
             X

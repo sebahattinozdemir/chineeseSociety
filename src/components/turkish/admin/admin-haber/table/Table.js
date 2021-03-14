@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Dialog from "@material-ui/core/Dialog";
 import AppBar from "@material-ui/core/AppBar";
@@ -15,14 +15,14 @@ import { useSnackbar } from 'notistack';
 
 //stores
 import GenericStore from "../../../../../stores/GenericStore";
-const GenericService = new GenericStore('news')
+const GenericService = new GenericStore('news', 'tr')
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 const useStyles = makeStyles((theme) => ({
   appBar: {
-    position: "relative", 
+    position: "relative",
   },
   title: {
     marginLeft: theme.spacing(2),
@@ -50,8 +50,6 @@ function Table({ props, haber, index, getNews }) {
 
   const guncelle = (e) => {
     e.preventDefault();
-    
-
     GenericService.update({
       _id: haber.id,
       title: baslik,
@@ -61,7 +59,7 @@ function Table({ props, haber, index, getNews }) {
       getNews();
       enqueueSnackbar('Haber güncellendi.', {
         autoHideDuration: 3000,
-        variant: 'success' 
+        variant: 'success'
       });
     }).catch((err) => {
       enqueueSnackbar('Hata oluştu.', {
@@ -96,7 +94,7 @@ function Table({ props, haber, index, getNews }) {
           <div className="container" style={{ marginTop: "10%" }}>
             <form>
               <div class="form-group">
-              <label for="exampleFormControlInput1">Foto Url</label>
+                <label for="exampleFormControlInput1">Foto Url</label>
                 <input
                   type="text"
                   class="form-control"
@@ -107,7 +105,7 @@ function Table({ props, haber, index, getNews }) {
                 />
               </div>
               <div class="form-group">
-                <label for="exampleFormControlInput1">Baslik Ekle</label>
+                <label for="exampleFormControlInput1">Haber Başlığı Ekle</label>
                 <input
                   type="text"
                   class="form-control"
@@ -118,8 +116,19 @@ function Table({ props, haber, index, getNews }) {
                 />
               </div>
               <div class="form-group">
+                <label for="exampleFormControlInput1">Haber Linki</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="exampleFormControlInput1"
+                  placeholder="Sayfa Adi"
+                  value={haberUrl}
+                  onChange={(event) => sethaberUrl(event.target.value)}
+                />
+              </div>
+              <div class="form-group">
                 <label for="exampleFormControlTextarea1">
-                  Blog Yazisi Ekle
+                  Haber İçeriği Ekle
                 </label>
                 <CKEditor
                   editor={ClassicEditor}
@@ -152,10 +161,10 @@ function Table({ props, haber, index, getNews }) {
         </div>
       </Dialog>
       <tr>
-                <th scope="row">{index+1}</th>
+        <th scope="row">{index + 1}</th>
         <td>{haber.baslik}</td>
         <td>
-        <button
+          <button
             className="btn btn-danger"
             onClick={(event) => {
               //db.collection("chi-haberler").doc(props.haber.id).delete()

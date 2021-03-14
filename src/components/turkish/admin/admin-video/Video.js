@@ -1,40 +1,58 @@
 import React, { useState, useEffect } from "react";
 import "./Video.css";
 import Table from "./table/Table";
-import db from "../../../../firebase";
-import firebase from "firebase";
+import { useSnackbar } from 'notistack';
+
+//stores 
+import GenericStore from "../../../../stores/GenericStore";
+const GenericService = new GenericStore('video', 'tr')
 
 function Photo() {
-  
+  const { enqueueSnackbar } = useSnackbar();
   const [urls, setUrls] = useState([]);
   const [url, setUrl] = useState("");
   const [name, setName] = useState("");
-  
+
   useEffect(() => {
-    // fires once when the app loads
-    db.collection("videos")
-      .orderBy("timeStamp", "desc")
-      .onSnapshot((snapshot) => {
-        setUrls(
-          snapshot.docs.map((doc) => ({
-            id:       doc.id,
-            url:      doc.data().url,
-            name:     doc.data().name,
-          }))
-        );
-      });
+    getVideos()
   }, []);
 
+  const getVideos = () => {
+    GenericService.get()
+      .then(async (data) => {
+        setUrls(
+          data.map((video) => ({
+            id: video._id,
+            url: video.videoUrl,
+            name: video.videoName
+          }))
+        );
+      })
+      .catch((err) => {
+        console.log(`Oppss ! ${err}`)
+      })
+  }
 
   const addVideo = (event) => {
     event.preventDefault();
-    db.collection("videos").add({
-      url: url,
-      name: name,
-      timeStamp: firebase.firestore.FieldValue.serverTimestamp(),
-    });
-    setName("");
-    setUrl("");
+    GenericService.save({
+      videoUrl: url,
+      videoName: name,
+      language: 'tr'
+    }).then((data) => {
+      enqueueSnackbar('Video eklendi.', {
+        autoHideDuration: 3000,
+        variant: 'success'
+      });
+      getVideos();
+      setUrl("");
+      setName("");
+    }).catch((err) => {
+      enqueueSnackbar('Video eklenemedi.', {
+        autoHideDuration: 3000,
+        variant: 'error'
+      });
+    })
   };
 
   return (
@@ -43,7 +61,7 @@ function Photo() {
       style={{ height: "100%", border: "2px solid transparent" }}
     >
       <h1 style={{ textAlign: "center", color: "black" }}>
-         Galeri Video Ekleme Sayafasi
+        Galeri Video Ekleme Sayafasi
       </h1>
 
       <div className="container-fluid">
@@ -94,7 +112,7 @@ function Photo() {
           </thead>
 
           {urls.map((video, index) => (
-            <Table key={video.id} video={video} index={index} />
+            <Table key={video.id} video={video} index={index} getVideos={getVideos} />
           ))}
         </table>
       </div>

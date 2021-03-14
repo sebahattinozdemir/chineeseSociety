@@ -7,7 +7,7 @@ import db from "./../../../../firebase";
 import html from 'react-inner-html';
 //stores
 import GenericStore from "../../../../stores/GenericStore";
-const GenericService = new GenericStore('announcement')
+const GenericService = new GenericStore('announcement','ch')
 
 
 export default function Duyuru() {

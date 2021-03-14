@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Photo.css";
 import Table from "./table/Table";
-import db from "../../../../firebase";
-import firebase from "firebase";
 import { useSnackbar } from 'notistack';
-
 
 //stores
 import GenericStore from "../../../../stores/GenericStore";
@@ -50,19 +47,17 @@ function Photo() {
         autoHideDuration: 3000,
         variant: 'success'
       });
+      getPhotos();
+      setUrl("");
+      setName("");
     }).catch((err) => {
       enqueueSnackbar('Fotoğraf eklenemedi.', {
         autoHideDuration: 3000,
         variant: 'error'
       });
     })
-    getPhotos();
-    setUrl("");
-    setName("");
-
   };
-
-
+  
   return (
     <div
       className="referanslar"

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "./Login.css";
-import db from "./../../../../firebase";
 function Login() {
 
   const [login, setLogin] = useState({});
@@ -9,13 +8,10 @@ function Login() {
   const [password, setPassword] = useState("");
 
   useEffect(() => {
-    db.collection("login").onSnapshot((snapshot) => {
-      setLogin(snapshot.docs.map((doc) => doc.data()));
-    });
   }, []);
 
   const giris = () => {
-    if (userName === login[0].name && password === login[0].password) {
+    if (userName === 'user' && password === '1234') {
       document.getElementById("login").style.display = "none";
       document.getElementById("admin").style.display = "flex";
     } else {

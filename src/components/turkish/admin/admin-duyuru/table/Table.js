@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Dialog from "@material-ui/core/Dialog";
 import AppBar from "@material-ui/core/AppBar";
@@ -6,11 +6,15 @@ import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import Slide from "@material-ui/core/Slide";
-import db from "./../../../../../firebase";
-import firebase from "firebase";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import "./Table.css"
+import { useSnackbar } from 'notistack';
+
+//stores
+import GenericStore from "../../../../../stores/GenericStore";
+const GenericService = new GenericStore('announcement', 'tr')
+
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
@@ -26,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
 
 function Table(props) {
   const [open, setOpen] = React.useState(false);
+  const { enqueueSnackbar } = useSnackbar();
   const [url, setUrl] = useState(props.duyuru.url);
   const [baslik, setBaslik] = useState(props.duyuru.baslik);
   const [duyuruContent, setDuyuruContent] = useState(props.duyuru.duyuruContent);
@@ -41,16 +46,28 @@ function Table(props) {
 
   const guncelle = (e) => {
     e.preventDefault();
-    db.collection("duyurular").doc(props.duyuru.id).set(
-      {
-        url:url,
-        baslik: baslik,
-        duyuruContent: duyuruContent,
-        timeStamp: firebase.firestore.FieldValue.serverTimestamp(),
-      },
-      { merge: true }
-    );
-    setOpen(false);
+    e.preventDefault();
+    GenericService.update({
+      _id: props.duyuru.id,
+      photoUrl: url,
+      title: baslik,
+      content: duyuruContent,
+
+    })
+      .then((data) => {
+        props.getAnnouncements()
+        setOpen(false)
+        enqueueSnackbar('Duyuru güncellendi.', {
+          autoHideDuration: 3000,
+          variant: 'success'
+        });
+      })
+      .catch((err) => {
+        enqueueSnackbar('Duyuru güncellenemedi.', {
+          autoHideDuration: 3000,
+          variant: 'error'
+        });
+      })
   };
   return (
     <tbody>
@@ -77,7 +94,7 @@ function Table(props) {
           <div className="container" style={{ marginTop: "10%" }}>
             <form>
               <div class="form-group">
-              <label for="exampleFormControlInput1">Foto Url</label>
+                <label for="exampleFormControlInput1">Foto Url</label>
                 <input
                   type="text"
                   class="form-control"
@@ -133,13 +150,27 @@ function Table(props) {
         </div>
       </Dialog>
       <tr>
-                <th scope="row">{props.index+1}</th>
+        <th scope="row">{props.index + 1}</th>
         <td>{props.duyuru.baslik}</td>
         <td>
           <button
             className="btn btn-danger"
-            onClick={(event) =>
-              db.collection("duyurular").doc(props.duyuru.id).delete()
+            onClick={(event) => {
+              GenericService.delete(props.duyuru.id)
+                .then((data) => {
+                  props.getAnnouncements()
+                  enqueueSnackbar('Duyuru silindi.', {
+                    autoHideDuration: 3000,
+                    variant: 'success'
+                  });
+                })
+                .catch((err) => {
+                  enqueueSnackbar('Duyuru silinemedi.', {
+                    autoHideDuration: 3000,
+                    variant: 'error'
+                  });
+                })
+            }
             }
           >
             X

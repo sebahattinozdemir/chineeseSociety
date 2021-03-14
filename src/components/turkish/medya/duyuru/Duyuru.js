@@ -6,25 +6,35 @@ import React, { useEffect, useState } from "react";
 import db from "./../../../../firebase";
 import html from 'react-inner-html';
 
+//stores
+import GenericStore from "../../../../stores/GenericStore";
+const GenericService = new GenericStore('announcement', 'tr')
+
 export default function Duyuru() {
   const [duyurular, setDuyurular] = useState([]);
 
   useEffect(() => {
-    // fires once when the app loads
-    db.collection("duyurular")
-      .orderBy("timeStamp", "desc")
-      .onSnapshot((snapshot) => {
+    getAnnouncements()
+  }, []);
+
+  const getAnnouncements = () => {
+    GenericService.get()
+      .then(async (data) => {
         setDuyurular(
-          snapshot.docs.map((doc) => ({
-            id: doc.id,
-            baslik:doc.data().baslik,
-            duyuruContent:doc.data().duyuruContent,
-            url:"https://drive.google.com/uc?export=view&id="+doc.data().url.substring(doc.data().url.lastIndexOf('file')+7, doc.data().url.lastIndexOf('/')),
+          data.map((announcement) => ({
+            id: announcement._id,
+            url: announcement.photoUrl.replace("?dl=0", "?raw=1"),
+            baslik: announcement.title,
+            duyuruContent: announcement.content,
+
 
           }))
         );
-      });
-  }, []);
+      })
+      .catch((err) => {
+        console.log(`Oppss ! ${err}`)
+      })
+  }
 
   return (
     <div>
@@ -53,7 +63,7 @@ export default function Duyuru() {
         <br />
 
         {duyurular.map((duyuru, index) => (
-            <div key = {duyuru.id}
+          <div key={duyuru.id}
             className="col-lg-3 col-md-6 col-sm-6 col-12 duyuruholder"
             style={{
               float: "left",
@@ -62,21 +72,21 @@ export default function Duyuru() {
               height: "auto",
             }}
           >
-              <img
-                src={duyuru.url}
-                className="card"
-                alt="..."
-                style={{
-                  width: "100%",
-                  height: "25rem",
-                  padding: "1%",
-                  borderRadius: "1rem",
-                }}
-              ></img>
-              <h4 style={{ fontWeight: "bold" }}>{duyuru.baslik}</h4>
-              <br/>
-              <p style={{  textAlign: "justify" }}  {...html(duyuru.duyuruContent)}>
-              </p>
+            <img
+              src={duyuru.url}
+              className="card"
+              alt="..."
+              style={{
+                width: "100%",
+                height: "25rem",
+                padding: "1%",
+                borderRadius: "1rem",
+              }}
+            ></img>
+            <h4 style={{ fontWeight: "bold" }}>{duyuru.baslik}</h4>
+            <br />
+            <p style={{ textAlign: "justify" }}  {...html(duyuru.duyuruContent)}>
+            </p>
           </div>
         ))}
       </div>

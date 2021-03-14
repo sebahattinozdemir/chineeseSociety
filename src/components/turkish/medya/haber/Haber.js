@@ -2,27 +2,38 @@ import Header from "../../header/Header";
 import AssignmentIcon from "@material-ui/icons/Assignment";
 import React, { useEffect, useState } from "react";
 import "./Haber.css";
-import db from "./../../../../firebase";
 import HaberInterior from "./HaberInterior";
+
+//stores
+import GenericStore from "../../../../stores/GenericStore";
+const GenericService = new GenericStore('news', 'tr')
+
 function Haber() {
-  
+
   const [haberler, setHaberler] = useState([]);
-  
+
   useEffect(() => {
-    // fires once when the app loads
-    db.collection("haberler")
-      .orderBy("timeStamp", "desc")
-      .onSnapshot((snapshot) => {
+    getNews()
+  }, []);
+
+  //get news
+  const getNews = () => {
+    GenericService.get()
+      .then(async (data) => {
         setHaberler(
-          snapshot.docs.map((doc) => ({
-            id: doc.id,
-            url:"https://drive.google.com/uc?export=view&id="+doc.data().url.substring(doc.data().url.lastIndexOf('file')+7, doc.data().url.lastIndexOf('/')),
-            content: doc.data().haberContent,
-            heading: doc.data().baslik,
+          data.map((news) => ({
+            id: news._id,
+            url: news.photoUrl.replace("?dl=0", "?raw=1"),
+            baslik: news.title,
+            haberContent: news.content,
+            haberUrl: news.newsUrl
           }))
         );
-      });
-  }, []);
+      })
+      .catch((err) => {
+        console.log(`Oppss ! ${err}`)
+      })
+  }
 
   return (
     <div>
@@ -32,12 +43,12 @@ function Haber() {
         title="Haber"
         icon={<AssignmentIcon style={{ fontSize: "x-large" }} />}
       />
-      <div className="row" style={{ paddingTop: "2rem", minHeight:"30rem"}}>
-      {haberler.map((haber,index) => (
-            <HaberInterior photo = {haber.url} title={haber.heading} uzanti={"/haberler/"+haber.heading} 
-            content = {haber} divert={"/haberler/"+haber.heading}  
-            />
-          ))}
+      <div className="row" style={{ paddingTop: "2rem", minHeight: "30rem" }}>
+        {haberler.map((haber, index) => (
+          <HaberInterior photo={haber.url} title={haber.baslik} uzanti={"/haberler/" + haber.baslik}
+            content={haber.haberContent} divert={"/haberler/" + haber.heading}
+          /> 
+        ))} 
       </div>
     </div>
   );

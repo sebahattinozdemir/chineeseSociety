@@ -51,7 +51,7 @@ function Table({ props, haber, index, getNews }) {
 
   const guncelle = (e) => {
     e.preventDefault();
-  
+
     GenericService.update({
       _id: haber.id,
       title: baslik,
@@ -62,7 +62,7 @@ function Table({ props, haber, index, getNews }) {
       getNews();
       enqueueSnackbar('Haber güncellendi.', {
         autoHideDuration: 3000,
-        variant: 'success' 
+        variant: 'success'
       });
     }).catch((err) => {
       enqueueSnackbar('Hata oluştu.', {
@@ -102,18 +102,18 @@ function Table({ props, haber, index, getNews }) {
                   type="text"
                   class="form-control"
                   id="exampleFormControlInput1"
-                  placeholder="Sayfa Adi"
+                  placeholder="Fotoğraf Url"
                   value={url}
                   onChange={(event) => setUrl(event.target.value)}
                 />
               </div>
               <div class="form-group">
-                <label for="exampleFormControlInput1">Baslik Ekle</label>
+                <label for="exampleFormControlInput1">Başlık Ekle</label>
                 <input
                   type="text"
                   class="form-control"
                   id="exampleFormControlInput1"
-                  placeholder="Sayfa Adi"
+                  placeholder="Başlık Ekle"
                   value={baslik}
                   onChange={(event) => setBaslik(event.target.value)}
                 />

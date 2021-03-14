@@ -8,7 +8,6 @@ import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from
 
 function HaberInterior(props) {
   return (
-    
       <div
         className="col-lg-3 col-md-6 col-sm-6 col-12"
         style={{ padding:"1%" }}

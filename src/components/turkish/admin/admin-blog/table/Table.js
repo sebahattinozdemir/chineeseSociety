@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Dialog from "@material-ui/core/Dialog";
 import AppBar from "@material-ui/core/AppBar";
@@ -11,6 +11,12 @@ import firebase from "firebase";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import "./Table.css"
+import { useSnackbar } from 'notistack';
+
+//stores
+import GenericStore from "../../../../../stores/GenericStore";
+const GenericService = new GenericStore('blog', 'tr')
+
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
@@ -24,11 +30,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Table(props) {
+function Table({ key, blog, index, getBlogs }) {
   const [open, setOpen] = React.useState(false);
-  const [url, setUrl] = useState(props.blog.url);
-  const [heading, setHeading] = useState(props.blog.heading);
-  const [blogContent, setBlogContent] = useState(props.blog.blogContent);
+  const { enqueueSnackbar } = useSnackbar()
+  const [url, setUrl] = useState(blog.url);
+  const [heading, setHeading] = useState(blog.heading);
+  const [blogContent, setBlogContent] = useState(blog.blogContent);
   const classes = useStyles();
 
   const handleClose = () => {
@@ -41,16 +48,25 @@ function Table(props) {
 
   const guncelle = (e) => {
     e.preventDefault();
-    db.collection("blogs").doc(props.blog.id).set(
-      {
-        url:url,
-        heading: heading,
-        blog_content: blogContent,
-        timeStamp: firebase.firestore.FieldValue.serverTimestamp(),
-      },
-      { merge: true }
-    );
-    setOpen(false);
+    e.preventDefault();
+    GenericService.update({
+      _id: blog.id,
+      photoUrl: url,
+      title: heading,
+      content: blogContent,
+    }).then((data) => {
+      getBlogs()
+      setOpen(false)
+      enqueueSnackbar('Blog güncellendi.', {
+        autoHideDuration: 3000,
+        variant: 'success'
+      });
+    }).catch((err) => {
+      enqueueSnackbar('Hata oluştu.', {
+        autoHideDuration: 3000,
+        variant: 'error'
+      });
+    })
   };
   return (
     <tbody>
@@ -77,7 +93,7 @@ function Table(props) {
           <div className="container" style={{ marginTop: "10%" }}>
             <form>
               <div class="form-group">
-              <label for="exampleFormControlInput1">Foto Url</label>
+                <label for="exampleFormControlInput1">Foto Url</label>
                 <input
                   type="text"
                   class="form-control"
@@ -133,13 +149,27 @@ function Table(props) {
         </div>
       </Dialog>
       <tr>
-                <th scope="row">{props.index+1}</th>
-        <td>{props.blog.heading}</td>
+        <th scope="row">{index + 1}</th>
+        <td>{blog.heading}</td>
         <td>
           <button
             className="btn btn-danger"
-            onClick={(event) =>
-              db.collection("blogs").doc(props.blog.id).delete()
+            onClick={(event) => {
+              GenericService.delete(blog.id)
+                .then((data) => {
+                  getBlogs()
+                  enqueueSnackbar('Blog silindi.', {
+                    autoHideDuration: 3000,
+                    variant: 'success'
+                  });
+                })
+                .catch((err) => {
+                  enqueueSnackbar('Hata oluştu.', {
+                    autoHideDuration: 3000,
+                    variant: 'error'
+                  });
+                })
+            }
             }
           >
             X
@@ -151,7 +181,7 @@ function Table(props) {
           </button>
         </td>
       </tr>
-    </tbody>
+    </tbody >
   );
 }
 

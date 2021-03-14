@@ -4,25 +4,34 @@ import BusinessIcon from "@material-ui/icons/Business";
 import React, { useEffect, useState } from "react";
 import db from "./../../../../firebase";
 
+//stores
+import GenericStore from "../../../../stores/GenericStore";
+const GenericService = new GenericStore('member', 'tr')
+
 export default function Uyeler() {
   const [uyeler, setUyeler] = useState([]);
-
+ 
   useEffect(() => {
-    // fires once when the app loads
-    db.collection("duz-uyeler")
-      .orderBy("timeStamp", "asc")
-      .onSnapshot((snapshot) => {
+   getMembers()
+  }, []);
+
+  const getMembers = () => {
+    GenericService.get()
+      .then(async (data) => {
         setUyeler(
-          snapshot.docs.map((doc) => ({
-            id: doc.id,
-            url:"https://drive.google.com/uc?export=view&id="+doc.data().url.substring(doc.data().url.lastIndexOf('file')+7, doc.data().url.lastIndexOf('/')),
-            name: doc.data().name,
-            position: doc.data().position,
-            mission: doc.data().mission,
+          data.map((member) => ({
+            id: member._id,
+            url: member.photoUrl.replace('?dl=0', '?raw=1'),
+            name: member.nameAndSurname,
+            position: member.position,
+            mission: member.mission
           }))
         );
-      });
-  }, []);
+      })
+      .catch((err) => {
+        console.log(`Oppss ! ${err}`)
+      })
+  }
 
   return (
     <div>

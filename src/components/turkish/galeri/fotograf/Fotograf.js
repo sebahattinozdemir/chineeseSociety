@@ -2,27 +2,36 @@ import "./Fotograf.css";
 import Header from "../../header/Header";
 import CameraAltIcon from "@material-ui/icons/CameraAlt";
 import React, { useEffect, useState } from "react";
-import db from "./../../../../firebase";
 
+
+//stores
+import GenericStore from "../../../../stores/GenericStore";
+const GenericService = new GenericStore('gallery', 'tr')
 
 export default function Fotograf() {
 
   const [photos, setPhotos] = useState([]);
-  
 
   useEffect(() => {
-    // fires once when the app loads
-    db.collection("photos")
-      .orderBy("timeStamp", "desc")
-      .onSnapshot((snapshot) => {
+    getPhotos()
+  }, []);
+
+
+  const getPhotos = () => {
+    GenericService.get()
+      .then(async (data) => {
         setPhotos(
-          snapshot.docs.map((doc) => ({
-            id:       doc.id,
-            url:      "https://drive.google.com/uc?export=view&id="+doc.data().url.substring(doc.data().url.lastIndexOf('file')+7, doc.data().url.lastIndexOf('/')),
+          data.map((gallery) => ({
+            id: gallery._id,
+            url: gallery.photoUrl.replace('?dl=0', '?raw=1'),
+            name: gallery.photoName
           }))
         );
-      });
-  }, []);
+      })
+      .catch((err) => {
+        console.log(`Oppss ! ${err}`)
+      })
+  }
   return (
     <div>
       <Header
@@ -30,10 +39,10 @@ export default function Fotograf() {
         icon={<CameraAltIcon style={{ fontSize: "x-large" }} />}
       />
       <div className="row" style={{ paddingTop: "2rem" }}>
-        
-      {photos.map((photo, index) => (
-          
-            <div key={photo.id}
+
+        {photos.map((photo, index) => (
+
+          <div key={photo.id}
             className="col-lg-3 col-md-6 col-sm-6 col-12"
             style={{ marginBottom: "2rem" }}
           >
@@ -43,17 +52,17 @@ export default function Fotograf() {
               alt="Türk-Çin Derneği"
             ></img>
           </div>
-  
-       ))}
 
-        
-        
-        
-        
-        
-        
-        
-        
+        ))}
+
+
+
+
+
+
+
+
+
       </div>
     </div>
   );

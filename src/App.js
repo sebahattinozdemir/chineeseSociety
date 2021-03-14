@@ -78,6 +78,11 @@ import ChiAltHaber from "./components/chinese/medya/haber/Althaber";
 
 import { SnackbarProvider } from 'notistack';
 
+//chinese
+import GenericStore from '../src/stores/GenericStore';
+const GenericServiceCh = new GenericStore('blog', 'ch')
+const GenericServiceTr = new GenericStore('blog', 'tr')
+
 function App() {
 
   const [blogs, setBlogs] = useState([]);
@@ -87,86 +92,51 @@ function App() {
   const [chiHaberler, setChiHaberler] = useState([]);
 
   useEffect(() => {
-    // fires once when the app loads
-
-    db.collection("chi-blogs")
-      .orderBy("timeStamp", "desc")
-      .onSnapshot((snapshot) => {
-        setChiBlogs(
-          snapshot.docs.map((doc) => ({
-            id: doc.id,
-            heading: doc.data().heading,
-            content: doc.data().blog_content,
-          }))
-        );
-    });
-    db.collection("chi-haberler")
-      .orderBy("timeStamp", "desc")
-      .onSnapshot((snapshot) => {
-        setChiHaberler(
-          snapshot.docs.map((doc) => ({
-            id: doc.id,
-            heading: doc.data().baslik,
-            content: doc.data().haberContent,
-          }))
-        );
-      });
+    getChiBlogs()
   }, []);
+
+  const getChiBlogs = () => {
+    GenericServiceCh.get()
+      .then(async (data) => {
+        setChiBlogs(
+          data.map((blog) => ({
+            id: blog._id,
+            url: blog.photoUrl.replace('?dl=0', '?raw=1'),
+            heading: blog.title,
+            blogContent: blog.content
+          }))
+        );
+      })
+      .catch((err) => {
+        console.log(`Oppss ! ${err}`)
+      })
+  }
+
+  const getTrBlogs = () => {
+    GenericServiceTr.get()
+      .then(async (data) => {
+        setBlogs(
+          data.map((blog) => ({
+            id: blog._id,
+            url: blog.photoUrl.replace('?dl=0', '?raw=1'),
+            heading: blog.title,
+            blogContent: blog.content
+          }))
+        );
+      })
+      .catch((err) => {
+        console.log(`Oppss ! ${err}`)
+      })
+  }
 
   const [state, setState] = useState(true);
 
   const handleChange = () => {
     setState(!state);
     if (state) {
-
-      db.collection("blogs")
-        .orderBy("timeStamp", "desc")
-        .onSnapshot((snapshot) => {
-          setBlogs(
-            snapshot.docs.map((doc) => ({
-              id: doc.id,
-              heading: doc.data().heading,
-              content: doc.data().blog_content,
-            }))
-          );
-        });
-
-      db.collection("haberler")
-        .orderBy("timeStamp", "desc")
-        .onSnapshot((snapshot) => {
-          setHaberler(
-            snapshot.docs.map((doc) => ({
-              id: doc.id,
-              heading: doc.data().baslik,
-              content: doc.data().haberContent,
-            }))
-          );
-        });
-
-
+      getTrBlogs()
     } else {
-      db.collection("chi-blogs")
-        .orderBy("timeStamp", "desc")
-        .onSnapshot((snapshot) => {
-          setChiBlogs(
-            snapshot.docs.map((doc) => ({
-              id: doc.id,
-              heading: doc.data().heading,
-              content: doc.data().blog_content,
-            }))
-          );
-        });
-      db.collection("chi-haberler")
-        .orderBy("timeStamp", "desc")
-        .onSnapshot((snapshot) => {
-          setChiHaberler(
-            snapshot.docs.map((doc) => ({
-              id: doc.id,
-              heading: doc.data().baslik,
-              content: doc.data().haberContent,
-            }))
-          );
-        });
+      getChiBlogs()
     }
   };
   return (
@@ -193,37 +163,37 @@ function App() {
                 </label>
                 </Link>
               ) : (
-                  <Link to="/">
-                    <label
-                      onClick={handleChange}
-                      style={{ color: "black", marginTop: "1rem" }}
-                    >
-                      <img
-                        src={ChFlag}
-                        style={{
-                          width: "2.5rem",
-                          height: "2.5rem",
-                          marginLeft: "1rem",
-                        }}
-                      ></img>{" "}
+                <Link to="/">
+                  <label
+                    onClick={handleChange}
+                    style={{ color: "black", marginTop: "1rem" }}
+                  >
+                    <img
+                      src={ChFlag}
+                      style={{
+                        width: "2.5rem",
+                        height: "2.5rem",
+                        marginLeft: "1rem",
+                      }}
+                    ></img>{" "}
                   &nbsp;中文
                 </label>
-                  </Link>
-                )}
+                </Link>
+              )}
             </div>
 
 
             {state === true ? (
-               document.title="中国公民公司法律保护协会",
+              document.title = "中国公民公司法律保护协会",
               <nav className="navbar" style={{ backgroundColor: "#ffffff" }}>
                 <ChiLogo />
               </nav>
             ) : (
-              document.title="Çin-Türk Hukuk Derneği",
-                <nav className="navbar" style={{ backgroundColor: "#ffffff" }}>
-                  <Logo />
-                </nav>
-              )}
+              document.title = "Çin-Türk Hukuk Derneği",
+              <nav className="navbar" style={{ backgroundColor: "#ffffff" }}>
+                <Logo />
+              </nav>
+            )}
 
 
             {state === true ? (
@@ -238,91 +208,95 @@ function App() {
                 <ChiNavbar />
               </nav>
             ) : (
-                <nav
-                  className="navbar menu"
-                  style={{
-                    backgroundColor: "#A4203A",
-                    padding: "0%",
-                    marginBottom: "0",
-                  }}
-                >
-                  <Navbar />
-                </nav>
-              )}
+              <nav
+                className="navbar menu"
+                style={{
+                  backgroundColor: "#A4203A",
+                  padding: "0%",
+                  marginBottom: "0",
+                }}
+              >
+                <Navbar />
+              </nav>
+            )}
           </div>
 
           <br />
 
           <div className="container-fluid">
             <Switch>
-            <Route exact path="/admin" component={ChiAdmin} />
-            <Route exact path="/" component={ChiHome} />
-            <Route exact path="/cn" component={ChiHomeCn} />
-            <Route exact path="/cn/土耳其的教育" component={ChiEgitim} />
-            <Route exact path="/cn/土耳其的健康" component={ChiSaglik} />
-            <Route exact path="/cn/在土耳其生活" component={ChiYasam} />
-            <Route exact path="/cn/在土耳其的投资" component={ChiYatirim} />
-            <Route exact path="/cn/照片" component={ChiFotograf} />
-            <Route exact path="/cn/视频" component={ChiVideo} />
-            <Route exact path="/cn/联系" component={ChiContact} />
-            <Route exact path="/cn/新闻" component={ChiHaber} />
-            
-            <Route exact path="/cn/公告" component={ChiDuyuru} />
-            <Route exact path="/cn/博客" component={ChiBlog} />
-            <Route exact path="/cn/chi-blog-content" component={ChiAltBlog} />
+              <Route exact path="/admin" component={ChiAdmin} />
+              <Route exact path="/" component={ChiHome} />
+              <Route exact path="/cn" component={ChiHomeCn} />
+              <Route exact path="/cn/土耳其的教育" component={ChiEgitim} />
+              <Route exact path="/cn/土耳其的健康" component={ChiSaglik} />
+              <Route exact path="/cn/在土耳其生活" component={ChiYasam} />
+              <Route exact path="/cn/在土耳其的投资" component={ChiYatirim} />
+              <Route exact path="/cn/照片" component={ChiFotograf} />
+              <Route exact path="/cn/视频" component={ChiVideo} />
+              <Route exact path="/cn/联系" component={ChiContact} />
+              <Route exact path="/cn/新闻" component={ChiHaber} />
+              <Route exact path="/cn/公告" component={ChiDuyuru} />
+              <Route exact path="/cn/博客" component={ChiBlog} />
+              {/* <Route exact path="/cn/chi-blog-content" component={ChiAltBlog} /> */}
 
-            
+              {chiBlogs.map((blog, index) => (
+                <Route
+                  exact
+                  path={"/cn/博客/" + blog.heading}
+                  component={ChiAltBlog}
+                />
+              ))}
+              <Route
+                exact
+                path="/cn/协会相关服务"
+                component={ChiUyelerinHukukiHizmetleri}
+              />
+              <Route
+                exact
+                path="/cn/居住证和工作许可证"
+                component={ChiİkametCalısmaİzni}
+              />
+              <Route
+                exact
+                path="/cn/法律援助"
+                component={ChiHukukiYardım}
+              />
+              <Route
+                exact
+                path="/cn/法律咨询"
+                component={ChiHukukiDanısma}
+              />
+              <Route exact path="/cn/财务咨询" component={ChiMaliDanısma} />
+              <Route
+                exact
+                path="/cn/特殊情况下的法律援助"
+                component={ChiOzelDurumlardaHukukiYardım}
+              />
 
-            <Route
-              exact
-              path="/cn/协会相关服务"
-              component={ChiUyelerinHukukiHizmetleri}
-            />
-            <Route
-              exact
-              path="/cn/居住证和工作许可证"
-              component={ChiİkametCalısmaİzni}
-            />
-            <Route
-              exact
-              path="/cn/法律援助"
-              component={ChiHukukiYardım}
-            />
-            <Route
-              exact
-              path="/cn/法律咨询"
-              component={ChiHukukiDanısma}
-            />
-            <Route exact path="/cn/财务咨询" component={ChiMaliDanısma} />
-            <Route
-              exact
-              path="/cn/特殊情况下的法律援助"
-              component={ChiOzelDurumlardaHukukiYardım}
-            />
+              <Route exact path="/cn/会长致辞" component={ChiBaskan} />
+              <Route exact path="/cn/协会章程" component={ChiTüzük} />
+              <Route exact path="/cn/我们会员" component={ChiÜyeler} />
+              <Route exact path="/cn/管理委员会" component={ChiYönetim} />
+              <Route exact path="/cn/会员申请" component={ChiÜyelik} />
 
-            <Route exact path="/cn/会长致辞" component={ChiBaskan} />
-            <Route exact path="/cn/协会章程" component={ChiTüzük} />
-            <Route exact path="/cn/我们会员" component={ChiÜyeler} />
-            <Route exact path="/cn/管理委员会" component={ChiYönetim} />
-            <Route exact path="/cn/会员申请" component={ChiÜyelik} />
-
-            <Route
-              exact
-              path="/cn/案例"
-              component={ChiGecmisDavalarIslemler}
-            />
-            <Route exact path="/cn/案件调查" component={ChiKesif} />
-            <Route
-              exact
-              path="/cn/原告或被告档案"
-              component={ChiDavacıDavalıDosya}
-            />
-            <Route
-              exact
-              path="/cn/婚姻和家庭案例"
-              component={ChiEvlilikIcindeSorun}
-            />
-            <Route exact path="/cn/保险" component={ChiSigorta} />
+              <Route
+                exact
+                path="/cn/案例"
+                component={ChiGecmisDavalarIslemler}
+              />
+              <Route exact path="/cn/案件调查" component={ChiKesif} />
+              <Route
+                exact
+                path="/cn/原告或被告档案"
+                component={ChiDavacıDavalıDosya}
+              />
+              <Route
+                exact
+                path="/cn/婚姻和家庭案例"
+                component={ChiEvlilikIcindeSorun}
+              />
+              <Route exact path="/cn/保险" component={ChiSigorta} />
               <Route exact path="/tr" component={Home} />
 
               <Route exact path="/baskanin-mesaji" component={Baskan} />
@@ -369,13 +343,6 @@ function App() {
               <Route exact path="/sigorta" component={Sigorta} />
 
               <Route exact path="/haberler" component={Haber} />
-              {haberler.map((haber, index) => (
-                <Route
-                  exact
-                  path={"/haberler/" + haber.heading}
-                  component={AltHaber}
-                />
-              ))}
               <Route exact path="/duyurular" component={Duyuru} />
 
               <Route exact path="/fotograflar" component={Fotograf} />
