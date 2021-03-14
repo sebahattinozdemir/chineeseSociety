@@ -33,6 +33,59 @@ export default function İkametCalısmaİzni() {
                       
 
                   </ul>
+                  <br/>
+                  <br/>
+
+                  <p style={{fontSize:"large",fontWeight:"bold",color:"#A4203A"}}>办理居住证所需要的文件 ( 旅游居住证 )</p>
+                  <ul>
+                    <li className="calismalink" >居住预约申请表</li>
+                    <li className="calismalink" >保险 (160-235 TL)</li>
+                    <li className="calismalink" >4 张证件照</li>
+                    <li className="calismalink" >护照翻译件</li>
+                    <li className="calismalink" >房租合同 (代办：2000TL \ 公证认证：500TL)</li>
+                    <li className="calismalink" >授权委托书 （个人需办理）</li>
+                    <li className="calismalink" >签证（如有电子签证需放入个人资料）（电子签证费用）</li>
+                    <li className="calismalink" >费用（居住申请+居住证）</li>
+                    <li className="calismalink" >总共：2500TL </li>
+                    <li className="calismalink" >代办房租合同费用：4000TL</li>
+
+
+                  </ul>
+                  <br/>
+                
+
+                <ul>
+                    <li className="calismalink" style={{listStyleType:"square"}}>代办房租合同、第一次申请居住证和延期居住证在公证处办理。延期居住证时需公证认证。 </li>
+                    <li className="calismalink" style={{listStyleType:"square"}}>办理其他种类的居住证所需的证件会另外通知</li>
+                    <li className="calismalink" style={{listStyleType:"square"}}>所有费用根据土耳其法律规定以即时通知确认为准</li>
+                </ul>
+
+                <br/>
+                <br/>
+
+                <p style={{fontSize:"large",fontWeight:"bold",color:"#A4203A"}}>工作签证</p>
+                  <ul>
+                    <li className="calismalink" >护照或旅行证件</li>
+                    <li className="calismalink" >1 张证件照片</li>
+                    <li className="calismalink" >劳动或服务合同</li>
+                    <li className="calismalink" >无犯罪证明</li>
+                    <li className="calismalink" >工作签证有效期最多90天。 必须在入境后30天内申报社会保障机构就业通知。  </li>
+                    
+                  </ul>
+
+                  <br/>
+                <br/>
+
+                <p style={{fontSize:"large",fontWeight:"bold",color:"#A4203A"}}>工作许可</p>
+                  <ul>
+                    <li className="calismalink" >工作单位与外国人签订的劳动合同 </li>
+                    <li className="calismalink" >护照复印件</li>
+                    <li className="calismalink" >由宣誓的翻译人员或官方机构批准的带有土耳其语翻译的学位证书或临时毕业证书</li>
+                    <li className="calismalink" >该单位的最新资本和股权结构显示的土耳其注册报</li>
+                    <li className="calismalink" >税务局或者特许的会计师批准的最近一年的资产评估表和损益表   </li>
+                    <li className="calismalink" >COVID-19 证明报告 </li>
+                  </ul>
+                
                 
                 
                 

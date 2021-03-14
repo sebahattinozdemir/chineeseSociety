@@ -45,7 +45,9 @@ export default function Belge() {
                     <p style={{float:"left"}}><b>编号 : </b> 74071012-477.01.01-145526</p>
                     <p style={{float:"right"}}>03.11.2020</p>
                 </div>
-               
+                <br/>
+                <br/>
+                
                 <p style={{float:"left"}}><b>科目 : </b> 成立协会（编号：06-142-088）</p>
                 <br/>
                 <br/>

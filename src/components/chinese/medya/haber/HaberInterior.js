@@ -1,6 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Haber.css";
+import html from 'react-inner-html';
+import { CKEditor } from "@ckeditor/ckeditor5-react";
+import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
+
+
 function HaberInterior(props) {
   return (
     
@@ -9,21 +14,15 @@ function HaberInterior(props) {
         style={{ border: "1px #A4203A solid", borderRadius: "1em",margin:"1%" }}
       >
         <img
-          src={"https://drive.google.com/uc?export=view&id="+props.photo}
-          className="card"
+          src={props.photo}
+          className="w-100"
           alt="..."
-          style={{ width: "100%", height: "20rem", padding: "1rem" }}
         ></img>
-        <Link
-          className="b_title"
-          to={{
-            pathname: props.uzanti,
-            state: props.content,
-          }}
-          style={{ paddingTop: "1rem" }}
-        >
-          {props.title}
-        </Link>
+      
+      <div style={{margin:"0%",padding:"1%"}}>
+                <h4 className="blogtitle" {...html(props.title)}></h4>
+                {ReactHtmlParser(props.content) }
+      </div>
       </div>
     
   );

@@ -8,15 +8,18 @@ import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import Slide from "@material-ui/core/Slide";
 import Table from "./table/Table";
-import db from "./../../../../firebase";
-import firebase from "firebase";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import { useSnackbar } from 'notistack';
+
+//stores
+import GenericStore from "../../../../stores/GenericStore";
+const GenericService = new GenericStore('blog')
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
     position: "relative",
-  },
+  }, 
   title: {
     marginLeft: theme.spacing(2),
     flex: 1,
@@ -28,6 +31,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 function Blog() {
+  const { enqueueSnackbar } = useSnackbar();
   const classes = useStyles();
 
   const [open, setOpen] = React.useState(false);
@@ -39,19 +43,27 @@ function Blog() {
 
   useEffect(() => {
     // fires once when the app loads
-    db.collection("chi-blogs")
-      .orderBy("timeStamp", "desc")
-      .onSnapshot((snapshot) => {
+      getBlogs();
+  }, []);
+
+  const getBlogs = () => {
+    GenericService.get()
+      .then(async (data) => {
         setBlogs(
-          snapshot.docs.map((doc) => ({
-            id: doc.id,
-            url:doc.data().url,
-            heading: doc.data().heading,
-            blogContent: doc.data().blog_content,
+          data.map((blog) => ({
+            id: blog._id,
+            url:blog.photoUrl,
+            heading: blog.title,
+            blogContent: blog.content,
+
+        
           }))
         );
-      });
-  }, []);
+      })
+      .catch((err) => {
+        console.log(`Oppss ! ${err}`)
+      })
+  }
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -63,12 +75,21 @@ function Blog() {
 
   const kaydet = (e) => {
     e.preventDefault();
-    db.collection("chi-blogs").add({
-      url:url,
-      heading: heading,
-      blog_content: blogContent,
-      timeStamp: firebase.firestore.FieldValue.serverTimestamp(),
-    });
+    GenericService.save({
+      photoUrl: url,
+      title: heading,
+      content: blogContent,
+    }).then((data) => {
+      getBlogs()
+      enqueueSnackbar('Blog eklendi.', {
+        autoHideDuration: 3000,
+        variant: 'success'
+      });
+    }).catch((err) => {
+      console.log(`Oppss ! ${err}`)
+    })
+
+
     setUrl("");
     setHeading("");
     setBlogContent("");
@@ -180,12 +201,13 @@ function Blog() {
             <tr>
               <th scope="col">#</th>
               <th scope="col">Blog Sayfa Adi</th>
+              <th scope="col">Photo Url</th>
               <th scope="col">Sil</th>
               <th scope="col">Guncelle</th>
             </tr>
           </thead>
           {blogs.map((blog,index) => (
-            <Table key={blog.id} blog={blog} index = {index}/>
+            <Table key={blog.id} blog={blog} index = {index} getBlogs={getBlogs}/>
           ))}
         </table>
       </div>

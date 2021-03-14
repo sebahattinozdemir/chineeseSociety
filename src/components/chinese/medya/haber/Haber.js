@@ -4,25 +4,58 @@ import React, { useEffect, useState } from "react";
 import "./Haber.css";
 import db from "./../../../../firebase";
 import HaberInterior from "./HaberInterior";
+import { useSnackbar } from 'notistack';
+import { makeStyles } from "@material-ui/core/styles";
+//stores
+import GenericStore from "../../../../stores/GenericStore";
+const GenericService = new GenericStore('news')
+
+const useStyles = makeStyles((theme) => ({
+  appBar: {
+    position: "relative",
+  },
+  title: {
+    marginLeft: theme.spacing(2),
+    flex: 1,
+  },
+}));
+
 function Haber() {
+
   
+  const classes = useStyles();
+  const { enqueueSnackbar } = useSnackbar();
+  const [open, setOpen] = React.useState(false);
+
   const [haberler, setHaberler] = useState([]);
-  
+  const [url, setUrl] = useState("");
+  const [baslik, setBaslik] = useState("");
+  const [haberContent, setHaberContent] = useState("");
+  const [haberUrl, setHaberUrl] = useState("");
+
   useEffect(() => {
-    // fires once when the app loads
-    db.collection("chi-haberler")
-      .orderBy("timeStamp", "desc")
-      .onSnapshot((snapshot) => {
+    getNews()
+   
+  }, []);
+
+  //get news
+  const getNews = () => {
+    GenericService.get()
+      .then(async (data) => {
         setHaberler(
-          snapshot.docs.map((doc) => ({
-            id: doc.id,
-            url:doc.data().url.substring(doc.data().url.lastIndexOf('file')+7, doc.data().url.lastIndexOf('/')),
-            content: doc.data().haberContent,
-            heading: doc.data().baslik,
+          data.map((news) => ({
+            id: news._id,
+            url: news.photoUrl.replace("?dl=0","?raw=1"),
+            baslik: news.title,
+            haberContent: news.content,
+            haberUrl: news.newsUrl
           }))
         );
-      });
-  }, []);
+      })
+      .catch((err) => {
+        console.log(`Oppss ! ${err}`)
+      })
+  }
 
   return (
     <div>
@@ -34,8 +67,14 @@ function Haber() {
       />
       <div className="row" style={{ paddingTop: "2rem", minHeight:"30rem"}}>
       {haberler.map((haber,index) => (
-            <HaberInterior photo = {haber.url} title={haber.heading} uzanti={"/chi-haberler/"+haber.heading} 
-            content = {haber} divert={"/chi-haberler/"+haber.heading}  
+         <HaberInterior 
+            photo = {haber.url} 
+            key={haber.id}
+            index={index}
+            title={haber.baslik}
+            content = {haber.haberContent} 
+         
+            
             />
           ))}
       </div>

@@ -10,7 +10,13 @@ import db from "./../../../../../firebase";
 import firebase from "firebase";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-import "./Table.css"
+import "./Table.css";
+import { useSnackbar } from 'notistack';
+
+//stores
+import GenericStore from "../../../../../stores/GenericStore";
+const GenericService = new GenericStore('announcement')
+
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
@@ -25,6 +31,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Table(props) {
+  const { enqueueSnackbar } = useSnackbar();
   const [open, setOpen] = React.useState(false);
   const [url, setUrl] = useState(props.duyuru.url);
   const [baslik, setBaslik] = useState(props.duyuru.baslik);
@@ -41,15 +48,26 @@ function Table(props) {
 
   const guncelle = (e) => {
     e.preventDefault();
-    db.collection("chi-duyurular").doc(props.duyurular.id).set(
-      {
-        url:url,
-        baslik: baslik,
-        duyuruContent: duyuruContent,
-        timeStamp: firebase.firestore.FieldValue.serverTimestamp(),
-      },
-      { merge: true }
-    );
+    GenericService.update({
+      _id: props.duyuru.id,
+      photoUrl: url,
+      title: baslik,
+      content: duyuruContent,
+    
+    })
+      .then((data) => {
+        props.getAnnouncements()
+        enqueueSnackbar('Duyuru güncellendi.', {
+          autoHideDuration: 3000,
+          variant: 'success'
+        });
+      })
+      .catch((err) => {
+        enqueueSnackbar('Duyuru güncellenemedi.', {
+          autoHideDuration: 3000,
+          variant: 'error'
+        });
+      })
     setOpen(false);
   };
   return (
@@ -135,11 +153,26 @@ function Table(props) {
       <tr>
                 <th scope="row">{props.index+1}</th>
         <td>{props.duyuru.baslik}</td>
+
         <td>
-          <button
+           <button
             className="btn btn-danger"
-            onClick={(event) =>
-              db.collection("chi-duyurular").doc(props.duyuru.id).delete()
+            onClick={(event) => {
+              GenericService.delete(props.duyuru.id)
+                .then((data) => {
+                  props.getAnnouncements()
+                  enqueueSnackbar('Duyuru silindi.', {
+                    autoHideDuration: 3000,
+                    variant: 'success'
+                  });
+                })
+                .catch((err) => {
+                  enqueueSnackbar('Duyuru silinemedi.', {
+                    autoHideDuration: 3000,
+                    variant: 'error'
+                  });
+                })
+            }
             }
           >
             X

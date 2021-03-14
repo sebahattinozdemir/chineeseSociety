@@ -3,39 +3,66 @@ import "./Photo.css";
 import Table from "./table/Table";
 import db from "../../../../firebase";
 import firebase from "firebase";
+import { useSnackbar } from 'notistack';
+
+
+//stores
+import GenericStore from "../../../../stores/GenericStore";
+const GenericService = new GenericStore('gallery')
 
 function Photo() {
-  
+  const { enqueueSnackbar } = useSnackbar();
   const [urls, setUrls] = useState([]);
   const [url, setUrl] = useState("");
   const [name, setName] = useState("");
   
   useEffect(() => {
     // fires once when the app loads
-    db.collection("photos")
-      .orderBy("timeStamp", "desc")
-      .onSnapshot((snapshot) => {
+    getPhotos();
+  }, []);
+
+  //
+  const getPhotos = () => {
+    GenericService.get()
+      .then(async (data) => {
         setUrls(
-          snapshot.docs.map((doc) => ({
-            id:       doc.id,
-            url:      doc.data().url,
-            name:     doc.data().name,
+          data.map((gallery) => ({
+            id: gallery._id,
+            url: gallery.photoUrl,
+            name: gallery.photoName,
+           
           }))
         );
-      });
-  }, []);
+      })
+      .catch((err) => {
+        console.log(`Oppss ! ${err}`)
+      })
+  }
 
 
   const addPhoto = (event) => {
     event.preventDefault();
-    db.collection("photos").add({
-      url: url,
-      name: name,
-      timeStamp: firebase.firestore.FieldValue.serverTimestamp(),
-    });
-    setName("");
+    GenericService.save({
+      photoUrl: url,
+      photoName: name,
+      
+    }).then((data) => {
+      enqueueSnackbar('Fotoğraf eklendi.', {
+        autoHideDuration: 3000,
+        variant: 'success'
+      });
+    }).catch((err) => {
+      enqueueSnackbar('Fotoğraf eklenemedi.', {
+        autoHideDuration: 3000,
+        variant: 'error'
+      });
+    })
+    getPhotos();
     setUrl("");
+    setName("");
+    
   };
+    
 
   return (
     <div
@@ -94,7 +121,7 @@ function Photo() {
           </thead>
 
           {urls.map((photo, index) => (
-            <Table key={photo.id} photo={photo} index={index} />
+            <Table key={photo.id} photo={photo} index={index} getPhotos={getPhotos}/>
           ))}
         </table>
       </div>

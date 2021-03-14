@@ -12,14 +12,14 @@
     }
 
     .harita{
-        height:30rem !important;
-        margin-bottom: 1rem !important;
-  
-      }
-      .googleharita{
-        height:30rem !important;
-        
-      }
+      height:30rem !important;
+      margin-bottom: 1rem !important;
+
+    }
+    .yandexharita{
+      height:30rem !important;
+      
+    }
     
  
  }

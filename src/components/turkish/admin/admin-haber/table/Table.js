@@ -11,12 +11,18 @@ import firebase from "firebase";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import "./Table.css"
+import { useSnackbar } from 'notistack';
+
+//stores
+import GenericStore from "../../../../../stores/GenericStore";
+const GenericService = new GenericStore('news')
+
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 const useStyles = makeStyles((theme) => ({
   appBar: {
-    position: "relative",
+    position: "relative", 
   },
   title: {
     marginLeft: theme.spacing(2),
@@ -24,11 +30,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Table(props) {
+function Table({ props, haber, index, getNews }) {
+  const { enqueueSnackbar } = useSnackbar();
   const [open, setOpen] = React.useState(false);
-  const [url, setUrl] = useState(props.haber.url);
-  const [baslik, setBaslik] = useState(props.haber.baslik);
-  const [haberContent, setHaberContent] = useState(props.haber.haberContent);
+  const [url, setUrl] = useState(haber.url);
+  const [baslik, setBaslik] = useState(haber.baslik);
+  const [haberContent, setHaberContent] = useState(haber.haberContent);
+  const [haberUrl, sethaberUrl] = useState(haber.haberUrl);
 
   const classes = useStyles();
 
@@ -42,15 +50,25 @@ function Table(props) {
 
   const guncelle = (e) => {
     e.preventDefault();
-    db.collection("haberler").doc(props.haber.id).set(
-      {
-        url:url,
-        baslik: baslik,
-        haberContent: haberContent,
-        timeStamp: firebase.firestore.FieldValue.serverTimestamp(),
-      },
-      { merge: true }
-    );
+    
+
+    GenericService.update({
+      _id: haber.id,
+      title: baslik,
+      content: haberContent,
+      photourl: haberUrl
+    }).then((data) => {
+      getNews();
+      enqueueSnackbar('Haber güncellendi.', {
+        autoHideDuration: 3000,
+        variant: 'success' 
+      });
+    }).catch((err) => {
+      enqueueSnackbar('Hata oluştu.', {
+        autoHideDuration: 3000,
+        variant: 'error'
+      });
+    })
     setOpen(false);
   };
   return (
@@ -134,13 +152,29 @@ function Table(props) {
         </div>
       </Dialog>
       <tr>
-                <th scope="row">{props.index+1}</th>
-        <td>{props.haber.baslik}</td>
+                <th scope="row">{index+1}</th>
+        <td>{haber.baslik}</td>
         <td>
-          <button
+        <button
             className="btn btn-danger"
-            onClick={(event) =>
-              db.collection("haberler").doc(props.haber.id).delete()
+            onClick={(event) => {
+              //db.collection("chi-haberler").doc(props.haber.id).delete()
+
+              GenericService.delete(haber.id)
+                .then((data) => {
+                  enqueueSnackbar('Haber silindi.', {
+                    autoHideDuration: 3000,
+                    variant: 'success'
+                  });
+                  getNews()
+                })
+                .catch((err) => {
+                  enqueueSnackbar('Hata oluştu.', {
+                    autoHideDuration: 3000,
+                    variant: 'error'
+                  });
+                })
+            }
             }
           >
             X

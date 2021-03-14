@@ -12,12 +12,17 @@ import db from "./../../../../firebase";
 import firebase from "firebase";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import { useSnackbar } from 'notistack';
+
+//stores
+import GenericStore from "../../../../stores/GenericStore";
+const GenericService = new GenericStore('news')
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
     position: "relative",
   },
-  title: {
+  title: { 
     marginLeft: theme.spacing(2),
     flex: 1,
   },
@@ -30,29 +35,38 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 function Haberler() {
 
   const classes = useStyles();
-
+  const { enqueueSnackbar } = useSnackbar();
   const [open, setOpen] = React.useState(false);
 
   const [haberler, setHaberler] = useState([]);
   const [url, setUrl] = useState("");
   const [baslik, setBaslik] = useState("");
   const [haberContent, setHaberContent] = useState("");
+  const [haberUrl, setHaberUrl] = useState("");
 
   useEffect(() => {
-    // fires once when the app loads
-    db.collection("haberler")
-      .orderBy("timeStamp", "desc")
-      .onSnapshot((snapshot) => {
+    getNews()
+   
+  }, []);
+
+  //get news
+  const getNews = () => {
+    GenericService.get()
+      .then(async (data) => {
         setHaberler(
-          snapshot.docs.map((doc) => ({
-            id: doc.id,
-            url:doc.data().url,
-            baslik: doc.data().baslik,
-            haberContent: doc.data().haberContent,
+          data.map((news) => ({
+            id: news._id,
+            url: news.photoUrl,
+            baslik: news.title,
+            haberContent: news.content,
+            haberUrl: news.newsUrl
           }))
         );
-      });
-  }, []);
+      })
+      .catch((err) => {
+        console.log(`Oppss ! ${err}`)
+      })
+  }
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -64,15 +78,27 @@ function Haberler() {
 
   const kaydet = (e) => {
     e.preventDefault();
-    db.collection("haberler").add({
-      url:url,
-      baslik: baslik,
-      haberContent: haberContent,
-      timeStamp: firebase.firestore.FieldValue.serverTimestamp(),
-    });
+
+    GenericService.save({
+      photoUrl: url,
+      title: baslik,
+      content: haberContent,
+      newsUrl: haberUrl,
+    }).then((data) => {
+      getNews()
+      enqueueSnackbar('Haber eklendi.', {
+        autoHideDuration: 3000,
+        variant: 'success'
+      });
+    }).catch((err) => {
+      console.log(`Oppss ! ${err}`)
+    })
+
     setUrl("");
     setBaslik("");
     setHaberContent("");
+    setHaberUrl("")
+
     setOpen(false);
   };
 
@@ -186,7 +212,7 @@ function Haberler() {
             </tr>
           </thead>
           {haberler.map((haber,index) => (
-            <Table key={haber.id} haber={haber} index = {index}/>
+            <Table key={haber.id} haber={haber} index = {index} getNews={getNews}/>
           ))}
         </table>
       </div>

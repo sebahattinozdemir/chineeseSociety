@@ -3,38 +3,58 @@ import "./Yonetim.css";
 import Table from "./table/Table";
 import db from "../../../../firebase";
 import firebase from "firebase";
+import { useSnackbar } from 'notistack';
 
-function Yonetim() {
+//stores
+import GenericStore from "../../../../stores/GenericStore";
+const GenericService = new GenericStore('managementMember')
 
-  const [uyeler, setUyeler] = useState([]);
+const Yonetim = () => {
+
+  const { enqueueSnackbar } = useSnackbar();
+  const [uyeler, setUyeler] = useState(GenericService._get.data);
   const [url, setUrl] = useState("");
   const [name, setName] = useState("");
   const [position, setPosition] = useState("");
 
   useEffect(() => {
-    // fires once when the app loads
-    db.collection("uyeler")
-      .orderBy("timeStamp", "desc")
-      .onSnapshot((snapshot) => {
+    getManagementMembers()
+  }, []);
+
+  const getManagementMembers = () => {
+    GenericService.get()
+      .then(async (data) => {
         setUyeler(
-          snapshot.docs.map((doc) => ({
-            id: doc.id,
-            url: doc.data().url,
-            name: doc.data().name,
-            position: doc.data().position,
+          data.map((member) => ({
+            id: member._id,
+            url: member.photoUrl,
+            name: member.nameAndSurname,
+            position: member.position,
           }))
         );
-      });
-  }, []);
+      })
+      .catch((err) => {
+        console.log(`Oppss ! ${err}`)
+      })
+  }
 
   const addUye = (event) => {
     event.preventDefault();
-    db.collection("uyeler").add({
-      url: url,
-      name: name,
+    GenericService.save({
+      photoUrl: url,
+      nameAndSurname: name,
       position: position,
-      timeStamp: firebase.firestore.FieldValue.serverTimestamp(),
-    });
+    }).then((data) => {
+      getManagementMembers()
+      enqueueSnackbar('Türkçe sayfaya Yönetim kurulu üyesi eklendi.', {
+        autoHideDuration: 3000,
+        variant: 'success'
+      });
+    }).catch((err) => {
+      console.log(`Oppss ! ${err}`)
+    })
+
+
     setName("");
     setPosition("");
     setUrl("");
@@ -110,7 +130,7 @@ function Yonetim() {
           </thead>
 
           {uyeler.map((uye, index) => (
-            <Table key={uye.id} uye={uye} index={index} />
+            <Table key={uye.id} uye={uye} index={index} getMembers={getManagementMembers}/>
           ))}
         </table>
       </div>

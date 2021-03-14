@@ -63,14 +63,14 @@ function Table({ props, haber, index, getNews }) {
 
     GenericService.update({
       _id: haber.id,
-      baslik: baslik,
-      haberContent: haberContent,
-      haberUrl: haberUrl
+      title: baslik,
+      content: haberContent,
+      photourl: haberUrl
     }).then((data) => {
-      getNews()
+      getNews();
       enqueueSnackbar('Haber güncellendi.', {
         autoHideDuration: 3000,
-        variant: 'success'
+        variant: 'success' 
       });
     }).catch((err) => {
       enqueueSnackbar('Hata oluştu.', {

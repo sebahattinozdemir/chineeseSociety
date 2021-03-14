@@ -8,6 +8,11 @@ import CloseIcon from "@material-ui/icons/Close";
 import Slide from "@material-ui/core/Slide";
 import db from "./../../../../../firebase";
 import firebase from "firebase";
+import { useSnackbar } from 'notistack';
+
+//stores
+import GenericStore from "../../../../../stores/GenericStore";
+const GenericService = new GenericStore('member')
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -19,17 +24,18 @@ const useStyles = makeStyles((theme) => ({
   title: {
     marginLeft: theme.spacing(2),
     flex: 1,
-  },
+  }, 
 }));
 
 function Table(props) {
+  const { enqueueSnackbar } = useSnackbar();
   const [open, setOpen]         = React.useState(false);
   const [url, setUrl]           = useState(props.uye.url);
   const [name, setName]         = useState(props.uye.name);
   const [mission, setMission] = useState(props.uye.mission);
   const [position, setPosition] = useState(props.uye.position);
 
-  const classes = useStyles();
+  const classes = useStyles(); 
 
   const handleClose = () => {
     setOpen(false);
@@ -41,16 +47,28 @@ function Table(props) {
 
   const guncelle = (e) => {
     e.preventDefault();
-    db.collection("duz-uyeler").doc(props.uye.id).set(
-      {
-        url: url,
-        name: name,
-        mission:mission,
-        position: position,
-        timeStamp: firebase.firestore.FieldValue.serverTimestamp(),
-      },
-      { merge: true }
-    );
+
+    GenericService.update({
+      _id: props.uye.id,
+      photoUrl: url,
+      nameAndSurname: name,
+      mission: mission,
+      position: position,
+    })
+      .then((data) => {
+        props.getMembers()
+        enqueueSnackbar('Üye bilgileri güncellendi.', {
+          autoHideDuration: 3000,
+          variant: 'success'
+        });
+      })
+      .catch((err) => {
+        enqueueSnackbar('Üye bilgileri güncellenemedi.', {
+          autoHideDuration: 3000,
+          variant: 'error'
+        });
+      })
+
     setOpen(false);
   };
 
@@ -141,10 +159,24 @@ function Table(props) {
         <td>{props.uye.mission}</td>
         <td>{props.uye.position}</td>
         <td>
-          <button
+        <button
             className="btn btn-danger"
-            onClick={(event) =>
-              db.collection("duz-uyeler").doc(props.uye.id).delete()
+            onClick={(event) => {
+              GenericService.delete(props.uye.id)
+                .then((data) => {
+                  props.getMembers()
+                  enqueueSnackbar('Üye silindi.', {
+                    autoHideDuration: 3000,
+                    variant: 'success'
+                  });
+                })
+                .catch((err) => {
+                  enqueueSnackbar('Üye silinemedi.', {
+                    autoHideDuration: 3000,
+                    variant: 'error'
+                  });
+                })
+            }
             }
           >
             X

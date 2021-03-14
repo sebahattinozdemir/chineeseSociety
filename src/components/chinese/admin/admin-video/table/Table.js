@@ -8,6 +8,11 @@ import CloseIcon from "@material-ui/icons/Close";
 import Slide from "@material-ui/core/Slide";
 import db from "./../../../../../firebase";
 import firebase from "firebase";
+import { useSnackbar } from 'notistack';
+
+//stores
+import GenericStore from "../../../../../stores/GenericStore";
+const GenericService = new GenericStore('video')
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -18,13 +23,13 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     marginLeft: theme.spacing(2),
-    flex: 1,
+    flex: 1, 
   },
 }));
 
 
 function Table(props) {
-
+  const { enqueueSnackbar } = useSnackbar();
   const [open, setOpen]         = React.useState(false);
   const [url, setUrl]           = useState(props.video.url);
   const [name, setName]         = useState(props.video.name);
@@ -42,14 +47,25 @@ function Table(props) {
 
   const guncelle = (e) => {
     e.preventDefault();
-    db.collection("videos").doc(props.video.id).set(
-      {
-        url: url,
-        name: name,
-        timeStamp: firebase.firestore.FieldValue.serverTimestamp(),
-      },
-      { merge: true }
-    );
+    GenericService.update({
+      _id: props.video.id,
+      videoUrl: url,
+      videoName: name,
+      
+    })
+      .then((data) => {
+        props.getVideos()
+        enqueueSnackbar('Video güncellendi.', {
+          autoHideDuration: 3000,
+          variant: 'success'
+        });
+      })
+      .catch((err) => {
+        enqueueSnackbar('Video güncellenemedi.', {
+          autoHideDuration: 3000,
+          variant: 'error'
+        });
+      })
     setOpen(false);
   };
 
@@ -114,10 +130,24 @@ function Table(props) {
         <th scope="row">{props.index + 1}</th>
         <td>{props.video.name}</td>
         <td>
-          <button
+        <button
             className="btn btn-danger"
-            onClick={(event) =>
-              db.collection("videos").doc(props.video.id).delete()
+            onClick={(event) => {
+              GenericService.delete(props.video.id)
+                .then((data) => {
+                  props.getVideos()
+                  enqueueSnackbar('Video silindi.', {
+                    autoHideDuration: 3000,
+                    variant: 'success'
+                  });
+                })
+                .catch((err) => {
+                  enqueueSnackbar('Video silinemedi.', {
+                    autoHideDuration: 3000,
+                    variant: 'error'
+                  });
+                })
+            }
             }
           >
             X

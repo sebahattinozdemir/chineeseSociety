@@ -44,6 +44,7 @@ import ChFlag from "./chinese.ico";
 import ChiLogo from "./components/chinese/logo/Logo";
 import ChiNavbar from "./components/chinese/navbar/Navbar";
 import ChiFooter from "./components/chinese/footer/Footer";
+import ChiHomeCn from "./components/chinese/home-page/Home";
 import ChiHome from "./components/chinese/home-page/Home";
 import ChiFotograf from "./components/chinese/galeri/fotograf/Fotograf";
 import ChiVideo from "./components/chinese/galeri/video/Video";
@@ -213,10 +214,12 @@ function App() {
 
 
             {state === true ? (
+               document.title="中国公民公司法律保护协会",
               <nav className="navbar" style={{ backgroundColor: "#ffffff" }}>
                 <ChiLogo />
               </nav>
             ) : (
+              document.title="Çin-Türk Hukuk Derneği",
                 <nav className="navbar" style={{ backgroundColor: "#ffffff" }}>
                   <Logo />
                 </nav>
@@ -252,86 +255,74 @@ function App() {
 
           <div className="container-fluid">
             <Switch>
-              <Route exact path="/" component={ChiHome} />
-              <Route exact path="/chi-turkiyede-egitim" component={ChiEgitim} />
-              <Route exact path="/chi-turkiyede-saglik" component={ChiSaglik} />
-              <Route exact path="/chi-turkiyede-yasam" component={ChiYasam} />
-              <Route exact path="/chi-turkiyede-yatirim" component={ChiYatirim} />
-              <Route exact path="/chi-fotograflar" component={ChiFotograf} />
-              <Route exact path="/chi-videolar" component={ChiVideo} />
-              <Route exact path="/chi-iletisim" component={ChiContact} />
-              <Route exact path="/chi-haberler" component={ChiHaber} />
-              {chiHaberler.map((haber, index) => (
-                <Route
-                  exact
-                  path={"/chi-haberler/" + haber.heading}
-                  component={ChiAltHaber}
-                />
-              ))}
-              <Route exact path="/chi-duyurular" component={ChiDuyuru} />
-              <Route exact path="/chi-blog" component={ChiBlog} />
+            <Route exact path="/admin" component={ChiAdmin} />
+            <Route exact path="/" component={ChiHome} />
+            <Route exact path="/cn" component={ChiHomeCn} />
+            <Route exact path="/cn/土耳其的教育" component={ChiEgitim} />
+            <Route exact path="/cn/土耳其的健康" component={ChiSaglik} />
+            <Route exact path="/cn/在土耳其生活" component={ChiYasam} />
+            <Route exact path="/cn/在土耳其的投资" component={ChiYatirim} />
+            <Route exact path="/cn/照片" component={ChiFotograf} />
+            <Route exact path="/cn/视频" component={ChiVideo} />
+            <Route exact path="/cn/联系" component={ChiContact} />
+            <Route exact path="/cn/新闻" component={ChiHaber} />
+            
+            <Route exact path="/cn/公告" component={ChiDuyuru} />
+            <Route exact path="/cn/博客" component={ChiBlog} />
+            <Route exact path="/cn/chi-blog-content" component={ChiAltBlog} />
 
-              {chiBlogs.map((blog, index) => (
-                <Route
-                  exact
-                  path={"/chi-blogs/" + blog.heading}
-                  component={ChiAltBlog}
-                />
-              ))}
+            
 
-              <Route
-                exact
-                path="/chi-uyelerin-hukuki-hizmetleri"
-                component={ChiUyelerinHukukiHizmetleri}
-              />
-              <Route
-                exact
-                path="/chi-ikamet-calisma-izni"
-                component={ChiİkametCalısmaİzni}
-              />
-              <Route
-                exact
-                path="/chi-hukuki-yardim"
-                component={ChiHukukiYardım}
-              />
-              <Route
-                exact
-                path="/chi-hukuki-danisma"
-                component={ChiHukukiDanısma}
-              />
-              <Route exact path="/chi-mali-danisma" component={ChiMaliDanısma} />
-              <Route
-                exact
-                path="/chi-ozel-durumlarda-hukuki-yardim"
-                component={ChiOzelDurumlardaHukukiYardım}
-              />
+            <Route
+              exact
+              path="/cn/协会相关服务"
+              component={ChiUyelerinHukukiHizmetleri}
+            />
+            <Route
+              exact
+              path="/cn/居住证和工作许可证"
+              component={ChiİkametCalısmaİzni}
+            />
+            <Route
+              exact
+              path="/cn/法律援助"
+              component={ChiHukukiYardım}
+            />
+            <Route
+              exact
+              path="/cn/法律咨询"
+              component={ChiHukukiDanısma}
+            />
+            <Route exact path="/cn/财务咨询" component={ChiMaliDanısma} />
+            <Route
+              exact
+              path="/cn/特殊情况下的法律援助"
+              component={ChiOzelDurumlardaHukukiYardım}
+            />
 
-              <Route exact path="/chi-baskanin-mesaji" component={ChiBaskan} />
-              <Route exact path="/chi-tuzuk" component={ChiTüzük} />
-              <Route exact path="/chi-uyelerimiz" component={ChiÜyeler} />
-              <Route exact path="/chi-yonetim-kurulu" component={ChiYönetim} />
-              <Route exact path="/chi-uyelik-basvurusu" component={ChiÜyelik} />
+            <Route exact path="/cn/会长致辞" component={ChiBaskan} />
+            <Route exact path="/cn/协会章程" component={ChiTüzük} />
+            <Route exact path="/cn/我们会员" component={ChiÜyeler} />
+            <Route exact path="/cn/管理委员会" component={ChiYönetim} />
+            <Route exact path="/cn/会员申请" component={ChiÜyelik} />
 
-              <Route
-                exact
-                path="/chi-gecmis-davalar-ve-islemler"
-                component={ChiGecmisDavalarIslemler}
-              />
-              <Route exact path="/chi-kesif" component={ChiKesif} />
-              <Route
-                exact
-                path="/chi-davaci-veya-davali-dosya"
-                component={ChiDavacıDavalıDosya}
-              />
-              <Route
-                exact
-                path="/chi-aile-hukuku-davalari"
-                component={ChiEvlilikIcindeSorun}
-              />
-              <Route exact path="/chi-sigorta" component={ChiSigorta} />
-
-              <Route exact path="/admin" component={ChiAdmin} />
-
+            <Route
+              exact
+              path="/cn/案例"
+              component={ChiGecmisDavalarIslemler}
+            />
+            <Route exact path="/cn/案件调查" component={ChiKesif} />
+            <Route
+              exact
+              path="/cn/原告或被告档案"
+              component={ChiDavacıDavalıDosya}
+            />
+            <Route
+              exact
+              path="/cn/婚姻和家庭案例"
+              component={ChiEvlilikIcindeSorun}
+            />
+            <Route exact path="/cn/保险" component={ChiSigorta} />
               <Route exact path="/tr" component={Home} />
 
               <Route exact path="/baskanin-mesaji" component={Baskan} />

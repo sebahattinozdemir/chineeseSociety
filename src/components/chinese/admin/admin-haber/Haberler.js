@@ -48,26 +48,13 @@ function Haberler() {
 
   useEffect(() => {
     getNews()
-    // fires once when the app loads
-    // db.collection("chi-haberler")
-    //   .orderBy("timeStamp", "desc")
-    //   .onSnapshot((snapshot) => {
-    //     setHaberler(
-    //       snapshot.docs.map((doc) => ({
-    //         id: doc.id,
-    //         url: doc.data().url,
-    //         baslik: doc.data().baslik,
-    //         haberContent: doc.data().haberContent,
-    //       }))
-    //     );
-    //   });
+   
   }, []);
 
   //get news
   const getNews = () => {
     GenericService.get()
       .then(async (data) => {
-        debugger
         setHaberler(
           data.map((news) => ({
             id: news._id,
@@ -207,7 +194,7 @@ function Haberler() {
         class="dropdown btn btn-outline"
         style={{
           fontSize: "16px",
-          display: "block",
+          display: "block", 
           width: "20%",
         }}
       ></div>

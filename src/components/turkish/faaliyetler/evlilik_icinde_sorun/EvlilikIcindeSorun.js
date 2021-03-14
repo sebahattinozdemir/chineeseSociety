@@ -26,7 +26,7 @@ export default function EvlilikIcindeSorun() {
                     <ul>
                             <li>Miras </li>
                             <li>Mal paylaşımı </li>
-                            <li>manevi tazminat  </li>
+                            <li>Manevi tazminat  </li>
                             
                             
                     </ul>

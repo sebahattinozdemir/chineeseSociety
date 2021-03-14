@@ -20,6 +20,7 @@
     "notistack": "^1.0.3",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-html-parser": "^2.0.2",
     "react-inner-html": "^1.0.1",
     "react-native-video": "^5.1.0-alpha8",
     "react-player": "^2.6.2",

@@ -3,38 +3,62 @@ import "./Video.css";
 import Table from "./table/Table";
 import db from "../../../../firebase";
 import firebase from "firebase";
+import { useSnackbar } from 'notistack';
+
+
+//stores
+import GenericStore from "../../../../stores/GenericStore";
+const GenericService = new GenericStore('video')
 
 function Photo() {
-  
+  const { enqueueSnackbar } = useSnackbar();
   const [urls, setUrls] = useState([]);
   const [url, setUrl] = useState("");
   const [name, setName] = useState("");
   
   useEffect(() => {
     // fires once when the app loads
-    db.collection("videos")
-      .orderBy("timeStamp", "desc")
-      .onSnapshot((snapshot) => {
+    getVideos();
+  }, []);
+
+  const getVideos = () => {
+    GenericService.get()
+      .then(async (data) => {
         setUrls(
-          snapshot.docs.map((doc) => ({
-            id:       doc.id,
-            url:      doc.data().url,
-            name:     doc.data().name,
+          data.map((video) => ({
+            id: video._id,
+            url: video.videoUrl,
+            name: video.videoName,
+           
           }))
         );
-      });
-  }, []);
+      })
+      .catch((err) => {
+        console.log(`Oppss ! ${err}`)
+      })
+  }
 
 
   const addVideo = (event) => {
     event.preventDefault();
-    db.collection("videos").add({
-      url: url,
-      name: name,
-      timeStamp: firebase.firestore.FieldValue.serverTimestamp(),
-    });
-    setName("");
+    GenericService.save({
+      videoUrl: url,
+      videoName: name,
+      
+    }).then((data) => {
+      enqueueSnackbar('Video eklendi.', {
+        autoHideDuration: 3000,
+        variant: 'success'
+      });
+    }).catch((err) => {
+      enqueueSnackbar('Video eklenemedi.', {
+        autoHideDuration: 3000,
+        variant: 'error'
+      });
+    })
+    getVideos();
     setUrl("");
+    setName("");
   };
 
   return (
@@ -94,7 +118,7 @@ function Photo() {
           </thead>
 
           {urls.map((video, index) => (
-            <Table key={video.id} video={video} index={index} />
+            <Table key={video.id} video={video} index={index} getVideos={getVideos} />
           ))}
         </table>
       </div>
