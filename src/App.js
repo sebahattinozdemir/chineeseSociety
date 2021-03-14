@@ -99,7 +99,7 @@ function App() {
             content: doc.data().blog_content,
           }))
         );
-      });
+    });
     db.collection("chi-haberler")
       .orderBy("timeStamp", "desc")
       .onSnapshot((snapshot) => {

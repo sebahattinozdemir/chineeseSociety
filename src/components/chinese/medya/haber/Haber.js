@@ -73,8 +73,7 @@ function Haber() {
             index={index}
             title={haber.baslik}
             content = {haber.haberContent} 
-         
-            
+            haberUrl = {haber.haberUrl}   
             />
           ))}
       </div>

@@ -122,7 +122,7 @@ function Haberler() {
             >
               <CloseIcon />
             </IconButton>
-            <h3 style={{ marginLeft: "5%" }}>Blog Sayfasi Ekle</h3>
+            <h3 style={{ marginLeft: "5%" }}>Haber Sayfasi Ekle</h3>
           </Toolbar>
         </AppBar>
 
@@ -140,6 +140,7 @@ function Haberler() {
                   onChange={(event) => setUrl(event.target.value)}
                 />
               </div>
+          
               <div class="form-group">
                 <label for="exampleFormControlInput1">Baslik Ekle</label>
                 <input
@@ -152,8 +153,19 @@ function Haberler() {
                 />
               </div>
               <div class="form-group">
+                <label for="exampleFormControlInput1">Haber Linki Ekle</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="exampleFormControlInput1"
+                  placeholder="Sayfa Adi"
+                  value={haberUrl}
+                  onChange={(event) => setHaberUrl(event.target.value)}
+                />
+              </div>
+              <div class="form-group">
                 <label for="exampleFormControlTextarea1">
-                  Blog Yazisi Ekle
+                  Haber Yazisi Ekle
                 </label>
                 <CKEditor
                   editor={ClassicEditor}
@@ -214,7 +226,7 @@ function Haberler() {
             </tr>
           </thead>
           {haberler.map((haber, index) => (
-            <Table key={haber.id} haber={haber} index={index} getNews={getNews} />
+            <Table key={haber.id} haber={haber}  index={index} getNews={getNews} />
           ))}
         </table>
       </div>

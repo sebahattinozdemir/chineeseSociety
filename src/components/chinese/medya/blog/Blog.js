@@ -4,9 +4,15 @@ import React, { useEffect, useState } from "react";
 import "./Blog.css";
 import db from "./../../../../firebase";
 import BlogInterior from "./BlogInterior";
+import GenericStore from "../../../../stores/GenericStore";
+const GenericService = new GenericStore('blog')
+
+
 function Blog() {
   const [blogs, setBlogs] = useState([]);
   useEffect(() => {
+
+    /*
     // fires once when the app loads
     db.collection("chi-blogs")
       .orderBy("timeStamp", "desc")
@@ -20,7 +26,28 @@ function Blog() {
           }))
         );
       });
+      */
+     getBlogs();
   }, []);
+
+  const getBlogs = () => {
+    GenericService.get()
+      .then(async (data) => {
+        setBlogs(
+          data.map((blog) => ({
+            id: blog._id,
+            url:blog.photoUrl.replace("?dl=0","?raw=1"),
+            heading: blog.title,
+            blogContent: blog.content,
+
+        
+          }))
+        );
+      })
+      .catch((err) => {
+        console.log(`Oppss ! ${err}`)
+      })
+  }
 
   return (
     <div>
@@ -33,7 +60,7 @@ function Blog() {
       <div className="row" style={{ paddingTop: "2rem", minHeight:"30rem"}}>
       {blogs.map((blog,index) => (
             <BlogInterior photo = {blog.url} title={blog.heading} uzanti={"/chi-blogs/"+blog.heading} 
-            content = {blog} divert={"/chi-blogs/"+blog.heading}  
+            content = {blog.blogContent} divert={"/chi-blogs/"+blog.heading}  
             />
           ))}
       </div>

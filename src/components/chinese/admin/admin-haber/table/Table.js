@@ -51,21 +51,13 @@ function Table({ props, haber, index, getNews }) {
 
   const guncelle = (e) => {
     e.preventDefault();
-    // db.collection("chi-haberler").doc(props.haber.id).set(
-    //   {
-    //     url: url,
-    //     baslik: baslik,
-    //     haberContent: haberContent,
-    //     timeStamp: firebase.firestore.FieldValue.serverTimestamp(),
-    //   },
-    //   { merge: true }
-    // );
-
+  
     GenericService.update({
       _id: haber.id,
       title: baslik,
       content: haberContent,
-      photourl: haberUrl
+      photourl: url,
+      newsUrl: haberUrl
     }).then((data) => {
       getNews();
       enqueueSnackbar('Haber güncellendi.', {
@@ -127,8 +119,19 @@ function Table({ props, haber, index, getNews }) {
                 />
               </div>
               <div class="form-group">
+                <label for="exampleFormControlInput1">Haber Linki</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="exampleFormControlInput1"
+                  placeholder="Sayfa Adi"
+                  value={haberUrl}
+                  onChange={(event) => sethaberUrl(event.target.value)}
+                />
+              </div>
+              <div class="form-group">
                 <label for="exampleFormControlTextarea1">
-                  Blog Yazisi Ekle
+                  Haber Yazisi Ekle
                 </label>
                 <CKEditor
                   editor={ClassicEditor}
