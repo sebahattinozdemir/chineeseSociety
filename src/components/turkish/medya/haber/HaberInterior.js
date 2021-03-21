@@ -9,7 +9,7 @@ function HaberInterior(props) {
       className="col-lg-3 col-md-6 col-sm-6 col-12"
       style={{ padding: "1%" }}
     >
-      <img style={{ border: "1px #A4203A solid", borderRadius: "1%" }}
+      <img style={{  padding:"1%",border: "1px #A4203A solid", borderRadius:"1rem",height:"25rem" }}
         src={props.photo}
         className="w-100"
         alt="..."
@@ -18,10 +18,12 @@ function HaberInterior(props) {
       <div style={{ margin: "0%", width: "100%", textOverflow: "clip", display: "block" }}>
 
         <a href={props.haberUrl} target="_blank" style={{ textDecoration: "none", color: "#A4203A" }}>
-          <h4>{ReactHtmlParser(props.title)} </h4>
+          <h4 style={{fontWeight:"bold"}}>{ReactHtmlParser(props.title)} </h4>
         </a>
 
-        {ReactHtmlParser(props.content)}
+        <a style={{textAlign:"justify"}}>{ReactHtmlParser(props.content)}</a>
+
+        
 
       </div>
     </div>

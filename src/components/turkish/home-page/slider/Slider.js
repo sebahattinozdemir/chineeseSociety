@@ -1,12 +1,12 @@
 import './Slider.css';
-import Sl2 from "./sl2.jpg";
-import Sl3 from "./sl3.jpg";
-import Sl5 from "./sl5.jpg";
-import Sl6 from "./sl6.jpg";
-import Slt1 from "./slt1.jpg";
-import Slt2 from "./slt2.jpg";
-import Slt3 from "./slt3.jpg";
-import Slt4 from "./slt4.jpg";
+import Sl2 from "./sl2-min.jpg";
+import Sl3 from "./sl3-min.jpg";
+import Sl5 from "./sl5-min.jpg";
+import Sl6 from "./sl6-min.jpg";
+import Slt1 from "./slt1-min.jpg";
+import Slt2 from "./slt2-min.jpg";
+import Slt3 from "./slt3-min.jpg";
+import Slt4 from "./slt4-min.jpg";
 import React, { Component } from 'react'
 
 export default class Slider extends Component {
