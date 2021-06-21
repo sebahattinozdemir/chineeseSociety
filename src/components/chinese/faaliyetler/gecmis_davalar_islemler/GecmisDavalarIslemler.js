@@ -99,6 +99,8 @@ export default function GecmisDavalarIslemler() {
                             <li>2019年8月10日接到伊兹密尔中国企业报警，被中国公民欺骗</li>
                         </ul>
                     </li>
+                    <li><b>孔亚交通事故胜诉案</b></li>
+                    <li><b>卡帕多奇亚 热气球上诉案胜诉</b></li>
                 </ol>
                
                
