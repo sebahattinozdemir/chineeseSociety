@@ -105,6 +105,13 @@ Ortak çalışılan avukat; Avukat Orhan ve Avukat Melih
             <ol style={{listStyleType:"lower-latin", fontSize:"large",paddingLeft:"1rem"}}>
                 <li>10.08.2019 İzmir de Çinli bir firma ihbarda bulundu. Çin vatandaşı tarafından dolandırıldık.</li>
             </ol>
+
+            <p className="davalar_islemler" style={{color:"red",fontWeight:"bold",fontSize:"large"}}> Kaza Davaları</p>
+            <ol style={{listStyleType:"lower-latin", fontSize:"large",paddingLeft:"1rem"}}>
+                <li>Konya trafik kazası davası kazanıldı.</li>
+                <li>Kapadokya balon kazası davası temyiz kazanıldı.</li>
+
+            </ol>
                
              </div>
          </div>
