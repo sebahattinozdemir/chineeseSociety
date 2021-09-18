@@ -59,12 +59,12 @@ function Footer() {
                
                 <a
                 className="footerwhatsapp"
-                href="https://wa.me/+905525505878"
+                href="https://wa.me/+905531688953"
                 style={{float: "left",fontSize:"small"}}
               >
                 <WhatsAppIcon style={{ fontSize: "x-large" , color:"#00CC00" }} />   
               </a>
-              <p style={{fontSize:"small"}}>&nbsp;+90 552 550 58 78</p>
+              <p style={{fontSize:"small"}}>&nbsp;+90 553 168 89 53</p>
               
               <div style={{display:"inline"}}>
                   <a
