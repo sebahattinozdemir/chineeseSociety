@@ -31,6 +31,8 @@ export default function OzelDurumlardaHukukiYardım() {
                         <li>Olay hukuki keşif ,inceleme</li>
                         <li>Delilin emanete alınması </li>
                         <li>Diğer hukuki hizmetler</li>
+                        <li>Xinjiang işleri birimi belgesi “ ispat mektubu “ 
+Ücret ( kapsamı: avukat denetim ücreti , Türkiye adalet Bakanlığı belgesi çeviri tercüme noter ve apostil onayları ve diğer tüm masraflar ) 300 usd</li>
 
                   </ul>
              </div>

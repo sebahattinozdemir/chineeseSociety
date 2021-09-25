@@ -31,6 +31,8 @@ export default function OzelDurumlardaHukukiYardım() {
                         <li>案件真实性调查</li>
                         <li>证据保全</li>
                         <li>等相关法律事务</li>
+                        <li>新疆办事处出具 “行为证明函” 
+收费标准（ 含： 律师审核费、土耳其司法部文件公证翻译认证费等全部费用）300 美金</li>
 
                   </ul>
              </div>
