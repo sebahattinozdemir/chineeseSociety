@@ -1,5 +1,5 @@
 
-import DernekLogo from "../../turkish/logo/DernekLogoİsim.jpg";
+import DernekLogo from "../../turkish/logo/DernekLogoName.jpg";
 import React from 'react'
 import "./Logo.css"
 function Logo() {

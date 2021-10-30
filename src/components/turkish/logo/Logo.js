@@ -2,7 +2,7 @@
 import FacebookIcon from "@material-ui/icons/Facebook";
 import WhatsAppIcon from "@material-ui/icons/WhatsApp";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
-import DernekLogo from "./DernekLogoİsim.jpg";
+import DernekLogo from "./DernekLogoName.jpg";
 import React from 'react'
 import "./Logo.css"
 function Logo() {
