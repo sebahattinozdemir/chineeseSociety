@@ -10,8 +10,8 @@ function Logo() {
         <div class="row"  style={{zIndex:"1"}}>
         <div class="col-12" style={{ justifyContent:"center"}}>
            
-            <img src={DernekLogo} className="center"></img>
-            <p className="seref"><b>Benim Şerefim Sadakattir</b></p>
+            <img src={DernekLogo} title="Çin Hukuk Derneği" alt="Çin Hukuk Derneği" className="center"></img>
+            <p className="seref"><b>Benim Şerefim Sadakattir </b></p>
         
          </div>
         
