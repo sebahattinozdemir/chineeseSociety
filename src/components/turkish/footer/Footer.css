@@ -3,6 +3,12 @@
     font-size: 16px;
     text-align: left;
 }
+.sebertech{
+    text-decoration: none !important;
+  }
+  .sebertech:hover{
+    color:#25d366 !important;
+  }
 .footerphoto{
     width:98%; 
     height:10rem;

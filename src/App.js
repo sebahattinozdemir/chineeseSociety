@@ -3,6 +3,9 @@ import "./App.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import db from "./firebase";
+import PhoneIcon from '@material-ui/icons/Phone';
+import LocationOnIcon from '@material-ui/icons/LocationOn';
+import WhatsAppIcon from "@material-ui/icons/WhatsApp";
 
 import TrFlag from "./turkish.ico";
 import Navbar from "./components/turkish/navbar/Navbar";
@@ -369,6 +372,25 @@ function App() {
             </Switch>
 
             <div id="footer">{state === true ? <ChiFooter /> : <Footer />}</div>
+              
+            <div className="roof-location">
+              <a href="https://www.google.com/maps/place/%C3%87ankaya,+Cinnah+Cd.+67-69,+06690+%C3%87ankaya%2FAnkara/@39.891166,32.8539563,17z/data=!3m1!4b1!4m5!3m4!1s0x14d34f8255924da3:0x21e8de7da6a71210!8m2!3d39.891166!4d32.856145" className="location_float" target="_blank" rel="noopener noreferrer">
+                  <LocationOnIcon className="location-icon"/>
+              </a>
+          </div>
+
+          <div className="roof-phone">
+              <a href="tel: +903124665666" className="phone_float" target="_blank" rel="noopener noreferrer">
+                  <PhoneIcon className="phone-icon"/>  
+              </a>
+          </div>
+
+          <div className="roof-whatsapp">
+              <a href="https://wa.me/+905531688953" className="whatsapp_float" target="_blank" rel="noopener noreferrer">
+                  <WhatsAppIcon className="whatsapp-icon"/>
+              </a>
+          </div>
+
           </div>
         </div>
       </Router>
