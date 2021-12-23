@@ -143,7 +143,10 @@ function Footer() {
                         
                             <p style={{fontSize:"12px",color:"black",paddingLeft:"1rem",float:"left"}}> ©2020 All Rights Reserved</p> 
                             &nbsp; &nbsp;
-                            <p style={{fontSize:"12px",color:"black",paddingRight:"1rem",float:"right",textAlign:"right"}}> ®Se<b>B</b>er Tech</p>
+                            <a className="sebertech" href="tel: +905449125561"
+                               target="_blank" 
+                               rel="noopener noreferrer"
+                               style={{fontSize:"12px",paddingRight:"1rem",float:"right",textAlign:"right",color:"black"}}> ®Se<b>B</b>er Tech</a>
                     </div>
           </div>
 
