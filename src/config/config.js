@@ -6,7 +6,7 @@ export const config = () => {
         :
         {
 
-            API_URL: 'https://sebertech-production.up.railway.app/',
+            API_URL: 'https://sebertech-production.up.railway.app/api',
 
             // API_URL: 'https://sebertech-production.up.railway.app/api', doğru çalışan
             // API_URL: 'https://sebertech.onrender.com/api',
